@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  petpal_api:
+    container_name: PetPal_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - petpal_db
+
+  petpal_db:
+    container_name: PetPal_db
+    image: mariadb:10.5
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: petpal
+      MARIADB_USER: root
+      MARIADB_PASSWORD: root
+    volumes:
+      - .dbdata:/var/lib/mysql
+
+

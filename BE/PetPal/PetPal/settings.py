@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'PetPal.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'petpal',
+        'USER': 'root',
+        'PASSWORD':'root',
+        'HOST':'petpal_db',
+        'PORT':'3306'
     }
 }
 

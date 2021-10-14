@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -78,9 +80,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'petpal',
         'USER': 'root',
-        'PASSWORD':'root',
-        'HOST':'petpal_db',
-        'PORT':'3306'
+        'PASSWORD': 'root',
+        'HOST': 'petpal_db',
+        'PORT': '3306'
     }
 }
 

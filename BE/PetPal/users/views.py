@@ -1,11 +1,13 @@
 from django.contrib.sites.shortcuts import get_current_site
-from drf_spectacular.utils import extend_schema
+from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiExample
+from drf_spectacular.types import OpenApiTypes
+import jwt
 from rest_framework import views, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import User
 from .serializers import RegisterRequestSerializer
-from .tokens import generate_activation_token
+from .tokens import generate_activation_token, decode_activation_token
 from .utils import Util
 
 
@@ -31,3 +33,24 @@ class Register(views.APIView):
         Util.sent_activation_email(absurl, user)
 
         return Response({'status': 'User created, confirm email'}, status=status.HTTP_201_CREATED)
+
+
+class VerifyEmail(views.APIView):
+
+    @extend_schema(
+        parameters=[OpenApiParameter(name='token', description='Activation token', required=True, type=str,
+                                     location=OpenApiParameter.QUERY)])
+    def get(self, request):
+        token = request.GET.get('token')
+        try:
+            user = decode_activation_token(token)
+            if not user.is_verified:
+                user.is_verified = True
+                user.save()
+                return Response({'status': 'Successfully activated'}, status=status.HTTP_200_OK)
+            else:
+                return Response({'error': 'User already verified'}, status=status.HTTP_400_BAD_REQUEST)
+        except jwt.ExpiredSignatureError as identifier:
+            return Response({'error': 'Activation token has expired'}, status=status.HTTP_400_BAD_REQUEST)
+        except jwt.exceptions.DecodeError as identifier:
+            return Response({'error': 'Activation token invalid'}, status=status.HTTP_400_BAD_REQUEST)

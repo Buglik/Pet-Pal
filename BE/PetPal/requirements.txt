@@ -4,3 +4,4 @@ django-mysql
 djangorestframework==3.12.4
 mariadb
 drf-spectacular
+djangorestframework-simplejwt

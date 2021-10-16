@@ -27,3 +27,9 @@ class LoginRequestSerializer(serializers.ModelSerializer):
 class LoginResponseSerializer(serializers.Serializer):
     refresh = serializers.CharField()
     access = serializers.CharField()
+
+
+class MeResponseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'first_name', 'last_name', 'email']

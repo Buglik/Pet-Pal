@@ -5,11 +5,13 @@ import jwt
 from rest_framework import views, status
 from rest_framework.decorators import api_view
 from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.tokens import RefreshToken
+from rest_framework_simplejwt.tokens import RefreshToken
 from .models import User
-from .serializers import RegisterRequestSerializer, LoginResponseSerializer, LoginRequestSerializer
-from .tokens import generate_activation_token, decode_activation_token
+from .serializers import RegisterRequestSerializer, LoginResponseSerializer, LoginRequestSerializer, \
+    MeResponseSerializer
+from .tokens import generate_activation_token, decode_activation_token, decode_access_token
 from .utils import Util
 
 
@@ -59,7 +61,7 @@ class VerifyEmail(views.APIView):
 
 
 class LoginView(views.APIView):
-
+    permission_classes = []
     @extend_schema(
         request=LoginRequestSerializer,
         responses={200: LoginResponseSerializer},
@@ -74,11 +76,7 @@ class LoginView(views.APIView):
 
         if user is None:
             raise AuthenticationFailed('Invalid credentials')
-            print('no user')
         if not user.check_password(password):
-            print(user.password)
-            print(password)
-            print('wrong pass')
             raise AuthenticationFailed('Invalid credentials')
 
         token = RefreshToken.for_user(user)
@@ -90,3 +88,20 @@ class LoginView(views.APIView):
         serializer.is_valid()
 
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class UserView(views.APIView):
+    permission_classes = [IsAuthenticated]
+
+    @extend_schema(
+        responses={200: MeResponseSerializer},
+    )
+    def get(self, request):
+        token = request.headers['Authorization']
+        token = "".join(token.split()[1])
+        if not token:
+            raise AuthenticationFailed('Unauthenticated!')
+
+        serializer = decode_access_token(token)
+
+        return Response(serializer.data)

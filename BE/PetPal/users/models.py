@@ -15,6 +15,17 @@ class UserManager(BaseUserManager):
         user.save()
         return user
 
+    def create_user(self, username, email, password):
+        if username is None:
+            raise TypeError('Users should have a username')
+        if email is None:
+            raise TypeError('Users should have an email')
+
+        user = self.model(username=username, email=self.normalize_email(email))
+        user.set_password(password)
+        user.save()
+        return user
+
 
 class User(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

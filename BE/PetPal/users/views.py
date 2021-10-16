@@ -4,9 +4,11 @@ from drf_spectacular.types import OpenApiTypes
 import jwt
 from rest_framework import views, status
 from rest_framework.decorators import api_view
+from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.response import Response
+from rest_framework.tokens import RefreshToken
 from .models import User
-from .serializers import RegisterRequestSerializer
+from .serializers import RegisterRequestSerializer, LoginResponseSerializer, LoginRequestSerializer
 from .tokens import generate_activation_token, decode_activation_token
 from .utils import Util
 
@@ -54,3 +56,37 @@ class VerifyEmail(views.APIView):
             return Response({'error': 'Activation token has expired'}, status=status.HTTP_400_BAD_REQUEST)
         except jwt.exceptions.DecodeError as identifier:
             return Response({'error': 'Activation token invalid'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class LoginView(views.APIView):
+
+    @extend_schema(
+        request=LoginRequestSerializer,
+        responses={200: LoginResponseSerializer},
+    )
+    def post(self, request):
+        try:
+            email = request.data['email']
+            password = request.data['password']
+            user = User.objects.get(email=email)
+        except:
+            raise AuthenticationFailed('Invalid credentials')
+
+        if user is None:
+            raise AuthenticationFailed('Invalid credentials')
+            print('no user')
+        if not user.check_password(password):
+            print(user.password)
+            print(password)
+            print('wrong pass')
+            raise AuthenticationFailed('Invalid credentials')
+
+        token = RefreshToken.for_user(user)
+
+        serializer = LoginResponseSerializer(data={
+            'refresh': str(token),
+            'access': str(token.access_token)
+        })
+        serializer.is_valid()
+
+        return Response(serializer.data, status=status.HTTP_200_OK)

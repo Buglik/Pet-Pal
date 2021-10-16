@@ -1,0 +1,6 @@
+Django==3.2.7
+mysqlclient
+django-mysql
+djangorestframework==3.12.4
+mariadb
+drf-spectacular

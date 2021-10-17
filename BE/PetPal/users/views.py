@@ -2,7 +2,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiExample
 from drf_spectacular.types import OpenApiTypes
 import jwt
-from rest_framework import views, status
+from rest_framework import views, status, generics
 from rest_framework.decorators import api_view
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.permissions import IsAuthenticated
@@ -10,7 +10,7 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from .models import User
 from .serializers import RegisterRequestSerializer, LoginResponseSerializer, LoginRequestSerializer, \
-    MeResponseSerializer
+    MeResponseSerializer, LogoutRequestSerializer
 from .tokens import generate_activation_token, decode_activation_token, decode_access_token
 from .utils import Util
 
@@ -62,6 +62,7 @@ class VerifyEmail(views.APIView):
 
 class LoginView(views.APIView):
     permission_classes = []
+
     @extend_schema(
         request=LoginRequestSerializer,
         responses={200: LoginResponseSerializer},
@@ -105,3 +106,26 @@ class UserView(views.APIView):
         serializer = decode_access_token(token)
 
         return Response(serializer.data)
+
+
+class LogoutView(views.APIView):
+    permission_classes = [IsAuthenticated]
+
+    @extend_schema(
+        request=LogoutRequestSerializer,
+        responses={204: None},
+    )
+    def post(self, request):
+        try:
+            token = request.data['refresh']
+            RefreshToken(token).blacklist()
+        except:
+            raise Exception('Blacklisting failed')
+
+
+        token = request.headers['Authorization']
+        token = "".join(token.split()[1])
+        if not token:
+            raise AuthenticationFailed('Unauthenticated!')
+
+        return Response(status=status.HTTP_204_NO_CONTENT)

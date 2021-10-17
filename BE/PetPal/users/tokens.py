@@ -2,6 +2,7 @@ import datetime
 import uuid
 
 import jwt
+from rest_framework_simplejwt.tokens import RefreshToken
 
 from django.conf import settings
 from rest_framework.exceptions import AuthenticationFailed
@@ -37,3 +38,6 @@ def decode_access_token(token):
     except jwt.InvalidTokenError:
         raise AuthenticationFailed('User not found')
     return serializer
+
+
+

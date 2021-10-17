@@ -2,6 +2,7 @@ from django.core.validators import MinLengthValidator
 from rest_framework import serializers
 
 from .models import User
+from rest_framework_simplejwt.tokens import RefreshToken
 
 
 class RegisterRequestSerializer(serializers.ModelSerializer):
@@ -27,6 +28,10 @@ class LoginRequestSerializer(serializers.ModelSerializer):
 class LoginResponseSerializer(serializers.Serializer):
     refresh = serializers.CharField()
     access = serializers.CharField()
+
+
+class LogoutRequestSerializer(serializers.Serializer):
+    refresh = serializers.CharField()
 
 
 class MeResponseSerializer(serializers.ModelSerializer):

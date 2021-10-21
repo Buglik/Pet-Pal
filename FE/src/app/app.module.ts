@@ -8,6 +8,7 @@ import {StoreModule} from "@ngrx/store";
 import {userReducer} from "./state/user/user.reducer";
 import {UserEffects} from "./state/user/user.effects";
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     StoreModule.forRoot({user: userReducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

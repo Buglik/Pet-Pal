@@ -6,6 +6,8 @@ export const loginUserSuccess = createAction('[Auth] Login user success', props<
 export const loginUserError = createAction('[Auth] Login user error');
 
 export const logoutUser = createAction('[Auth] Logout user');
+export const logoutUserSuccess = createAction('[Auth] Logout user success');
+export const logoutUserError = createAction('[Auth] Logout user error');
 
 
 export const getUser = createAction('[Auth] Get user data');

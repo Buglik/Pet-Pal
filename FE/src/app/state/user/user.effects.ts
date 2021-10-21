@@ -8,12 +8,15 @@ import {
   loginUser,
   loginUserError,
   loginUserSuccess,
-  logoutUser
+  logoutUser,
+  logoutUserError,
+  logoutUserSuccess
 } from "./user.action";
-import {AuthService, LoginResponse} from "../../../api/src";
+import {AuthService, LoginResponse, LogoutRequest} from "../../../api/src";
 import {catchError, map, switchMap, tap} from "rxjs/operators";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {Router} from "@angular/router";
+import {TokenService} from "../../auth/services/token.service";
 
 @Injectable()
 export class UserEffects {
@@ -34,18 +37,24 @@ export class UserEffects {
       ofType(loginUserSuccess),
       tap((tokens) => {
         // this.navigation.back();
-        // this.tokenService.saveTokens(tokens.access, tokens.refresh);
+        this.tokenService.saveTokens(tokens.access, tokens.refresh);
       }),
     ), {dispatch: false})
 
   private logoutUser$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
       ofType(logoutUser),
-      // switchMap(_ =>
-      // this.authService.authLogoutCreate(this.tokenService.getRefreshToken()))
-      tap(_ => {
-        // this.tokenService.clear();
-      })
+      switchMap(_ =>
+        this.authService.authLogoutCreate({refresh: this.tokenService.getRefreshToken()} as LogoutRequest).pipe(
+          map(_ => logoutUserSuccess()),
+          catchError(err => of(logoutUserError()))
+        ))
+    ), {dispatch: false})
+
+  private logoutUserSuccess$: Observable<Action> = createEffect(() =>
+    this.actions$.pipe(
+      ofType(logoutUserSuccess),
+      tap(_ => this.tokenService.clear())
     ), {dispatch: false})
 
   private getUser$: Observable<Action> = createEffect(() =>
@@ -69,9 +78,7 @@ export class UserEffects {
 
   constructor(private actions$: Actions,
               private authService: AuthService,
-              // private readonly loginService: LoginService,
-              // private readonly meService: MeService,
-              // private readonly tokenService: TokenService,
+              private readonly tokenService: TokenService,
               private router: Router,
               // private navigation: NavigationService
   ) {

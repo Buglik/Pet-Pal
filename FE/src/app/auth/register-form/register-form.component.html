@@ -1,0 +1,37 @@
+<div class="login-form-container">
+  <h3 class="form-title">label.register-form'</h3>
+  <h5 class="form-description">{{'info.register-form'}}</h5>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="input-group">
+      <label for="username">label.username</label>
+      <input formControlName="username" class="full-width" id="username"
+             placeholder='placeholder.username'>
+    </div>
+    <div class="input-group">
+      <label for="firstName">label.username</label>
+      <input formControlName="first_name" class="full-width" id="firstName"
+             placeholder='placeholder.firstName'>
+    </div>
+    <div class="input-group">
+      <label for="lastName">label.username</label>
+      <input formControlName="last_name" class="full-width" id="lastName"
+             placeholder='placeholder.lastName'>
+    </div>
+    <div class="input-group">
+      <label for="email">'label.email'</label>
+      <input formControlName="email" class="full-width" id="email"
+             placeholder="placeholder.email">
+    </div>
+    <div class="input-group">
+      <label for="password">'label.password'</label>
+      <input formControlName="password" class="full-width password" id="password" type="password"
+             placeholder="'placeholder.login">
+    </div>
+    <div class="input-group">
+      <label for="confirmPassword">label.confirmPassword'</label>
+      <input formControlName="confirmPassword" class="full-width password" id="confirmPassword" type="password"
+             placeholder='placeholder.confirmPassword'>
+    </div>
+    <button [disabled]="form.invalid" class="primary full-width">button.register</button>
+  </form>
+</div>

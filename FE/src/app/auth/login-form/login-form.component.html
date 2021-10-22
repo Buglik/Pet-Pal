@@ -1,0 +1,17 @@
+<div class="login-form-container">
+  <h3 class="form-title">login-form</h3>
+  <h5 class="form-description">{{'info.login-form'}}</h5>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="input-group">
+      <label for="login">login</label>
+      <input formControlName="email" class="full-width" id="login"
+             placeholder=login>
+    </div>
+    <div class="input-group">
+      <label for="password">password</label>
+      <input formControlName="password" class="full-width password" id="password" type="password"
+             placeholder=password>
+    </div>
+    <button [disabled]="form.invalid" class="primary full-width">login</button>
+  </form>
+</div>

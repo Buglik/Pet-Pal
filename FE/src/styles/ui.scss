@@ -1,0 +1,75 @@
+@use 'palette';
+
+$main-text: palette.$grey-3;
+$main-background: palette.$white-1;
+
+$card-background: palette.$white;
+$card-border: palette.$white-1;
+$card-shadow: palette.$grey-3;
+
+$spinner-primary: palette.$myrtle-green;
+$spinner-secondary: palette.$white;
+
+$button-primary: palette.$myrtle-green;
+$button-primary-hover: palette.$cambridge-blue;
+$button-primary-text: palette.$white;
+
+$button-tertiary: palette.$cerise-red;
+$button-tertiary-hover: palette.$cerise-red-2;
+$button-tertiary-text: palette.$white;
+
+$button-secondary: palette.$white;
+$button-secondary-hover: palette.$myrtle-green;
+$button-secondary-text: palette.$myrtle-green;
+$button-secondary-disabled: palette.$grey;
+
+$nav-link-hover: palette.$cambridge-blue;
+$nav-link-primary: palette.$grey-1;
+$header-border: palette.$white-3;
+$header-initials-text: palette.$white;
+$header-initials-background: palette.$myrtle-green;
+
+$header-avatar-menu-email: palette.$grey-1;
+$header-link-active-underline: palette.$cerise-red;
+$header-link: palette.$havana;
+$header-link-hover: palette.$santas-grey;
+
+$modal-header-border: palette.$white-3;
+$modal-header-label: palette.$black;
+
+$form-title: palette.$black;
+$form-description: palette.$grey;
+$form-section-label: palette.$grey-2;
+
+$input-main-color: palette.$grey;
+$input-border: palette.$grey;
+$focused-input-border: palette.$black;
+
+$table-row-gray: palette.$white-2;
+$table-row-hover: palette.$white-3;
+$table-border: palette.$dirty-white;
+$table-text-color: palette.$grey-2;
+
+$multiselect-values: palette.$white-3;
+$multiselect-selected: palette.$white-2;
+
+$statusBox-text: palette.$black;
+$statusBox-green: palette.$green;
+$statusBox-orange: palette.$orange;
+$statusBox-red: palette.$red-2;
+$statusBox-black: palette.$black;
+
+
+$categoryBox-text: palette.$black;
+$categoryBox-green: palette.$green;
+$categoryBox-orange: palette.$orange;
+$categoryBox-red: palette.$red-2;
+
+
+$error: palette.$red;
+$success: palette.$green-1;
+$warning: palette.$orange;
+
+$sys: palette.$green-1;
+$dia: palette.$myrtle-green;
+$pulse: palette.$red-2

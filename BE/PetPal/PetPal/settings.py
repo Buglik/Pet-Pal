@@ -38,12 +38,17 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
+    'corsheaders',
     'drf_spectacular',
     'users',
 
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -145,6 +150,8 @@ SPECTACULAR_SETTINGS = {
     'TITLE': 'PetPal API',
     'DESCRIPTION': 'Pet Sitter Search App documentation',
     'VERSION': '1.0.0',
+
+    'SERVERS': [{'url': 'http://localhost:8000'}],
 }
 
 SIMPLE_JWT = {

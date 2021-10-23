@@ -30,7 +30,8 @@ class Register(views.APIView):
         user_data = serializer.data
         user = User.objects.get(email=user_data['email'])
         token = generate_activation_token(user)
-        current_site = get_current_site(request).domain
+        # current_site = get_current_site(request).domain
+        current_site = 'localhost:4200'
         relativeLink = '/auth/verify'
         absurl = 'http://' + current_site + relativeLink + "?token=" + str(token)
 

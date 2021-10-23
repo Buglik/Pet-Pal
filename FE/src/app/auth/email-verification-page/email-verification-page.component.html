@@ -1,0 +1,8 @@
+<div class="content-container">
+  <div *ngIf="pending; else successBlock">
+    <mat-spinner></mat-spinner>
+  </div>
+  <ng-template #successBlock>SUCCESS</ng-template>
+</div>
+<div class="photo">
+</div>

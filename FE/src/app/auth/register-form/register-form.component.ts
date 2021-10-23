@@ -8,7 +8,7 @@ import {FormBuilder, Validators} from "@angular/forms";
   styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent {
-  @Output() formSubmitted = new EventEmitter<RegisterRequest>();
+  @Output() formSubmitted: EventEmitter<RegisterRequest> = new EventEmitter<RegisterRequest>();
 
   form = this.fb.group({
     username: ['', [Validators.required]],

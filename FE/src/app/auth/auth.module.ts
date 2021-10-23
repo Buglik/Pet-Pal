@@ -6,6 +6,8 @@ import {RegisterFormComponent} from './register-form/register-form.component';
 import {RegisterPageComponent} from './register-page/register-page.component';
 import {AuthRoutingModule} from "./auth-routing.module";
 import {ReactiveFormsModule} from "@angular/forms";
+import {EmailVerificationPageComponent} from './email-verification-page/email-verification-page.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 @NgModule({
@@ -13,12 +15,14 @@ import {ReactiveFormsModule} from "@angular/forms";
     LoginFormComponent,
     LoginPageComponent,
     RegisterFormComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    EmailVerificationPageComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
   ]
 })
 export class AuthModule {

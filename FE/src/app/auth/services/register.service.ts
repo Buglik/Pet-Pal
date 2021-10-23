@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {BehaviorSubject, Observable, of} from "rxjs";
-import {catchError, map} from "rxjs/operators";
+import {catchError, map, take} from "rxjs/operators";
 import {AuthService, RegisterRequest} from "../../../api/src";
 
 @Injectable({
@@ -25,8 +25,26 @@ export class RegisterService {
         console.log(error.error)
         this.pendingSub.next(false);
         return of()
-      })
+      }),
+      take(1),
     ).subscribe()
+  }
+
+  verifyEmail(token: string) : Observable<boolean> {
+    console.log(token);
+    this.pendingSub.next(true);
+    return this.authService.authVerifyRetrieve(token).pipe(
+      map(_ => {
+        console.log('verification success')
+        this.pendingSub.next(false);
+        return true
+      }),
+      catchError(error => {
+        console.log(error)
+        this.pendingSub.next(false);
+        return of(false)
+      }),
+      take(1));
   }
 
 }

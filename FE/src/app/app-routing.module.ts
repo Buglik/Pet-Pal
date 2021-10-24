@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {UserInitResolver} from "./resolvers/user-init.resolver";
 
 const routes: Routes = [
   {
@@ -8,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    // resolve: [UserInitResolver],
+    resolve: [UserInitResolver],
     loadChildren: () => import('./portal/portal.module').then(m => m.PortalModule)
   },
   {path: '**', redirectTo: ''}

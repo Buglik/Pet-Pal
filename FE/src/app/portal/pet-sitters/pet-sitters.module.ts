@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {PetSittersComponent} from "./pet-sitters.component";
+import {PetSittersRoutingModule} from "./pet-sitters-routing.module";
 
 
 @NgModule({
@@ -8,7 +9,8 @@ import {PetSittersComponent} from "./pet-sitters.component";
     PetSittersComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PetSittersRoutingModule
   ],
   exports: [PetSittersComponent]
 })

@@ -1,0 +1,15 @@
+@use '../../../../styles/links';
+
+@include links.navLink;
+
+:host{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.nav-item{
+  display: flex;
+  justify-content: center;
+  position: relative;
+}

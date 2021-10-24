@@ -1,0 +1,76 @@
+@use './ui';
+
+@mixin buttonStyles {
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    height: 40px;
+    border: 0;
+    outline: none;
+    border-radius: 4px;
+    padding: 0 12px;
+
+    &.full-width {
+      width: 100%;
+    }
+
+    .icon {
+      margin-right: 8px;
+    }
+
+    &.rounded{
+      border-radius: 25px;
+    }
+
+  }
+
+  .primary {
+    color: ui.$button-primary-text;
+    background-color: ui.$button-primary;
+
+    &:hover:enabled {
+      background-color: ui.$button-primary-hover;
+      cursor: pointer;
+    }
+
+    &:disabled {
+      background-color: ui.$button-primary-hover;
+      cursor: not-allowed;
+    }
+  }
+
+  .secondary {
+    color: ui.$button-secondary-text;
+    background-color: ui.$button-secondary;
+    border: 1px ui.$button-secondary-text solid;
+
+    &:hover:enabled {
+      background-color: ui.$button-secondary-hover;
+      cursor: pointer;
+      color: ui.$button-secondary;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 50%;
+    }
+  }
+
+  .tertiary {
+    color: ui.$button-primary-text;
+    background-color: ui.$button-tertiary;
+
+    &:hover:enabled {
+      background-color: ui.$button-tertiary-hover;
+      cursor: pointer;
+    }
+
+    &:disabled {
+      background-color: ui.$button-tertiary-hover;
+      cursor: not-allowed;
+    }
+  }
+
+}

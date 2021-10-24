@@ -17,6 +17,7 @@ import {catchError, map, switchMap, tap} from "rxjs/operators";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {Router} from "@angular/router";
 import {TokenService} from "../../auth/services/token.service";
+import {NavigationService} from "../../navigation.service";
 
 @Injectable()
 export class UserEffects {
@@ -36,7 +37,7 @@ export class UserEffects {
     this.actions$.pipe(
       ofType(loginUserSuccess),
       tap((tokens) => {
-        // this.navigation.back();
+        this.navigation.back();
         this.tokenService.saveTokens(tokens.access, tokens.refresh);
       }),
     ), {dispatch: false})
@@ -80,7 +81,7 @@ export class UserEffects {
               private authService: AuthService,
               private readonly tokenService: TokenService,
               private router: Router,
-              // private navigation: NavigationService
+              private navigation: NavigationService
   ) {
   }
 }

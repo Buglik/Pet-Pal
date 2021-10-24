@@ -40,7 +40,8 @@ export class UserEffects {
         this.navigation.back();
         this.tokenService.saveTokens(tokens.access, tokens.refresh);
       }),
-    ), {dispatch: false})
+      map(_ => getUser())
+    ))
 
   private logoutUser$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(

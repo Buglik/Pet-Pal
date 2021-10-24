@@ -10,6 +10,7 @@ import {UserEffects} from "./state/user/user.effects";
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {JwtInterceptor} from "./auth/jwt.interceptor";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {JwtInterceptor} from "./auth/jwt.interceptor";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({user: userReducer}),

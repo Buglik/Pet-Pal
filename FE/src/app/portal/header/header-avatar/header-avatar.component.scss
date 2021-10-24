@@ -1,0 +1,27 @@
+@use '../../../../styles/ui';
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.avatar {
+  background-color: ui.$header-initials-background;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  vertical-align: middle;
+
+  &-initials {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: ui.$header-initials-text;
+  }
+}

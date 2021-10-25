@@ -6,3 +6,4 @@ mariadb
 drf-spectacular
 djangorestframework-simplejwt
 django-cors-headers
+Pillow

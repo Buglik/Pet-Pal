@@ -29,6 +29,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    image = models.ImageField(upload_to='user_avatars', null=True)
     username = models.CharField(max_length=200, unique=True)
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
@@ -36,6 +37,17 @@ class User(AbstractUser):
     password = models.CharField(max_length=255)
     is_verified = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
+    is_pet_sitter = models.BooleanField(default=False)
+    is_pet_owner = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'password', 'first_name', 'last_name']
+    REQUIRED_FIELDS = ['id', 'username', 'password', 'first_name', 'last_name', 'is_verified', 'is_active',
+                       'is_pet_sitter', 'is_pet_owner']
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.CharField(max_length=255, null=True)
+    experience = models.CharField(max_length=255, null=True)
+    city = models.CharField(max_length=255, null=True)
+    country = models.CharField(max_length=255, null=True)

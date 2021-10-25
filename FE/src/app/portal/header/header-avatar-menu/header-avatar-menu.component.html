@@ -5,7 +5,7 @@
 <mat-menu #avatarMenu="matMenu" class="avatar-menu" xPosition="before">
   <div class="account-info">
     <app-header-avatar [initials]="user | initials"></app-header-avatar>
-    <span class="full-name">First and Last name</span>
+    <span class="full-name">{{user | fullName}}</span>
     <span class="username">{{user?.username}}</span>
     <span class="email">{{user?.email}}</span>
     <button class="secondary" disabled>

@@ -1,10 +1,10 @@
 <div [matMenuTriggerFor]="avatarMenu">
-  <app-header-avatar class="avatar" [initials]="user | initials"></app-header-avatar>
+  <app-header-avatar class="avatar" [imgSrc]="user?.avatar" [initials]="user | initials"></app-header-avatar>
 </div>
 
 <mat-menu #avatarMenu="matMenu" class="avatar-menu" xPosition="before">
   <div class="account-info">
-    <app-header-avatar [initials]="user | initials"></app-header-avatar>
+    <app-header-avatar [imgSrc]="user?.avatar" [initials]="user | initials"></app-header-avatar>
     <span class="full-name">{{user | fullName}}</span>
     <span class="username">{{user?.username}}</span>
     <span class="email">{{user?.email}}</span>

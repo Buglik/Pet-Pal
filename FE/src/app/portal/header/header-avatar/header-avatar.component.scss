@@ -24,4 +24,10 @@
     align-items: center;
     color: ui.$header-initials-text;
   }
+
+  .photo{
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
 }

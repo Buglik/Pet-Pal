@@ -17,5 +17,6 @@ export interface MeResponse {
     first_name: string;
     last_name: string;
     email: string;
+    readonly avatar: string;
 }
 

@@ -8,7 +8,7 @@ from django.conf import settings
 from rest_framework.exceptions import AuthenticationFailed
 
 from .models import User
-from .serializers import MeResponseSerializer
+from .serializers import UserSerializer
 
 
 def generate_activation_token(user):
@@ -34,10 +34,10 @@ def decode_access_token(token):
 
     try:
         user = User.objects.get(id=payload['user_id'])
-        serializer = MeResponseSerializer(user)
+        # serializer = UserSerializer(user)
     except jwt.InvalidTokenError:
         raise AuthenticationFailed('User not found')
-    return serializer
+    return user
 
 
 

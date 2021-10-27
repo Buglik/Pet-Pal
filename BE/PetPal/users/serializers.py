@@ -3,7 +3,7 @@ import os.path
 from django.core.validators import MinLengthValidator
 from rest_framework import serializers
 
-from .models import User, Profile
+from .models import User
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from django.conf import settings
@@ -38,7 +38,7 @@ class LogoutRequestSerializer(serializers.Serializer):
     refresh = serializers.CharField()
 
 
-class MeResponseSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     avatar = serializers.SerializerMethodField('get_avatar_href')
 
     class Meta:
@@ -51,8 +51,3 @@ class MeResponseSerializer(serializers.ModelSerializer):
             return 'http://localhost:8000' + user.image.url
         else:
             return None
-# class MyProfileResponseSerializer(serializers.ModelSerializer):
-#
-#     class Meta:
-#         model = Profile
-#         fields = []

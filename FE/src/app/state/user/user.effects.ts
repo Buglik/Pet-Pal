@@ -12,7 +12,7 @@ import {
   logoutUserError,
   logoutUserSuccess
 } from "./user.action";
-import {AuthService, LoginResponse, LogoutRequest} from "../../../api/src";
+import {AuthService, LoginResponse, LogoutRequest, ProfileService} from "../../../api/src";
 import {catchError, map, switchMap, tap} from "rxjs/operators";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {Router} from "@angular/router";
@@ -63,7 +63,7 @@ export class UserEffects {
     this.actions$.pipe(
       ofType(getUser),
       switchMap(_ =>
-        this.authService.authmeRetrieve().pipe(
+        this.profileService.profilemeRetrieve().pipe(
           map(item => {
             console.log(item)
             return getUserSuccess(item)
@@ -80,6 +80,7 @@ export class UserEffects {
 
   constructor(private actions$: Actions,
               private authService: AuthService,
+              private profileService: ProfileService,
               private readonly tokenService: TokenService,
               private router: Router,
               private navigation: NavigationService

@@ -16,7 +16,7 @@ import {HttpClient, HttpEvent, HttpHeaders, HttpParameterCodec, HttpParams, Http
 import {CustomHttpParameterCodec} from '../encoder';
 import {Observable} from 'rxjs';
 
-import {LoginRequest, LoginResponse, LogoutRequest, MeResponse, RegisterRequest, TokenRefresh} from '../model/models';
+import {LoginRequest, LoginResponse, LogoutRequest, RegisterRequest, TokenRefresh, User} from '../model/models';
 
 import {BASE_PATH} from '../variables';
 import {Configuration} from '../configuration';
@@ -388,9 +388,9 @@ export class AuthService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public authmeRetrieve(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<MeResponse>;
-    public authmeRetrieve(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<MeResponse>>;
-    public authmeRetrieve(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<MeResponse>>;
+    public authmeRetrieve(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<User>;
+    public authmeRetrieve(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<User>>;
+    public authmeRetrieve(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<User>>;
     public authmeRetrieve(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let headers = this.defaultHeaders;
@@ -420,7 +420,7 @@ export class AuthService {
             responseType = 'text';
         }
 
-        return this.httpClient.get<MeResponse>(`${this.configuration.basePath}/auth/@me`,
+        return this.httpClient.get<User>(`${this.configuration.basePath}/auth/@me`,
             {
                 responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,

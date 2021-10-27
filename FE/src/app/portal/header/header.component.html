@@ -5,9 +5,8 @@
 <div class="right-part">
   <button routerLink="/auth/login" *ngIf="!user; else loggedBlock" class="tertiary rounded">Login</button>
   <ng-template #loggedBlock>
-<!--    TODO: fix this-->
     <app-header-avatar-menu
-      [user]="user ? user.user : null"
+      [user]="user?.user"
       (logout)="logout()"
     ></app-header-avatar-menu>
   </ng-template>

@@ -8,7 +8,7 @@ import {User} from "../../../../api/src";
 })
 export class HeaderAvatarMenuComponent {
 
-  @Input() user: User | null = null;
+  @Input() user?: User;
   @Output() logout: EventEmitter<void> = new EventEmitter<void>();
 
 

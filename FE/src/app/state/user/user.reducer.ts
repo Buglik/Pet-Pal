@@ -3,7 +3,6 @@ import {UserState} from "./user.state";
 import {createReducer, on} from "@ngrx/store";
 
 export const initialState: UserState = {
-  user: null,
   pending: false,
   error: null
 }
@@ -19,7 +18,7 @@ export const userReducer = createReducer(
     ...state,
     error: null,
     pending: false,
-    user: null
+    user: undefined
   })),
   on(loginUserError, (state) => ({
     ...state,
@@ -33,7 +32,7 @@ export const userReducer = createReducer(
   })),
   on(getUserError, (state) => ({
     ...state,
-    user: null,
+    user: undefined,
     // error
     pending: false
   })),

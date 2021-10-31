@@ -53,6 +53,21 @@ class UserSerializer(serializers.ModelSerializer):
             return None
 
 
+class UserResponseSerializer(serializers.ModelSerializer):
+    avatar = serializers.SerializerMethodField('get_avatar_href')
+
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email', 'avatar', 'is_verified']
+
+    def get_avatar_href(self, user):
+        # TODO: replace
+        if (user.image):
+            return 'http://localhost:8000' + user.image.url
+        else:
+            return None
+
+
 class UserUpdateRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = User

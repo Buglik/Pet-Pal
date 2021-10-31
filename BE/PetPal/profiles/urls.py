@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.urls import path
 
-from .views import MyProfileView
+from .views import MyProfileView, ProfilesView
 
 urlpatterns = [
     path('@me', MyProfileView.as_view()),
+    path('all', ProfilesView.as_view()),
 ]

@@ -1,11 +1,11 @@
 from rest_framework import serializers
+from users.serializers import UserSerializer, UserResponseSerializer, UserUpdateRequestSerializer
 
 from .models import Profile
-from users.serializers import UserSerializer, UserUpdateRequestSerializer
 
 
 class MeResponseSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
+    user = UserResponseSerializer(read_only=True)
 
     class Meta:
         model = Profile
@@ -31,3 +31,22 @@ class ProfileRequestSerializer(serializers.ModelSerializer):
             setattr(instance, key, value)
         instance.save()
         return instance
+
+
+class ProfileResponseSerializer(serializers.ModelSerializer):
+    user = UserResponseSerializer()
+
+    class Meta:
+        model = Profile
+        fields = ['user', 'bio', 'experience', 'city', 'country']
+
+
+class ProfilePageResponseSerializer(serializers.ModelSerializer):
+    data = ProfileResponseSerializer(many=True)
+    pageSize = serializers.IntegerField()
+    pageIndex = serializers.IntegerField()
+    length = serializers.IntegerField()
+
+    class Meta:
+        model = Profile
+        fields = ['data', 'pageSize', 'pageIndex', 'length']

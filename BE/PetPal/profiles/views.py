@@ -63,7 +63,7 @@ class ProfilesView(ListAPIView):
     def get(self, request):
         page_index = request.GET.get('page', 1)
         page_size = request.GET.get('size', 10)
-        queryset = Profile.objects.all()
+        queryset = Profile.objects.all().order_by('user__last_name', 'user__first_name')
         paginator = Paginator(queryset, page_size)
 
         try:

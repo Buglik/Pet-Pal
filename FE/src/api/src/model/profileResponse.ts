@@ -12,13 +12,11 @@
 import {UserResponse} from './userResponse';
 
 
-export interface MeResponse {
+export interface ProfileResponse {
+    user: UserResponse;
     bio?: string | null;
-    readonly user: UserResponse;
     experience?: string | null;
     city?: string | null;
     country?: string | null;
-    is_pet_sitter?: boolean;
-    is_pet_owner?: boolean;
 }
 

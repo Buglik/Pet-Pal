@@ -13,20 +13,23 @@ import {PipesModule} from "../pipes/pipes.module";
 
 
 @NgModule({
-  declarations: [
-    PortalComponent,
-    HeaderComponent,
-    HeaderLinksComponent,
-    HeaderAvatarComponent,
-    HeaderAvatarMenuComponent,
-  ],
-  imports: [
-    CommonModule,
-    PortalRoutingModule,
-    MatMenuModule,
-    MatDividerModule,
-    MatIconModule,
-    PipesModule
-  ]
+    declarations: [
+        PortalComponent,
+        HeaderComponent,
+        HeaderLinksComponent,
+        HeaderAvatarComponent,
+        HeaderAvatarMenuComponent,
+    ],
+    exports: [
+        HeaderAvatarComponent
+    ],
+    imports: [
+        CommonModule,
+        PortalRoutingModule,
+        MatMenuModule,
+        MatDividerModule,
+        MatIconModule,
+        PipesModule
+    ]
 })
 export class PortalModule { }

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {User} from "../../../../api/src";
+import {UserResponse} from "../../../../api/src";
 
 @Component({
   selector: 'app-header-avatar-menu',
@@ -8,7 +8,7 @@ import {User} from "../../../../api/src";
 })
 export class HeaderAvatarMenuComponent {
 
-  @Input() user?: User;
+  @Input() user?: UserResponse;
   @Output() logout: EventEmitter<void> = new EventEmitter<void>();
 
 

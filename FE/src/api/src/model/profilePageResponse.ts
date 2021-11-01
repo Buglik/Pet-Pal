@@ -9,16 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import {UserResponse} from './userResponse';
+import {ProfileResponse} from './profileResponse';
 
 
-export interface MeResponse {
-    bio?: string | null;
-    readonly user: UserResponse;
-    experience?: string | null;
-    city?: string | null;
-    country?: string | null;
-    is_pet_sitter?: boolean;
-    is_pet_owner?: boolean;
+export interface ProfilePageResponse {
+    data: Array<ProfileResponse>;
+    pageSize: number;
+    pageIndex: number;
+    length: number;
 }
 

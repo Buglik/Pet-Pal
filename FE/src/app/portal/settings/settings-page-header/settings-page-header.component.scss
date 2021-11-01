@@ -1,0 +1,53 @@
+@use '../../../../styles/buttons';
+@use '../../../../styles/ui';
+
+
+@include buttons.buttonStyles;
+:host {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+  height: 48px;
+  width: 100%;
+  margin-top: 4px;
+  margin-bottom: 24px;
+}
+
+.left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.5;
+
+    .full-name {
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    .page-label {
+      font-size: 14px;
+    }
+
+  }
+}
+
+.right {
+  button {
+    height: 28px;
+    font-size: 12px;
+  }
+}
+
+app-header-avatar {
+  font-size: 24px;
+  height: 48px;
+  width: 48px;
+  cursor: default;
+  margin-right: 16px;
+}

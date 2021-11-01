@@ -5,6 +5,7 @@ import {PortalComponent} from "./portal.component";
 const childRoutes: Routes = [
   {path: 'home', loadChildren: () => import('./home-page/home-page.module').then(m => m.HomePageModule)},
   {path: 'pet-sitters', loadChildren: () => import('./pet-sitters/pet-sitters.module').then(m => m.PetSittersModule)},
+  {path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)},
   {path: '**', redirectTo: 'home'}
 ]
 

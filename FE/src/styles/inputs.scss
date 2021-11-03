@@ -1,26 +1,65 @@
-@mixin text-input-styles {
-  input {
-    border: solid 1px black;
-    border-radius: 4px;
-    margin: 0;
-    font-size: 14px;
-    line-height: 16px;
-    padding: 12px;
-    display: block;
+@use './ui';
 
-    &.full-width {
-      width: calc(100% - 24px);
-    }
+@mixin input-styles {
 
-    &::placeholder {
-      color: black;
-    }
+  .full-width{
+    width: 100%;
+  }
 
-    &.password {
-      padding-right: 42px;
-      width: calc(100% - 54px);
-      text-overflow: ellipsis;
-    }
+  .half-width{
+    width: 50%;
+  }
 
+  //input outline color
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: ui.$input-border !important;
+    // opacity: 1!important;
+  }
+
+  //mat-input focused color
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: ui.$focused-input-border !important;
+  }
+
+  // mat-input error outline color
+  ::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+    color: ui.$error !important;
+    opacity: 0.8 !important;
+  }
+
+  // mat-input caret color
+  ::ng-deep .mat-input-element {
+    caret-color: ui.$input-border !important;
+  }
+
+  // mat-input error caret color
+  ::ng-deep .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+    caret-color: ui.$error !important;
+  }
+
+  // mat-label normal state style
+  ::ng-deep .mat-form-field-label {
+    color: ui.$input-border !important;
+    // color: $mainColor!important;
+  }
+
+  // mat-label focused style
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: ui.$focused-input-border !important;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline{
+    color: ui.$input-border !important;
+    opacity: 0.5;
+  }
+
+  ::ng-deep .mat-input-element:disabled{
+    color: ui.$input-border !important;
+    opacity: 0.5;
+  }
+
+  // mat-label error style
+  ::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: ui.$error !important;
   }
 }

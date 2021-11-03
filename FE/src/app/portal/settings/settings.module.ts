@@ -7,6 +7,10 @@ import {PortalModule} from "../portal.module";
 import {PipesModule} from "../../pipes/pipes.module";
 import {SettingsNavigationComponent} from './settings-navigation/settings-navigation.component';
 import {MyProfileComponent} from './my-profile/my-profile.component';
+import {MyProfileFormComponent} from './my-profile-form/my-profile-form.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -14,13 +18,21 @@ import {MyProfileComponent} from './my-profile/my-profile.component';
     SettingsPageComponent,
     SettingsPageHeaderComponent,
     SettingsNavigationComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    MyProfileFormComponent
   ],
   imports: [
     CommonModule,
     SettingsRoutingModule,
     PortalModule,
     PipesModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+  ],
+  providers: [
+    FormBuilder
   ]
 })
-export class SettingsModule { }
+export class SettingsModule {
+}

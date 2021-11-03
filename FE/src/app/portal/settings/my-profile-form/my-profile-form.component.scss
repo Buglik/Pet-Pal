@@ -1,0 +1,11 @@
+@use '../../../../styles/inputs';
+
+@include inputs.input-styles;
+
+:host{
+  display: block;
+}
+
+.bio-field{
+  min-height: 140px;
+}

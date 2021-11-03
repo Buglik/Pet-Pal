@@ -21,21 +21,24 @@
 
   <mat-form-field class=" full-width" appearance="outline">
     <mat-label>Bio</mat-label>
-    <textarea class="bio-field" matInput formControlName="bio"></textarea>
+    <textarea #bio class="bio-field" matInput formControlName="bio"></textarea>
+    <mat-hint align="end">{{bio.value?.length || 0}}/255</mat-hint>
   </mat-form-field>
 
-  <mat-form-field class="full-width" appearance="outline">
-    <mat-label>Experience</mat-label>
-    <textarea matInput formControlName="experience"></textarea>
-  </mat-form-field>
+  <button type="submit" class="primary submit-btn" [disabled]="!form.valid">Update profile</button>
 
-  <mat-form-field class="half-width" appearance="outline">
-    <mat-label>City</mat-label>
-    <input formControlName="city" matInput>
-  </mat-form-field>
+<!--  <mat-form-field class="full-width" appearance="outline">-->
+<!--    <mat-label>Experience</mat-label>-->
+<!--    <textarea matInput formControlName="experience"></textarea>-->
+<!--  </mat-form-field>-->
 
-  <mat-form-field class="half-width" appearance="outline">
-    <mat-label>Country</mat-label>
-    <input formControlName="country" matInput>
-  </mat-form-field>
+<!--  <mat-form-field class="half-width" appearance="outline">-->
+<!--    <mat-label>City</mat-label>-->
+<!--    <input formControlName="city" matInput>-->
+<!--  </mat-form-field>-->
+
+<!--  <mat-form-field class="half-width" appearance="outline">-->
+<!--    <mat-label>Country</mat-label>-->
+<!--    <input formControlName="country" matInput>-->
+<!--  </mat-form-field>-->
 </form>

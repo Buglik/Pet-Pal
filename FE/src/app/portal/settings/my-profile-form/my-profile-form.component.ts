@@ -13,12 +13,12 @@ export class MyProfileFormComponent implements OnInit {
   @Output() submit: EventEmitter<ProfileRequest> = new EventEmitter<ProfileRequest>();
 
   form: FormGroup = this.fb.group({
-    first_name: new FormControl(this.profile?.user.first_name, [Validators.required]),
-    last_name: new FormControl(this.profile?.user.last_name, [Validators.required]),
-    bio: new FormControl(this.profile?.bio, [Validators.required]),
-    experience: new FormControl(this.profile?.experience, [Validators.required]),
-    city: new FormControl(this.profile?.city, [Validators.required]),
-    country: new FormControl(this.profile?.country, [Validators.required])
+    first_name: new FormControl(this.profile?.user.first_name, [Validators.required, Validators.maxLength(200)]),
+    last_name: new FormControl(this.profile?.user.last_name, [Validators.required, Validators.maxLength(200)]),
+    bio: new FormControl(this.profile?.bio, [Validators.maxLength(255)]),
+    experience: new FormControl(this.profile?.experience, [Validators.maxLength(255)]),
+    city: new FormControl(this.profile?.city, [Validators.maxLength(255)]),
+    country: new FormControl(this.profile?.country, [Validators.maxLength(255)])
   });
 
   constructor(private readonly fb: FormBuilder) {

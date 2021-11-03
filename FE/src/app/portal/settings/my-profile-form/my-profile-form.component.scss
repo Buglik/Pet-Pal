@@ -1,6 +1,8 @@
 @use '../../../../styles/inputs';
+@use '../../../../styles/buttons';
 
 @include inputs.input-styles;
+@include buttons.buttonStyles;
 
 :host{
   display: block;
@@ -8,4 +10,9 @@
 
 .bio-field{
   min-height: 140px;
+}
+
+.submit-btn{
+  height: 32px;
+  font-size: 14px;
 }

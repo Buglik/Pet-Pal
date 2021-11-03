@@ -12,9 +12,15 @@
 }
 
 .content{
+  display: flex;
+  flex-direction: row;
   margin-top: 8px;
 
   app-my-profile-form{
+    width: 50%;
+  }
+
+  app-my-profile-avatar{
     width: 50%;
   }
 }

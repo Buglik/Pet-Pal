@@ -10,7 +10,7 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "
 export class MyProfileFormComponent implements OnInit {
 
   @Input() profile?: MeResponse;
-  @Output() submit: EventEmitter<ProfileRequest> = new EventEmitter<ProfileRequest>();
+  @Output() submitted: EventEmitter<ProfileRequest> = new EventEmitter<ProfileRequest>();
 
   form: FormGroup = this.fb.group({
     first_name: new FormControl(this.profile?.user.first_name, [Validators.required, Validators.maxLength(200)]),

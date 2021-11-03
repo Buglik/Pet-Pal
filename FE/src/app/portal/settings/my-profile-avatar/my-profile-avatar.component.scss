@@ -1,0 +1,27 @@
+@use '../../../../styles/buttons';
+
+@include buttons.buttonStyles;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  max-height: 300px;
+  align-items: center;
+  margin-top: 16px;
+}
+
+app-header-avatar {
+  width: 200px;
+  height: 200px;
+}
+
+.container {
+  position: relative;
+}
+
+.edit-btn {
+  position: absolute;
+  bottom: 8px;
+  height: 28px;
+  font-size: 13px;
+}

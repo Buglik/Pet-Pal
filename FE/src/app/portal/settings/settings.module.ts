@@ -11,6 +11,7 @@ import {MyProfileFormComponent} from './my-profile-form/my-profile-form.componen
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
+import {MyProfileAvatarComponent} from './my-profile-avatar/my-profile-avatar.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
     SettingsPageHeaderComponent,
     SettingsNavigationComponent,
     MyProfileComponent,
-    MyProfileFormComponent
+    MyProfileFormComponent,
+    MyProfileAvatarComponent
   ],
   imports: [
     CommonModule,

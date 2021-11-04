@@ -5,7 +5,7 @@ from drf_spectacular.types import OpenApiTypes
 from rest_framework import views, status
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.generics import ListAPIView
-from rest_framework.parsers import MultiPartParser
+from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from users.tokens import decode_access_token
@@ -89,13 +89,20 @@ class ProfilesView(ListAPIView):
 
 
 class ProfileAvatarView(views.APIView):
-    parser_classes = (MultiPartParser,)
+    parser_classes = (MultiPartParser, FormParser)
     permission_classes = [IsAuthenticated]
 
     @extend_schema(
-        parameters=[
-            OpenApiParameter(name='image', type=OpenApiTypes.BINARY),
-        ],
+        request={
+            "multipart/form-data": {
+                    'type': 'object',
+                    'properties': {
+                        "image": {
+                            'type': "string",
+                            'format': "binary",
+                        }}
+                }
+        },
         responses={200: None}, )
     def put(self, request):
         token = request.headers['Authorization']
@@ -107,7 +114,10 @@ class ProfileAvatarView(views.APIView):
         except:
             raise AuthenticationFailed('Unauthenticated!')
 
+        print(request.headers)
+        print(request.data)
         image = request.data
+        print(image)
         serializer = UserAvatarRequestSerializer(instance=user, data=image)
         serializer.is_valid(raise_exception=True)
         serializer.save()

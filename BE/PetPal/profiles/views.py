@@ -1,15 +1,18 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from drf_spectacular.utils import extend_schema, OpenApiParameter
+from drf_spectacular.types import OpenApiTypes
+
 from rest_framework import views, status
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.generics import ListAPIView
+from rest_framework.parsers import MultiPartParser
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from users.tokens import decode_access_token
 
 from .models import Profile
 from .serializers import MeResponseSerializer, ProfileRequestSerializer, \
-    ProfileResponseSerializer, ProfilePageResponseSerializer
+    ProfileResponseSerializer, ProfilePageResponseSerializer, UserAvatarRequestSerializer
 
 
 class MyProfileView(views.APIView):
@@ -83,3 +86,30 @@ class ProfilesView(ListAPIView):
                     'length': paginator.count}
 
         return Response(response, status=status.HTTP_200_OK)
+
+
+class ProfileAvatarView(views.APIView):
+    parser_classes = (MultiPartParser,)
+    permission_classes = [IsAuthenticated]
+
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(name='image', type=OpenApiTypes.BINARY),
+        ],
+        responses={200: None}, )
+    def put(self, request):
+        token = request.headers['Authorization']
+        token = "".join(token.split()[1])
+        if not token:
+            raise AuthenticationFailed('Unauthenticated!')
+        try:
+            user = decode_access_token(token)
+        except:
+            raise AuthenticationFailed('Unauthenticated!')
+
+        image = request.data
+        serializer = UserAvatarRequestSerializer(instance=user, data=image)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response(status=status.HTTP_200_OK)

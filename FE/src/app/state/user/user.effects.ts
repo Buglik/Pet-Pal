@@ -51,12 +51,15 @@ export class UserEffects {
           map(_ => logoutUserSuccess()),
           catchError(err => of(logoutUserError()))
         ))
-    ), {dispatch: false})
+    ))
 
   private logoutUserSuccess$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
       ofType(logoutUserSuccess),
-      tap(_ => this.tokenService.clear())
+      tap(_ => {
+        this.navigation.toMainPage();
+        this.tokenService.clear()
+      })
     ), {dispatch: false})
 
   private getUser$: Observable<Action> = createEffect(() =>

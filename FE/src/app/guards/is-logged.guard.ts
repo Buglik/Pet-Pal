@@ -8,9 +8,7 @@ import {catchError, map, mergeMap} from "rxjs/operators";
 import {getUserSuccess} from "../state/user/user.action";
 import {ProfileService} from "../../api/src";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class IsLoggedGuard implements CanActivate {
 
   constructor(private store: Store<AppState>,

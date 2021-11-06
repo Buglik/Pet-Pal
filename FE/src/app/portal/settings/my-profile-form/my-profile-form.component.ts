@@ -13,6 +13,7 @@ export class MyProfileFormComponent implements OnChanges {
   @Input() pending: boolean = false;
   @Output() submitted: EventEmitter<ProfileRequest> = new EventEmitter<ProfileRequest>();
 
+  // TODO: change form data after model change
   form: FormGroup = this.fb.group({
     first_name: new FormControl(this.profile?.user.first_name, [Validators.required, Validators.maxLength(200)]),
     last_name: new FormControl(this.profile?.user.last_name, [Validators.required, Validators.maxLength(200)]),
@@ -42,10 +43,6 @@ export class MyProfileFormComponent implements OnChanges {
     })
   }
 
-  get firstName(): AbstractControl {
-    return this.form.controls['first_name'];
-  }
-
   onSubmit() {
     const formVal = this.form.value;
     const data: ProfileRequest = {
@@ -59,6 +56,18 @@ export class MyProfileFormComponent implements OnChanges {
       country: formVal.country,
     }
     this.submitted.emit(data);
+  }
+
+  get firstName(): AbstractControl {
+    return this.form.controls['first_name'];
+  }
+
+  get lastName(): AbstractControl {
+    return this.form.controls['last_name'];
+  }
+
+  get bio(): AbstractControl {
+    return this.form.controls['bio'];
   }
 
 }

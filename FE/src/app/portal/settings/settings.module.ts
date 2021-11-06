@@ -14,6 +14,7 @@ import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
 import {MyProfileAvatarComponent} from './my-profile-avatar/my-profile-avatar.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {ProfileManagementService} from "./profile-management.service";
+import {UtilsModule} from "../../utils/utils.module";
 
 
 @NgModule({
@@ -25,16 +26,17 @@ import {ProfileManagementService} from "./profile-management.service";
     MyProfileFormComponent,
     MyProfileAvatarComponent
   ],
-    imports: [
-        CommonModule,
-        SettingsRoutingModule,
-        PortalModule,
-        PipesModule,
-        MatFormFieldModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatProgressSpinnerModule,
-    ],
+  imports: [
+    CommonModule,
+    SettingsRoutingModule,
+    PortalModule,
+    PipesModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    UtilsModule,
+  ],
   providers: [
     FormBuilder,
     ProfileManagementService,

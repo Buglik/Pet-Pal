@@ -11,10 +11,11 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {JwtInterceptor} from "./auth/jwt.interceptor";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {IsLoggedGuard} from "./guards/is-logged.guard";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +32,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     provide: HTTP_INTERCEPTORS,
     useClass: JwtInterceptor,
     multi: true
-  }],
+  },
+    IsLoggedGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

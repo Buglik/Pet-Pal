@@ -1,6 +1,9 @@
 <h2 class="title">Profile</h2>
 <div class="content">
-  <app-my-profile-form [profile]="user"></app-my-profile-form>
+  <app-my-profile-form
+    [profile]="user$ | async"
+    [pending]="(pending$ | async)!"
+    (submitted)="updateProfile($event)"></app-my-profile-form>
   <app-my-profile-avatar
     [profile]="user$ | async"
     [pending]="(avatarPending$ | async)!"

@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {MeResponse, ProfileRequest, ProfileService} from "../../../../api/src";
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
+import {MeResponse, ProfileRequest} from "../../../../api/src";
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -7,9 +7,10 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "
   templateUrl: './my-profile-form.component.html',
   styleUrls: ['./my-profile-form.component.scss']
 })
-export class MyProfileFormComponent implements OnInit {
+export class MyProfileFormComponent implements OnChanges {
 
   @Input() profile: MeResponse | null = null;
+  @Input() pending: boolean = false;
   @Output() submitted: EventEmitter<ProfileRequest> = new EventEmitter<ProfileRequest>();
 
   form: FormGroup = this.fb.group({
@@ -21,11 +22,13 @@ export class MyProfileFormComponent implements OnInit {
     country: new FormControl(this.profile?.country, [Validators.maxLength(255)])
   });
 
-  constructor(private readonly fb: FormBuilder, private profileControllerTest: ProfileService) {
+  constructor(private readonly fb: FormBuilder) {
   }
 
-  ngOnInit() {
-    this.populateForm();
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.profile) {
+      this.populateForm();
+    }
   }
 
   populateForm(): void {
@@ -43,5 +46,19 @@ export class MyProfileFormComponent implements OnInit {
     return this.form.controls['first_name'];
   }
 
+  onSubmit() {
+    const formVal = this.form.value;
+    const data: ProfileRequest = {
+      user: {
+        first_name: formVal.first_name,
+        last_name: formVal.last_name
+      },
+      bio: formVal.bio,
+      experience: formVal.experience,
+      city: formVal.city,
+      country: formVal.country,
+    }
+    this.submitted.emit(data);
+  }
 
 }

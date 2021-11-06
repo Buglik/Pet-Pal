@@ -14,7 +14,7 @@ import {MeResponse} from "../../../api/src";
 export class HeaderComponent implements OnDestroy {
 
   private subSink = new Subscription();
-  user?: MeResponse;
+  user: MeResponse | null = null;
 
   constructor(private store: Store<AppState>) {
     this.subSink.add(this.store.select(selectUser).subscribe(next => {

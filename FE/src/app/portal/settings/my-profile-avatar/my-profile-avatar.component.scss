@@ -1,4 +1,5 @@
 @use '../../../../styles/buttons';
+@use '../../../../styles/ui';
 
 @include buttons.buttonStyles;
 
@@ -24,4 +25,8 @@ app-header-avatar {
   bottom: 8px;
   height: 28px;
   font-size: 13px;
+
+  ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: ui.$spinner-primary;
+  }
 }

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {MeResponse, ProfileRequest} from "../../../../api/src";
+import {MeResponse, ProfileRequest, ProfileService} from "../../../../api/src";
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -9,7 +9,7 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "
 })
 export class MyProfileFormComponent implements OnInit {
 
-  @Input() profile?: MeResponse;
+  @Input() profile: MeResponse | null = null;
   @Output() submitted: EventEmitter<ProfileRequest> = new EventEmitter<ProfileRequest>();
 
   form: FormGroup = this.fb.group({
@@ -21,7 +21,7 @@ export class MyProfileFormComponent implements OnInit {
     country: new FormControl(this.profile?.country, [Validators.maxLength(255)])
   });
 
-  constructor(private readonly fb: FormBuilder) {
+  constructor(private readonly fb: FormBuilder, private profileControllerTest: ProfileService) {
   }
 
   ngOnInit() {

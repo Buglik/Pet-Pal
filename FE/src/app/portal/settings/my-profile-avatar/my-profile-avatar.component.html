@@ -1,0 +1,13 @@
+<div class="container">
+  <input accept="image/png, image/jpeg" #imageInput hidden type="file" id="avatar" name="avatar"
+         (change)="handleFileInput($event)">
+  <button class="secondary edit-btn" (click)="imageInput.click()" [disabled]="pending" [ngSwitch]="pending">
+    <span *ngSwitchCase="true"><mat-progress-spinner mode="indeterminate" diameter="20"></mat-progress-spinner></span>
+    <span *ngSwitchCase="false">Edit photo</span>
+  </button>
+  <app-header-avatar (click)="imageInput.click()" [imgSrc]="profile?.user?.avatar"
+                     [initials]="profile?.user | initials"></app-header-avatar>
+</div>
+<mat-error *ngIf="error" class="file-error">
+  {{error}}
+</mat-error>

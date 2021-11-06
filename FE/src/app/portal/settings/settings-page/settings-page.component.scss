@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  max-width: 1012px;
+  margin: auto;
+  padding: 24px 16px;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: row;
+
+  .navigation {
+    width: 30%;
+    max-width: 222px;
+    padding-right: 24px;
+
+    app-my-profile-navigation {
+      width: 220px;
+    }
+  }
+
+
+  .content {
+    width: 100%;
+  }
+}

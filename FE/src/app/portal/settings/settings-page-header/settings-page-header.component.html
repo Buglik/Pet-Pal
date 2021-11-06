@@ -1,0 +1,10 @@
+<div class="left">
+  <app-header-avatar [imgSrc]="user?.avatar" [initials]="user | initials"></app-header-avatar>
+  <div class="text-container">
+    <span class="full-name">{{user | fullName}}</span>
+    <span class="page-label">Your account settings</span>
+  </div>
+</div>
+<div class="right">
+  <button class="secondary" disabled>Go to your profile</button>
+</div>

@@ -5,7 +5,7 @@ $main-background: palette.$white-1;
 
 $card-background: palette.$white;
 $card-border: palette.$white-1;
-$card-shadow: palette.$grey-3;
+$card-shadow: palette.$grey-4;
 
 $spinner-primary: palette.$myrtle-green;
 $spinner-secondary: palette.$white;
@@ -33,6 +33,7 @@ $header-avatar-menu-email: palette.$grey-1;
 $header-link-active-underline: palette.$cerise-red;
 $header-link: palette.$havana;
 $header-link-hover: palette.$santas-grey;
+$header-link-disabled: palette.$grey-1;
 
 $modal-header-border: palette.$white-3;
 $modal-header-label: palette.$black;
@@ -42,8 +43,8 @@ $form-description: palette.$grey;
 $form-section-label: palette.$grey-2;
 
 $input-main-color: palette.$grey;
-$input-border: palette.$grey;
-$focused-input-border: palette.$black;
+$input-border: palette.$cambridge-blue;
+$focused-input-border: palette.$myrtle-green;
 
 $table-row-gray: palette.$white-2;
 $table-row-hover: palette.$white-3;

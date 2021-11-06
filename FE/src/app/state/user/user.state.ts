@@ -1,7 +1,7 @@
 import {MeResponse} from "../../../api/src";
 
 export interface UserState {
-  user: MeResponse | null;
+  user?: MeResponse;
   error: null;
   pending: boolean
 }

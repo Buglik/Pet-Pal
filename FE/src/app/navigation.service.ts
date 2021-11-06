@@ -29,4 +29,8 @@ export class NavigationService {
   toLoginPage() {
     this.router.navigateByUrl('/auth/login')
   }
+
+  toMainPage() {
+    this.router.navigateByUrl('/');
+  }
 }

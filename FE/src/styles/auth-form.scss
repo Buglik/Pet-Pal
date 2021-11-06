@@ -3,7 +3,7 @@
 @use './ui';
 
 @include buttons.buttonStyles;
-@include inputs.text-input-styles;
+@include inputs.input-styles;
 
 @mixin auth-form {
   :host {

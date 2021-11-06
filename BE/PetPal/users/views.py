@@ -1,16 +1,14 @@
-from django.contrib.sites.shortcuts import get_current_site
-from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiExample
-from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import extend_schema, OpenApiParameter
 import jwt
-from rest_framework import views, status, generics
-from rest_framework.decorators import api_view
+from rest_framework import views, status
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
+
 from .models import User
 from .serializers import RegisterRequestSerializer, LoginResponseSerializer, LoginRequestSerializer, \
-    MeResponseSerializer, LogoutRequestSerializer
+    LogoutRequestSerializer, UserSerializer
 from .tokens import generate_activation_token, decode_activation_token, decode_access_token
 from .utils import Util
 
@@ -96,7 +94,7 @@ class UserView(views.APIView):
     permission_classes = [IsAuthenticated]
 
     @extend_schema(
-        responses={200: MeResponseSerializer},
+        responses={200: UserSerializer},
     )
     def get(self, request):
         token = request.headers['Authorization']

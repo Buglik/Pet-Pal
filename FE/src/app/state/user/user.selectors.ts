@@ -6,7 +6,7 @@ export const selectUserState = (state: AppState) => state.user;
 
 export const selectUser = createSelector(
   selectUserState,
-  (state: UserState) => state.user
+  (state: UserState) => state.user || null
 )
 
 export const selectUserPending = createSelector(

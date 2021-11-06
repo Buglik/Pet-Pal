@@ -1,0 +1,49 @@
+<form [formGroup]="form" (submit)="onSubmit()" class="example-form">
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>First name</mat-label>
+    <input formControlName="first_name" matInput>
+    <mat-error>
+      <app-form-field-errors [control]="firstName"></app-form-field-errors>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Last name</mat-label>
+    <input formControlName="last_name" matInput>
+    <mat-error>
+      <app-form-field-errors [control]="lastName"></app-form-field-errors>
+    </mat-error>
+  </mat-form-field>
+
+  <!--  DISPLAY ONLY -->
+  <mat-form-field class=" full-width" appearance="outline">
+    <mat-label>Username</mat-label>
+    <input [value]="profile?.user?.username" matInput disabled>
+  </mat-form-field>
+
+  <!--  DISPLAY ONLY -->
+  <mat-form-field class=" full-width" appearance="outline">
+    <mat-label>Email</mat-label>
+    <input [value]="profile?.user?.email" matInput disabled>
+  </mat-form-field>
+
+  <mat-form-field class=" full-width" appearance="outline">
+    <mat-label>Bio</mat-label>
+    <textarea #bioInput class="bio-field" matInput formControlName="bio"></textarea>
+    <mat-error>
+      <app-form-field-errors [control]="bio"></app-form-field-errors>
+    </mat-error>
+    <mat-hint align="end">{{bioInput.value?.length || 0}}/255</mat-hint>
+  </mat-form-field>
+
+  <button type="submit"
+          class="primary submit-btn"
+          [disabled]="!form.valid || pending" [ngSwitch]="pending">
+    <span *ngSwitchCase="true">
+      <mat-progress-spinner mode="indeterminate" diameter="20"></mat-progress-spinner>
+    </span>
+    <span *ngSwitchCase="false">
+      Update profile
+    </span>
+  </button>
+</form>

@@ -1,0 +1,6 @@
+<nav>
+  <a *ngFor="let link of links"
+     [ngClass]="{'disabled': link.disabled}"
+     class="nav-item" routerLinkActive="active"
+     [routerLink]="link.value">{{link.label}}</a>
+</nav>

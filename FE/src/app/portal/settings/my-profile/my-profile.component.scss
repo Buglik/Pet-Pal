@@ -1,0 +1,26 @@
+@use '../../../../styles/ui';
+
+:host {
+  display: block;
+}
+
+.title{
+  border-bottom: 1px solid ui.$header-border;
+  margin: 0;
+  line-height: 24px;
+  padding-bottom: 8px;
+}
+
+.content{
+  display: flex;
+  flex-direction: row;
+  margin-top: 8px;
+
+  app-my-profile-form{
+    width: 50%;
+  }
+
+  app-my-profile-avatar{
+    width: 50%;
+  }
+}

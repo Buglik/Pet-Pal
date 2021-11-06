@@ -1,0 +1,24 @@
+@use '../../../../styles/inputs';
+@use '../../../../styles/buttons';
+@use '../../../../styles/ui';
+
+@include inputs.input-styles;
+@include buttons.buttonStyles;
+
+:host {
+  display: block;
+}
+
+.bio-field {
+  min-height: 140px;
+}
+
+.submit-btn {
+  height: 32px;
+  font-size: 14px;
+
+  ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: ui.$spinner-secondary;
+  }
+
+}

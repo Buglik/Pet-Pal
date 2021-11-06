@@ -29,6 +29,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    image = models.ImageField(upload_to='user_avatars', null=True, blank=True)
     username = models.CharField(max_length=200, unique=True)
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
@@ -37,5 +38,7 @@ class User(AbstractUser):
     is_verified = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
 
+
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'password', 'first_name', 'last_name']
+    REQUIRED_FIELDS = ['id', 'username', 'password', 'first_name', 'last_name', 'is_verified', 'is_active']
+

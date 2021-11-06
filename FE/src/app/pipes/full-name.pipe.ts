@@ -1,12 +1,12 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {MeResponse} from "../../api/src";
+import {UserResponse} from "../../api/src";
 
 @Pipe({
   name: 'fullName'
 })
 export class FullNamePipe implements PipeTransform {
 
-  transform(user?: MeResponse | null): string {
+  transform(user?: UserResponse | null): string {
     return user ? user?.first_name + " " + user?.last_name : '';
   }
 

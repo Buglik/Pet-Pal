@@ -6,7 +6,7 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    bio = models.CharField(max_length=255, null=True)
+    bio = models.CharField(max_length=255, null=True, blank=True)
     experience = models.CharField(max_length=255, null=True)
     city = models.CharField(max_length=255, null=True)
     country = models.CharField(max_length=255, null=True)
@@ -20,7 +20,6 @@ class Profile(models.Model):
     def create_user_profile(sender, instance, created, **kwargs):
         if created:
             Profile.objects.create(user=instance)
-
 
     @receiver(post_save, sender=settings.AUTH_USER_MODEL)  # add this
     def save_user_profile(sender, instance, **kwargs):

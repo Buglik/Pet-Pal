@@ -1,9 +1,7 @@
 @use '../../../../styles/inputs';
-@use '../../../../styles/buttons';
 @use '../../../../styles/ui';
 
 @include inputs.input-styles;
-@include buttons.buttonStyles;
 
 :host {
   display: block;

@@ -1,8 +1,6 @@
 @use './inputs';
-@use './buttons';
 @use './ui';
 
-@include buttons.buttonStyles;
 @include inputs.input-styles;
 
 @mixin auth-form {

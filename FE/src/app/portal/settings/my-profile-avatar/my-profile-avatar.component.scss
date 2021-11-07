@@ -1,7 +1,5 @@
-@use '../../../../styles/buttons';
 @use '../../../../styles/ui';
 
-@include buttons.buttonStyles;
 
 :host {
   display: flex;

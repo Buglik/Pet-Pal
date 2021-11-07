@@ -1,0 +1,9 @@
+<span class="button-wrapper">
+  <ng-container *ngIf="!pending; else spinner">
+    <ng-content></ng-content>
+  </ng-container>
+  <ng-template #spinner>
+    <mat-progress-spinner mode="indeterminate"
+                          [diameter]="20"></mat-progress-spinner>
+  </ng-template>
+</span>

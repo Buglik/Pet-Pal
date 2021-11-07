@@ -26,8 +26,12 @@
     </mat-error>
   </mat-form-field>
 
-  <button type="submit" [disabled]="form.invalid" class="primary full-width">Login</button>
+  <button type="submit"
+          [disabled]="form.invalid"
+          petpal-button primary>Login
+  </button>
 </form>
-
-<span>Don't have an account?</span>
-<a class="tertiary">Sign up</a>
+<div class="sing-up-container">
+  <span>Don't have an account?</span>
+  <button routerLink="/auth/register" petpal-button tertiary-link>Create one</button>
+</div>

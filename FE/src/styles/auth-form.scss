@@ -8,34 +8,31 @@
 @mixin auth-form {
   :host {
     display: flex;
-    width: 450px;
+    flex-direction: column;
+    align-items: center;
+    width: 326px;
     border: 1px solid ui.$card-border;
     border-radius: 6px;
     box-shadow: 0 3px 12px ui.$card-shadow;
     background-color: ui.$card-background;
+    padding: 32px;
 
-    .login-form-container {
-      width: 100%;
+    form {
 
-      .input-group {
-        margin-bottom: 16px;
+      button {
+        margin-top: 8px;
       }
+    }
 
-      form {
-        padding: 32px;
-      }
+    .form-title {
+      text-align: center;
+      margin: 16px 16px 0 16px;
+    }
 
-      .form-title {
-        text-align: center;
-        margin: 16px 16px 0 16px;
-      }
-
-      .form-description {
-        color: ui.$form-description;
-        margin: 8px 16px;
-        text-align: center;
-      }
-
+    .form-description {
+      color: ui.$form-description;
+      margin: 8px 16px;
+      text-align: center;
     }
   }
 }

@@ -8,6 +8,11 @@ import {AuthRoutingModule} from "./auth-routing.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import {EmailVerificationPageComponent} from './email-verification-page/email-verification-page.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {UtilsModule} from "../utils/utils.module";
+import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -18,12 +23,17 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     RegisterPageComponent,
     EmailVerificationPageComponent
   ],
-  imports: [
-    CommonModule,
-    AuthRoutingModule,
-    ReactiveFormsModule,
-    MatProgressSpinnerModule,
-  ]
+    imports: [
+        CommonModule,
+        AuthRoutingModule,
+        ReactiveFormsModule,
+        MatProgressSpinnerModule,
+        MatFormFieldModule,
+        UtilsModule,
+        MatInputModule,
+        MatIconModule,
+        MatButtonModule,
+    ]
 })
 export class AuthModule {
 }

@@ -1,3 +1,17 @@
 @use '../../../styles/auth-form';
+@use '../../../styles/ui';
 
 @include auth-form.auth-form;
+
+form {
+  padding-bottom: 16px;
+  border-bottom: 1px solid ui.$header-border;
+}
+
+.logo{
+  margin-bottom: 16px;
+  width: 240px;
+  height: 128px;
+  background: url("../../../assets/photos/PetPal_short.png") no-repeat left;
+  background-size: 100% ;
+}

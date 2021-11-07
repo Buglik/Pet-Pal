@@ -13,6 +13,7 @@ import {UtilsModule} from "../utils/utils.module";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import {EmailVerificationFormComponent} from './email-verification-form/email-verification-form.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {MatButtonModule} from "@angular/material/button";
     LoginPageComponent,
     RegisterFormComponent,
     RegisterPageComponent,
-    EmailVerificationPageComponent
+    EmailVerificationPageComponent,
+    EmailVerificationFormComponent
   ],
     imports: [
         CommonModule,

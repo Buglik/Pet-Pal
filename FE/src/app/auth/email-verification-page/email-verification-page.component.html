@@ -1,8 +1,12 @@
 <div class="content-container">
-  <div *ngIf="pending; else successBlock">
+  <div *ngIf="pending$ |async; else successBlock">
     <mat-spinner diameter="48"></mat-spinner>
   </div>
-  <ng-template #successBlock>SUCCESS</ng-template>
+  <ng-template #successBlock>
+    <app-email-verification-form
+      [seconds]="secondsLeft"
+      (redirect)="navigateToLoginPage()"></app-email-verification-form>
+  </ng-template>
 </div>
 <div class="photo">
 </div>

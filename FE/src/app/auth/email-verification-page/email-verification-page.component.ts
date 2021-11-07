@@ -1,25 +1,23 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RegisterService} from "../services/register.service";
 import {ActivatedRoute} from "@angular/router";
 import {take} from "rxjs/operators";
 import {NavigationService} from "../../navigation.service";
-import {Subscription} from "rxjs";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-email-verification-page',
   templateUrl: './email-verification-page.component.html',
   styleUrls: ['./email-verification-page.component.scss']
 })
-export class EmailVerificationPageComponent implements OnInit, OnDestroy {
+export class EmailVerificationPageComponent implements OnInit {
   private token: string = '';
-  pending: boolean = true;
-
-  private subSink = new Subscription();
-
+  pending$: Observable<boolean> = this.registerService.pending$;
+  secondsLeft: number = 5;
+  
   constructor(private route: ActivatedRoute,
               private readonly registerService: RegisterService,
               private readonly navigationService: NavigationService) {
-    this.subSink.add(this.registerService.pending$.subscribe(next => this.pending = next))
   }
 
   ngOnInit() {
@@ -28,17 +26,18 @@ export class EmailVerificationPageComponent implements OnInit, OnDestroy {
     })
     this.token ? this.registerService.verifyEmail(this.token).subscribe(result => {
       if (result) {
+        const interval = setInterval(() => {
+          console.log(this.secondsLeft)
+          this.secondsLeft = this.secondsLeft - 1;
+        }, 1000)
         setTimeout(() => {
           this.navigateToLoginPage();
+          clearInterval(interval);
         }, 5000)
       } else {
         this.navigateToLoginPageError()
       }
     }) : this.navigateToLoginPageError()
-  }
-
-  ngOnDestroy() {
-    this.subSink.unsubscribe();
   }
 
   navigateToLoginPage() {

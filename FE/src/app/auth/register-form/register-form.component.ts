@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {RegisterRequest} from "../../../api/src";
 import {AbstractControl, FormBuilder, Validators} from "@angular/forms";
+import Validation from "../../utils/Validation";
 
 @Component({
   selector: 'app-register-form',
@@ -14,13 +15,13 @@ export class RegisterFormComponent {
   hideConfirmPassword: boolean = true;
 
   form = this.fb.group({
-    username: ['', [Validators.required]],
-    first_name: ['', [Validators.required]],
-    last_name: ['', [Validators.required]],
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]],
+    username: ['', [Validators.required, Validators.maxLength(200)]],
+    first_name: ['', [Validators.required, Validators.maxLength(200)]],
+    last_name: ['', [Validators.required, Validators.maxLength(200)]],
+    email: ['', [Validators.required, Validators.email, Validators.maxLength(255)]],
+    password: ['', [Validators.required, Validators.maxLength(255)]],
     confirmPassword: ['', [Validators.required]]
-  })
+  }, {validators: [Validation.match('password', 'confirmPassword')]})
 
   constructor(private readonly fb: FormBuilder) {
   }
@@ -37,15 +38,15 @@ export class RegisterFormComponent {
     return this.form.controls['confirmPassword'];
   }
 
-  get username() : AbstractControl{
+  get username(): AbstractControl {
     return this.form.controls['username'];
   }
 
-  get firstName() : AbstractControl{
+  get firstName(): AbstractControl {
     return this.form.controls['first_name'];
   }
 
-  get lastName() : AbstractControl{
+  get lastName(): AbstractControl {
     return this.form.controls['last_name'];
   }
 

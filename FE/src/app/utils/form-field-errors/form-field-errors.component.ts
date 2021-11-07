@@ -16,6 +16,7 @@ export class FormFieldErrorsComponent {
       if (this.control.hasError('minlength')) return 'This field is too short';
       if (this.control.hasError('maxlength')) return 'This field is too long';
       if (this.control.hasError('email')) return 'This field has to be an email';
+      if (this.control.hasError('matching')) return 'This field does not match';
     }
     return '';
   }

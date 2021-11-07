@@ -1,37 +1,81 @@
-<div class="login-form-container">
-  <h3 class="form-title">label.register-form'</h3>
-  <h5 class="form-description">{{'info.register-form'}}</h5>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="input-group">
-      <label for="username">label.username</label>
-      <input formControlName="username" class="full-width" id="username"
-             placeholder='placeholder.username'>
-    </div>
-    <div class="input-group">
-      <label for="firstName">label.username</label>
-      <input formControlName="first_name" class="full-width" id="firstName"
-             placeholder='placeholder.firstName'>
-    </div>
-    <div class="input-group">
-      <label for="lastName">label.username</label>
-      <input formControlName="last_name" class="full-width" id="lastName"
-             placeholder='placeholder.lastName'>
-    </div>
-    <div class="input-group">
-      <label for="email">'label.email'</label>
-      <input formControlName="email" class="full-width" id="email"
-             placeholder="placeholder.email">
-    </div>
-    <div class="input-group">
-      <label for="password">'label.password'</label>
-      <input formControlName="password" class="full-width password" id="password" type="password"
-             placeholder="'placeholder.login">
-    </div>
-    <div class="input-group">
-      <label for="confirmPassword">label.confirmPassword'</label>
-      <input formControlName="confirmPassword" class="full-width password" id="confirmPassword" type="password"
-             placeholder='placeholder.confirmPassword'>
-    </div>
-    <button petpal-button primary [disabled]="form.invalid">button.register</button>
-  </form>
+<div class="form-title-container">
+  <h3 class="form-title">Register form</h3>
+  <h5 class="form-description">Please fill in required fields to create your account</h5>
 </div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <!--  USERNAME-->
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Username</mat-label>
+    <input formControlName="username" matInput autocomplete="off">
+    <mat-error>
+      <app-form-field-errors [control]="username"></app-form-field-errors>
+    </mat-error>
+  </mat-form-field>
+
+  <!--  FIRST NAME-->
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>First name</mat-label>
+    <input formControlName="first_name" matInput autocomplete="off">
+    <mat-error>
+      <app-form-field-errors [control]="firstName"></app-form-field-errors>
+    </mat-error>
+  </mat-form-field>
+
+  <!--  LAST NAME-->
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Last name</mat-label>
+    <input formControlName="last_name" matInput autocomplete="off">
+    <mat-error>
+      <app-form-field-errors [control]="lastName"></app-form-field-errors>
+    </mat-error>
+  </mat-form-field>
+
+  <!--  EMAIL-->
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Email</mat-label>
+    <input formControlName="email" matInput autocomplete="off">
+    <mat-error>
+      <app-form-field-errors [control]="email"></app-form-field-errors>
+    </mat-error>
+  </mat-form-field>
+
+  <!--  PASSWORD-->
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Password</mat-label>
+    <input formControlName="password"
+           matInput
+           [type]="hidePassword ? 'password' : 'text'"
+           autocomplete="off">
+    <button type="button"
+            mat-icon-button matSuffix
+            (click)="hidePassword = !hidePassword"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePassword">
+      <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-error>
+      <app-form-field-errors [control]="password"></app-form-field-errors>
+    </mat-error>
+  </mat-form-field>
+
+  <!--  CONFIRM PASSWORD-->
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Confirm password</mat-label>
+    <input formControlName="confirmPassword"
+           matInput
+           [type]="hideConfirmPassword ? 'password' : 'text'"
+           autocomplete="off">
+    <button type="button"
+            mat-icon-button matSuffix
+            (click)="hideConfirmPassword = !hideConfirmPassword"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hideConfirmPassword">
+      <mat-icon>{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-error>
+      <app-form-field-errors [control]="confirmPassword"></app-form-field-errors>
+    </mat-error>
+  </mat-form-field>
+  <button petpal-button primary [disabled]="form.invalid">Register</button>
+</form>

@@ -1,3 +1,9 @@
 @use '../../../styles/auth-form';
 
 @include auth-form.auth-form;
+
+form{
+  button{
+    width: 100%;
+  }
+}

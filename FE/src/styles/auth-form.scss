@@ -22,15 +22,23 @@
       }
     }
 
-    .form-title {
-      text-align: center;
-      margin: 16px 16px 0 16px;
+    .form-title-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .form-title {
+        text-align: left;
+        font-size: 28px;
+        margin-bottom: 4px;
+      }
+
+      .form-description {
+        color: ui.$form-description;
+        text-align: left;
+      }
+
     }
 
-    .form-description {
-      color: ui.$form-description;
-      margin: 8px 16px;
-      text-align: center;
-    }
   }
 }

@@ -13,3 +13,8 @@ export const selectUserPending = createSelector(
   selectUserState,
   (state: UserState) => state.pending
 )
+
+export const selectLoginErrors = createSelector(
+  selectUserState,
+  (state: UserState) => state.error
+)

@@ -3,7 +3,7 @@ import {LoginRequest, LoginResponse, MeResponse} from "../../../api/src";
 
 export const loginUser = createAction('[Auth] Login user', props<LoginRequest>());
 export const loginUserSuccess = createAction('[Auth] Login user success', props<LoginResponse>());
-export const loginUserError = createAction('[Auth] Login user error');
+export const loginUserError = createAction('[Auth] Login user error', props<any>());
 
 export const logoutUser = createAction('[Auth] Logout user');
 export const logoutUserSuccess = createAction('[Auth] Logout user success');

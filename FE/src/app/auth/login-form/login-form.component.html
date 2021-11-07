@@ -27,7 +27,8 @@
   </mat-form-field>
 
   <button type="submit"
-          [disabled]="form.invalid"
+          [disabled]="form.invalid || pending"
+          [pending]="pending"
           petpal-button primary>Login
   </button>
 </form>

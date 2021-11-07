@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {AbstractControl, FormBuilder, Validators} from "@angular/forms";
 import {LoginRequest} from "../../../api/src";
 
@@ -10,6 +10,7 @@ import {LoginRequest} from "../../../api/src";
 export class LoginFormComponent {
 
   @Output() formSubmitted = new EventEmitter<LoginRequest>();
+  @Input() pending: boolean = false;
 
   hidePassword: boolean = true;
 

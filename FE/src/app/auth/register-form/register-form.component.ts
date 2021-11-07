@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {RegisterRequest} from "../../../api/src";
 import {AbstractControl, FormBuilder, Validators} from "@angular/forms";
 import Validation from "../../utils/Validation";
@@ -10,6 +10,7 @@ import Validation from "../../utils/Validation";
 })
 export class RegisterFormComponent {
   @Output() formSubmitted: EventEmitter<RegisterRequest> = new EventEmitter<RegisterRequest>();
+  @Input() pending: boolean = false;
 
   hidePassword: boolean = true;
   hideConfirmPassword: boolean = true;

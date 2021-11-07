@@ -2,8 +2,17 @@
 
 @include auth-form.auth-form;
 
-form{
-  button{
+form {
+  button {
     width: 100%;
+  }
+}
+
+.go-back-container {
+  padding-top: 16px;
+
+  button {
+    font-size: 14px;
+
   }
 }

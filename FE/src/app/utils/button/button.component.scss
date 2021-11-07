@@ -75,7 +75,6 @@ $button-border-radius: 4px;
 
   &[tertiary] {
     background: ui.$button-tertiary;
-    //text-decoration: underline;
     color: ui.$button-tertiary-text;
 
     &:hover, &[disabled], &:focus {
@@ -87,6 +86,7 @@ $button-border-radius: 4px;
     width: auto;
     min-width: auto;
     height: auto;
+    text-decoration: underline;
     color: ui.$button-primary;
     background: transparent;
 
@@ -99,6 +99,7 @@ $button-border-radius: 4px;
     width: auto;
     min-width: auto;
     height: auto;
+    text-decoration: underline;
     color: ui.$button-tertiary;
     background: transparent;
 

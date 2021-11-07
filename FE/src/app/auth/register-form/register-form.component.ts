@@ -11,6 +11,7 @@ import Validation from "../../utils/Validation";
 export class RegisterFormComponent {
   @Output() formSubmitted: EventEmitter<RegisterRequest> = new EventEmitter<RegisterRequest>();
   @Input() pending: boolean = false;
+  @Input() errors: any = null;
 
   hidePassword: boolean = true;
   hideConfirmPassword: boolean = true;
@@ -20,7 +21,7 @@ export class RegisterFormComponent {
     first_name: ['', [Validators.required, Validators.maxLength(200)]],
     last_name: ['', [Validators.required, Validators.maxLength(200)]],
     email: ['', [Validators.required, Validators.email, Validators.maxLength(255)]],
-    password: ['', [Validators.required, Validators.maxLength(255)]],
+    password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(255)]],
     confirmPassword: ['', [Validators.required]]
   }, {validators: [Validation.match('password', 'confirmPassword')]})
 

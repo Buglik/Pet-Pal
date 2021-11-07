@@ -9,7 +9,7 @@
     <mat-label>Username</mat-label>
     <input formControlName="username" matInput autocomplete="off">
     <mat-error>
-      <app-form-field-errors [control]="username"></app-form-field-errors>
+      <app-form-field-errors [control]="username" [backendErrors]="errors?.username"></app-form-field-errors>
     </mat-error>
   </mat-form-field>
 

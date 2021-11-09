@@ -14,7 +14,7 @@ export class EmailVerificationPageComponent implements OnInit {
   private token: string = '';
   pending$: Observable<boolean> = this.registerService.pending$;
   secondsLeft: number = 5;
-  
+
   constructor(private route: ActivatedRoute,
               private readonly registerService: RegisterService,
               private readonly navigationService: NavigationService) {

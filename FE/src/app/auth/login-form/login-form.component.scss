@@ -7,24 +7,25 @@ form {
   padding-bottom: 16px;
   border-bottom: 1px solid ui.$header-border;
 
-  button{
+  button {
     width: 100%;
   }
 }
 
-.sing-up-container{
+.sing-up-container {
   display: flex;
   flex-direction: column;
   margin-top: 16px;
-  button{
+
+  button {
     font-size: 14px;
   }
 }
 
-.logo{
+.logo {
   margin-bottom: 16px;
   width: 240px;
   height: 128px;
   background: url("../../../assets/photos/PetPal_short.png") no-repeat left;
-  background-size: 100% ;
+  background-size: 100%;
 }

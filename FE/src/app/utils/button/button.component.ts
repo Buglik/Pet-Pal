@@ -1,8 +1,8 @@
 import {Component, HostBinding, Input} from '@angular/core';
 
 @Component({
-  selector: 'button[petpal-button]',
-  exportAs: 'petpal-button',
+  selector: 'button[petPal-button]',
+  exportAs: 'petPal-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss']
 })

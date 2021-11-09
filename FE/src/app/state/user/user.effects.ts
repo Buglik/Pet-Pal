@@ -37,7 +37,7 @@ export class UserEffects {
     this.actions$.pipe(
       ofType(loginUserSuccess),
       tap((tokens) => {
-        this.navigation.back();
+        this.navigation.toMainPage();
         this.tokenService.saveTokens(tokens.access, tokens.refresh);
       }),
       map(_ => getUser())

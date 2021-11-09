@@ -3,15 +3,16 @@ import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot} from '@angular
 import {Observable, of} from 'rxjs';
 import {Store} from "@ngrx/store";
 import {AppState} from "../state/app.state";
-import {selectUser} from "../state/user/user.selectors";
+import {NavigationService} from "../navigation.service";
+import {ProfileService} from "../../api/src";
 import {catchError, map, mergeMap} from "rxjs/operators";
 import {getUserSuccess} from "../state/user/user.action";
-import {ProfileService} from "../../api/src";
-import {NavigationService} from "../navigation.service";
+import {selectUser} from "../state/user/user.selectors";
 
-@Injectable()
-export class IsLoggedGuard implements CanActivate {
-
+@Injectable({
+  providedIn: 'root'
+})
+export class IsNotLoggedGuard implements CanActivate {
   constructor(private store: Store<AppState>,
               private readonly navigateService: NavigationService,
               private readonly profileService: ProfileService) {
@@ -36,10 +37,11 @@ export class IsLoggedGuard implements CanActivate {
       }),
       map(result => {
         if (!result) {
+          return true;
+        } else {
+          // TODO: add notification
           this.navigateService.toMainPage();
           return false;
-        } else {
-          return true;
         }
       })
     )

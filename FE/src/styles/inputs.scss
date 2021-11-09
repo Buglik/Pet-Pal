@@ -16,6 +16,12 @@
     // opacity: 1!important;
   }
 
+  //suffix button
+  ::ng-deep .mat-form-field-suffix button{
+    background-color: transparent !important;
+    color: ui.$input-border !important;
+  }
+
   ::ng-deep .mat-hint{
     color: ui.$input-border !important;
   }
@@ -52,6 +58,11 @@
     color: ui.$focused-input-border !important;
   }
 
+  //suffix button focused
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-suffix button{
+    color: ui.$focused-input-border !important;
+  }
+
   ::ng-deep .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline{
     color: ui.$input-border !important;
     opacity: 0.5;
@@ -64,6 +75,11 @@
 
   // mat-label error style
   ::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: ui.$error !important;
+  }
+
+  //suffix button error
+  ::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-suffix button{
     color: ui.$error !important;
   }
 }

@@ -10,6 +10,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatIconModule} from "@angular/material/icon";
 import {PipesModule} from "../pipes/pipes.module";
+import {UtilsModule} from "../utils/utils.module";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {PipesModule} from "../pipes/pipes.module";
         MatMenuModule,
         MatDividerModule,
         MatIconModule,
-        PipesModule
+        PipesModule,
+        UtilsModule
     ]
 })
 export class PortalModule { }

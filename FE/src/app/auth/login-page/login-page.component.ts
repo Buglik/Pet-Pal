@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {loginUser} from "../../state/user/user.action";
-import {selectUserPending} from "../../state/user/user.selectors";
+import {selectLoginErrors, selectUserPending} from "../../state/user/user.selectors";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../state/app.state";
 import {Observable} from "rxjs";
@@ -13,12 +13,10 @@ import {LoginRequest} from "../../../api/src";
 })
 export class LoginPageComponent {
 
-  loginInProgress$: Observable<boolean>;
-
-  // serverValidationErrors$
+  loginInProgress$: Observable<boolean> = this.store.select(selectUserPending);
+  error$: Observable<boolean> = this.store.select(selectLoginErrors);
 
   constructor(private readonly store: Store<AppState>) {
-    this.loginInProgress$ = this.store.select(selectUserPending);
   }
 
   loginUser(data: LoginRequest) {

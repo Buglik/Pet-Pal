@@ -1,0 +1,8 @@
+@use '../../../styles/auth-form';
+
+@include auth-form.auth-form;
+
+button{
+  margin-top: 24px;
+  width: 100%;
+}

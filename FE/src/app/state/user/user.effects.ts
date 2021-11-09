@@ -27,7 +27,7 @@ export class UserEffects {
       switchMap(userLoginData =>
         this.authService.authLoginCreate(userLoginData).pipe(
           map((tokens: LoginResponse) => loginUserSuccess(tokens)),
-          catchError(error => of(loginUserError()))
+          catchError(error => of(loginUserError(error.error)))
         )
       ),
       tap(_ => console.log('Logging...')),
@@ -37,7 +37,7 @@ export class UserEffects {
     this.actions$.pipe(
       ofType(loginUserSuccess),
       tap((tokens) => {
-        this.navigation.back();
+        this.navigation.toMainPage();
         this.tokenService.saveTokens(tokens.access, tokens.refresh);
       }),
       map(_ => getUser())

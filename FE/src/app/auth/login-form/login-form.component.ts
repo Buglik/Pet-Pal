@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Output} from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {AbstractControl, FormBuilder, Validators} from "@angular/forms";
 import {LoginRequest} from "../../../api/src";
 
 @Component({
@@ -10,6 +10,9 @@ import {LoginRequest} from "../../../api/src";
 export class LoginFormComponent {
 
   @Output() formSubmitted = new EventEmitter<LoginRequest>();
+  @Input() pending: boolean = false;
+
+  hidePassword: boolean = true;
 
   form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -19,12 +22,12 @@ export class LoginFormComponent {
   constructor(private readonly fb: FormBuilder) {
   }
 
-  get email() {
-    return this.form.get('email');
+  get email(): AbstractControl {
+    return this.form.controls['email'];
   }
 
-  get password() {
-    return this.form.get('password');
+  get password(): AbstractControl {
+    return this.form.controls['password'];
   }
 
   formToJson(): LoginRequest {

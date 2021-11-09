@@ -1,0 +1,136 @@
+@use '../../../styles/ui';
+
+$button-height: 40px;
+$button-width: 120px;
+$button-height-small: 24px;
+$button-padding: 0px 16px;
+$button-border-radius: 4px;
+
+:host {
+  padding: $button-padding;
+  height: $button-height;
+  min-width: $button-width;
+  border-radius: $button-border-radius;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  border-color: transparent;
+  font-size: 16px;
+
+
+  .button-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  mat-progress-spinner {
+    margin: auto;
+
+    ::ng-deep {
+      svg circle {
+        stroke: ui.$spinner-secondary;
+      }
+    }
+  }
+
+  &[small] {
+    height: $button-height-small;
+    width: auto;
+    min-width: auto;
+    font-weight: 100;
+    font-size: 12px;
+  }
+
+  &[primary] {
+    background: ui.$button-primary;
+    color: ui.$button-primary-text;
+
+    &:hover, &[disabled], &:focus {
+      background-color: ui.$button-primary-hover;
+    }
+  }
+
+  &[secondary] {
+    background: ui.$button-secondary;
+    color: ui.$button-secondary-text;
+    border: 1px solid ui.$button-secondary-text;
+    border-radius: 4px;
+
+    &:hover, &[disabled], &:focus {
+      color: ui.$button-secondary-hover;
+      border-color: ui.$button-secondary-hover;
+      text-decoration: underline;
+    }
+
+    mat-progress-spinner {
+      margin: auto;
+
+      ::ng-deep {
+        svg circle {
+          stroke: ui.$spinner-primary;
+        }
+      }
+    }
+  }
+
+  &[tertiary] {
+    background: ui.$button-tertiary;
+    color: ui.$button-tertiary-text;
+
+    &:hover, &[disabled], &:focus {
+      background: ui.$button-tertiary-hover
+    }
+  }
+
+  &[primary-link] {
+    width: auto;
+    min-width: auto;
+    height: auto;
+    text-decoration: underline;
+    color: ui.$button-primary;
+    background: transparent;
+
+    &:hover, &[disabled], &:focus {
+      color: ui.$button-primary-hover
+    }
+  }
+
+  &[tertiary-link] {
+    width: auto;
+    min-width: auto;
+    height: auto;
+    text-decoration: underline;
+    color: ui.$button-tertiary;
+    background: transparent;
+
+    &:hover, &[disabled], &:focus {
+      color: ui.$button-tertiary-hover
+    }
+  }
+
+  &[call-to-action] {
+    width: auto;
+    min-width: auto;
+    border-radius: 23px;
+  }
+
+  &[disabled] {
+    cursor: default;
+    opacity: 0.6;
+  }
+
+  //&[remove] {
+  //  //background: $burnt-sienna;
+  //  color: white;
+  //
+  //  &:hover, &[disabled], &:focus {
+  //    //background-color: $salmon;
+  //  }
+  //}
+
+  &.pending {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.8;
+  }
+}

@@ -1,41 +1,44 @@
 @use './inputs';
-@use './buttons';
 @use './ui';
 
-@include buttons.buttonStyles;
 @include inputs.input-styles;
 
 @mixin auth-form {
   :host {
     display: flex;
-    width: 450px;
+    flex-direction: column;
+    align-items: center;
+    width: 326px;
     border: 1px solid ui.$card-border;
     border-radius: 6px;
     box-shadow: 0 3px 12px ui.$card-shadow;
     background-color: ui.$card-background;
+    padding: 32px;
 
-    .login-form-container {
+    form {
+
+      button {
+        margin-top: 8px;
+      }
+    }
+
+    .form-title-container {
+      display: flex;
+      flex-direction: column;
       width: 100%;
 
-      .input-group {
-        margin-bottom: 16px;
-      }
-
-      form {
-        padding: 32px;
-      }
-
       .form-title {
-        text-align: center;
-        margin: 16px 16px 0 16px;
+        text-align: left;
+        font-size: 28px;
+        margin-bottom: 4px;
       }
 
       .form-description {
         color: ui.$form-description;
-        margin: 8px 16px;
-        text-align: center;
+        text-align: left;
       }
 
     }
+
   }
 }

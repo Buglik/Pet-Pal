@@ -8,14 +8,14 @@
     <span class="full-name">{{user | fullName}}</span>
     <span class="username">{{user?.username}}</span>
     <span class="email">{{user?.email}}</span>
-    <button routerLink="/settings" class="secondary">
+    <button petpal-button secondary
+            routerLink="/settings">
       <span>Manage account</span>
     </button>
   </div>
   <mat-divider></mat-divider>
   <div class="logout">
-    <button class="secondary" (click)="logoutClick()">
-      <mat-icon class="icon">logout</mat-icon>
+    <button petpal-button secondary (click)="logoutClick()">
       <span>Logout</span>
     </button>
   </div>

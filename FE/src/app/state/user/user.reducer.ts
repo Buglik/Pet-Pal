@@ -20,9 +20,9 @@ export const userReducer = createReducer(
     pending: false,
     user: undefined
   })),
-  on(loginUserError, (state) => ({
+  on(loginUserError, (state, error) => ({
     ...state,
-    // error
+    error,
     pending: false
   })),
   on(getUserSuccess, (state, user) => ({

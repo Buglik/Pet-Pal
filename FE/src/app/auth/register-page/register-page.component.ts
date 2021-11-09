@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {RegisterRequest} from "../../../api/src";
 import {RegisterService} from "../services/register.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-register-page',
@@ -9,10 +10,12 @@ import {RegisterService} from "../services/register.service";
 })
 export class RegisterPageComponent {
 
+  pending$: Observable<boolean> = this.registerService.pending$;
+  error$: Observable<any> = this.registerService.error$;
+
   constructor(private registerService: RegisterService) {
   }
 
-  pending$ = this.registerService.pending$;
 
   registerUser(registerData: RegisterRequest) {
     this.registerService.registerUser(registerData);

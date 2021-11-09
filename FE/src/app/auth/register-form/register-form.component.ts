@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {RegisterRequest} from "../../../api/src";
-import {FormBuilder, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, Validators} from "@angular/forms";
+import Validation from "../../utils/Validation";
 
 @Component({
   selector: 'app-register-form',
@@ -9,41 +10,46 @@ import {FormBuilder, Validators} from "@angular/forms";
 })
 export class RegisterFormComponent {
   @Output() formSubmitted: EventEmitter<RegisterRequest> = new EventEmitter<RegisterRequest>();
+  @Input() pending: boolean = false;
+  @Input() errors: any = null;
+
+  hidePassword: boolean = true;
+  hideConfirmPassword: boolean = true;
 
   form = this.fb.group({
-    username: ['', [Validators.required]],
-    first_name: ['', [Validators.required]],
-    last_name: ['', [Validators.required]],
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]],
+    username: ['', [Validators.required, Validators.maxLength(200)]],
+    first_name: ['', [Validators.required, Validators.maxLength(200)]],
+    last_name: ['', [Validators.required, Validators.maxLength(200)]],
+    email: ['', [Validators.required, Validators.email, Validators.maxLength(255)]],
+    password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(255)]],
     confirmPassword: ['', [Validators.required]]
-  })
+  }, {validators: [Validation.match('password', 'confirmPassword')]})
 
   constructor(private readonly fb: FormBuilder) {
   }
 
-  get email() {
-    return this.form.get('email');
+  get email(): AbstractControl {
+    return this.form.controls['email'];
   }
 
-  get password() {
-    return this.form.get('password');
+  get password(): AbstractControl {
+    return this.form.controls['password'];
   }
 
-  get confirmPassword() {
-    return this.form.get('confirmPassword');
+  get confirmPassword(): AbstractControl {
+    return this.form.controls['confirmPassword'];
   }
 
-  get username() {
-    return this.form.get('username');
+  get username(): AbstractControl {
+    return this.form.controls['username'];
   }
 
-  get firstName() {
-    return this.form.get('first_name');
+  get firstName(): AbstractControl {
+    return this.form.controls['first_name'];
   }
 
-  get lastName() {
-    return this.form.get('last_name');
+  get lastName(): AbstractControl {
+    return this.form.controls['last_name'];
   }
 
   formToJson(): RegisterRequest {

@@ -14,7 +14,11 @@ export class RegisterService {
   private pendingSub: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   pending$: Observable<boolean> = this.pendingSub.asObservable();
 
+  private errorSub: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  error$: Observable<any> = this.errorSub.asObservable();
+
   registerUser(registerData: RegisterRequest) {
+    this.errorSub.next(null);
     this.pendingSub.next(true);
     this.authService.authRegisterCreate(registerData).pipe(
       map(_ => {
@@ -23,6 +27,7 @@ export class RegisterService {
       }),
       catchError(error => {
         console.log(error.error)
+        this.errorSub.next(error.error);
         this.pendingSub.next(false);
         return of()
       }),
@@ -30,7 +35,7 @@ export class RegisterService {
     ).subscribe()
   }
 
-  verifyEmail(token: string) : Observable<boolean> {
+  verifyEmail(token: string): Observable<boolean> {
     console.log(token);
     this.pendingSub.next(true);
     return this.authService.authVerifyRetrieve(token).pipe(

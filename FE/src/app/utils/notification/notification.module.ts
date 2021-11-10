@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {NotificationComponent} from "./notification.component";
-import {NotificationsService} from "./notification.service";
+import {NotificationService} from "./notification.service";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
@@ -12,7 +12,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatSnackBarModule,
   ],
   exports: [NotificationComponent],
-  providers: [NotificationsService]
+  providers: [NotificationService]
 })
 export class NotificationModule {
 }

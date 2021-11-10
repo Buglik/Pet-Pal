@@ -5,6 +5,7 @@ import {catchError, map, take} from "rxjs/operators";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../state/app.state";
 import {getUser} from "../../state/user/user.action";
+import {NotificationService} from "../../utils/notification/notification.service";
 
 @Injectable()
 export class ProfileManagementService {
@@ -16,6 +17,7 @@ export class ProfileManagementService {
   picPending$: Observable<boolean> = this.picPendingSub.asObservable();
 
   constructor(private readonly profileController: ProfileService,
+              private readonly notificationService: NotificationService,
               private readonly store: Store<AppState>) {
   }
 
@@ -23,13 +25,14 @@ export class ProfileManagementService {
     this.pendingSub.next(true);
     this.profileController.profilemeUpdate(data).pipe(
       map(_ => {
-        console.log('UPDATE SUCCESS');
+        this.notificationService.success('Profile has been updated successfully');
         this.store.dispatch(getUser());
         this.pendingSub.next(false);
       }),
       catchError(error => {
         console.log(error.error)
         // TODO: error handling
+        this.notificationService.success('Profile update failed');
         this.pendingSub.next(false);
         return of()
       }),
@@ -42,13 +45,14 @@ export class ProfileManagementService {
     this.profileController.profileUpdateAvatarUpdate(pic).pipe(
       map(_ => {
         console.log('pic update success');
-        // TODO: add notification
+        this.notificationService.success('Profile picture has been updated successfully');
         this.store.dispatch(getUser());
         this.picPendingSub.next(false);
       }),
       catchError(error => {
         console.log(error.error)
         // TODO: error handling
+        this.notificationService.error('Profile picture update failed');
         this.picPendingSub.next(false);
         return of()
       }),

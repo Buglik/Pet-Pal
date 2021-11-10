@@ -8,12 +8,14 @@ import {catchError, map, mergeMap} from "rxjs/operators";
 import {getUserSuccess} from "../state/user/user.action";
 import {ProfileService} from "../../api/src";
 import {NavigationService} from "../navigation.service";
+import {NotificationService} from "../utils/notification/notification.service";
 
 @Injectable()
 export class IsLoggedGuard implements CanActivate {
 
   constructor(private store: Store<AppState>,
               private readonly navigateService: NavigationService,
+              private readonly notificationService: NotificationService,
               private readonly profileService: ProfileService) {
   }
 
@@ -37,6 +39,7 @@ export class IsLoggedGuard implements CanActivate {
       map(result => {
         if (!result) {
           this.navigateService.toMainPage();
+          this.notificationService.error('Access denied. Please log in to enter this page');
           return false;
         } else {
           return true;

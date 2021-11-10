@@ -8,6 +8,7 @@ import {ProfileService} from "../../api/src";
 import {catchError, map, mergeMap} from "rxjs/operators";
 import {getUserSuccess} from "../state/user/user.action";
 import {selectUser} from "../state/user/user.selectors";
+import {NotificationService} from "../utils/notification/notification.service";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ import {selectUser} from "../state/user/user.selectors";
 export class IsNotLoggedGuard implements CanActivate {
   constructor(private store: Store<AppState>,
               private readonly navigateService: NavigationService,
+              private readonly notificationService: NotificationService,
               private readonly profileService: ProfileService) {
   }
 
@@ -39,7 +41,7 @@ export class IsNotLoggedGuard implements CanActivate {
         if (!result) {
           return true;
         } else {
-          // TODO: add notification
+          this.notificationService.error('Access denied. You cannot enter this page while logged in');
           this.navigateService.toMainPage();
           return false;
         }

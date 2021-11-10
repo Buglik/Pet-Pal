@@ -1,0 +1,43 @@
+@use './ui';
+
+@mixin notificationStyle() {
+  .notification {
+    color: ui.$main-text !important;
+
+    span {
+      //font-family: fonts.$main-font !important;
+    }
+
+    &-error {
+      background-color: ui.$snackBar-error !important;
+
+      .icon {
+        background: url("../assets/icons/error_outline_black_24dp.svg");
+      }
+    }
+
+    &-success {
+      background-color: ui.$snackBar-success !important;
+
+      .icon {
+        background: url("../assets/icons/check_circle_black_24dp.svg");
+      }
+    }
+
+    &-info {
+      background-color: ui.$snackBar-info !important;
+
+      .icon {
+        background: url("../assets/icons/info_black_24dp.svg");
+      }
+    }
+
+    &-warning {
+      background-color: ui.$snackBar-warning !important;
+
+      .icon {
+        background: url("../assets/icons/report_problem_black_24dp.svg");
+      }
+    }
+  }
+}

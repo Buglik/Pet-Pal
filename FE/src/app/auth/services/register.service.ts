@@ -2,13 +2,17 @@ import {Injectable} from "@angular/core";
 import {BehaviorSubject, Observable, of} from "rxjs";
 import {catchError, map, take} from "rxjs/operators";
 import {AuthService, RegisterRequest} from "../../../api/src";
+import {NotificationService} from "../../utils/notification/notification.service";
+import {NavigationService} from "../../navigation.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+              private readonly notificationService: NotificationService,
+              private readonly navigationService: NavigationService) {
   }
 
   private pendingSub: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -22,8 +26,9 @@ export class RegisterService {
     this.pendingSub.next(true);
     this.authService.authRegisterCreate(registerData).pipe(
       map(_ => {
-        console.log('HIHI SUCCESS')
+        this.notificationService.success('Registration completed successfully! You can now login using provided credentials')
         this.pendingSub.next(false);
+        this.navigationService.toLoginPage();
       }),
       catchError(error => {
         console.log(error.error)
@@ -40,12 +45,11 @@ export class RegisterService {
     this.pendingSub.next(true);
     return this.authService.authVerifyRetrieve(token).pipe(
       map(_ => {
-        console.log('verification success')
         this.pendingSub.next(false);
         return true
       }),
       catchError(error => {
-        console.log(error)
+        this.notificationService.error('Email verification failed')
         this.pendingSub.next(false);
         return of(false)
       }),

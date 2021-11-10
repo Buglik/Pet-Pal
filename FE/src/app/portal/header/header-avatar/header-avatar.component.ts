@@ -8,7 +8,6 @@ import {Component, Input} from '@angular/core';
 export class HeaderAvatarComponent {
 
   @Input() imgSrc?: string;
-  //TODO: implement user avatar
   @Input() initials?: string;
 
 }

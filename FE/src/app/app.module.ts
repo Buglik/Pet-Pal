@@ -12,6 +12,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {JwtInterceptor} from "./auth/jwt.interceptor";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {IsLoggedGuard} from "./guards/is-logged.guard";
+import {UtilsModule} from "./utils/utils.module";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {IsLoggedGuard} from "./guards/is-logged.guard";
     StoreDevtoolsModule.instrument({
       maxAge: 25,
     }),
-    EffectsModule.forRoot([UserEffects])
+    EffectsModule.forRoot([UserEffects]),
+    UtilsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

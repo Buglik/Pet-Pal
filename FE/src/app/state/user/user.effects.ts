@@ -18,6 +18,7 @@ import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {Router} from "@angular/router";
 import {TokenService} from "../../auth/services/token.service";
 import {NavigationService} from "../../navigation.service";
+import {NotificationService} from "../../utils/notification/notification.service";
 
 @Injectable()
 export class UserEffects {
@@ -39,6 +40,7 @@ export class UserEffects {
       tap((tokens) => {
         this.navigation.toMainPage();
         this.tokenService.saveTokens(tokens.access, tokens.refresh);
+        this.notificationService.success('You have been logged in successfully')
       }),
       map(_ => getUser())
     ))
@@ -58,7 +60,8 @@ export class UserEffects {
       ofType(logoutUserSuccess),
       tap(_ => {
         this.navigation.toMainPage();
-        this.tokenService.clear()
+        this.tokenService.clear();
+        this.notificationService.info('You have been logged out')
       })
     ), {dispatch: false})
 
@@ -86,7 +89,8 @@ export class UserEffects {
               private profileService: ProfileService,
               private readonly tokenService: TokenService,
               private router: Router,
-              private navigation: NavigationService
+              private navigation: NavigationService,
+              private readonly notificationService: NotificationService
   ) {
   }
 }

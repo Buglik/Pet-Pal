@@ -46,7 +46,6 @@ export class EmailVerificationPageComponent implements OnInit {
 
   private navigateToLoginPageError() {
     this.navigateToLoginPage();
-    //TODO: notification
   }
 
 }

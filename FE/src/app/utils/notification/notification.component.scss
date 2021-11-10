@@ -1,0 +1,29 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  span {
+    &.ok {
+      width: 24px;
+      height: 24px;
+      background: url("../../../assets/icons/close_black_24dp.svg") no-repeat center;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &.icon {
+      width: 24px;
+      min-width: 24px;
+      height: 24px;
+    }
+
+    &.message {
+      padding: 0 16px;
+      text-align: left;
+    }
+
+  }
+}

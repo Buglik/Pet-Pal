@@ -12,6 +12,7 @@ export class FormFieldErrorsComponent {
 
   getErrorMessage(): string {
     if (this.control) {
+      if (this.control.hasError('globalError')) return this.control.getError('globalError');
       if (this.control.hasError('serverError')) return this.control.getError('serverError');
       if (this.control.hasError('required')) return 'This field is required';
       if (this.control.hasError('minlength')) return 'This field is too short';

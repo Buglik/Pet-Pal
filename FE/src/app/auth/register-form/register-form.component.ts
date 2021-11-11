@@ -1,19 +1,15 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component} from '@angular/core';
 import {RegisterRequest} from "../../../api/src";
 import {AbstractControl, FormBuilder, Validators} from "@angular/forms";
 import Validation from "../../utils/Validation";
-import {Observable, of} from "rxjs";
-import {filter} from "rxjs/operators";
+import {FormDirective} from "../../utils/form.directive";
 
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.scss']
 })
-export class RegisterFormComponent implements OnInit {
-  @Output() formSubmitted: EventEmitter<RegisterRequest> = new EventEmitter<RegisterRequest>();
-  @Input() pending: boolean = false;
-  @Input() errors: Observable<any> = of(null);
+export class RegisterFormComponent extends FormDirective<RegisterRequest> {
 
   hidePassword: boolean = true;
   hideConfirmPassword: boolean = true;
@@ -44,19 +40,7 @@ export class RegisterFormComponent implements OnInit {
   }, {validators: [Validation.match('password', 'confirmPassword')]})
 
   constructor(private readonly fb: FormBuilder) {
-  }
-
-  ngOnInit() {
-    this.errors.pipe(filter(err => err)).subscribe(error => {
-      Object.keys(error).forEach(prop => {
-        const control = this.form.get(prop);
-        if (control) {
-          control.setErrors({
-            serverError: error[prop]
-          })
-        }
-      })
-    })
+    super();
   }
 
   get email(): AbstractControl {
@@ -88,7 +72,4 @@ export class RegisterFormComponent implements OnInit {
     return registerData
   }
 
-  onSubmit(): void {
-    this.formSubmitted.emit(this.formToJson());
-  }
 }

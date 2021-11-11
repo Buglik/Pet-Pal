@@ -8,7 +8,7 @@ import {AbstractControl} from "@angular/forms";
 })
 export class FormFieldErrorsComponent {
 
-  @Input() control: AbstractControl;
+  @Input() control: AbstractControl | null;
 
   getErrorMessage(): string {
     if (this.control) {

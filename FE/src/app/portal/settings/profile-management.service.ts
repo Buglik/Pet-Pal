@@ -16,6 +16,9 @@ export class ProfileManagementService {
   private picPendingSub: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   picPending$: Observable<boolean> = this.picPendingSub.asObservable();
 
+  private errorSub: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  error$: Observable<any> = this.errorSub.asObservable();
+
   constructor(private readonly profileController: ProfileService,
               private readonly notificationService: NotificationService,
               private readonly store: Store<AppState>) {
@@ -23,6 +26,7 @@ export class ProfileManagementService {
 
   updateProfile(data: ProfileRequest) {
     this.pendingSub.next(true);
+    this.errorSub.next(null);
     this.profileController.profilemeUpdate(data).pipe(
       map(_ => {
         this.notificationService.success('Profile has been updated successfully');
@@ -30,9 +34,8 @@ export class ProfileManagementService {
         this.pendingSub.next(false);
       }),
       catchError(error => {
-        console.log(error.error)
-        // TODO: error handling
-        this.notificationService.success('Profile update failed');
+        this.errorSub.next(error.error);
+        this.notificationService.error('Profile update failed');
         this.pendingSub.next(false);
         return of()
       }),
@@ -42,6 +45,7 @@ export class ProfileManagementService {
 
   updateProfilePic(pic: Blob) {
     this.picPendingSub.next(true);
+    this.errorSub.next(null);
     this.profileController.profileUpdateAvatarUpdate(pic).pipe(
       map(_ => {
         console.log('pic update success');
@@ -51,7 +55,7 @@ export class ProfileManagementService {
       }),
       catchError(error => {
         console.log(error.error)
-        // TODO: error handling
+        this.errorSub.next(error.error);
         this.notificationService.error('Profile picture update failed');
         this.picPendingSub.next(false);
         return of()

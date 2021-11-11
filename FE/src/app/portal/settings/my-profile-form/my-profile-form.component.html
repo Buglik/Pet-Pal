@@ -1,20 +1,21 @@
 <form [formGroup]="form" (submit)="onSubmit()" class="example-form">
-  <mat-form-field class="full-width" appearance="outline">
-    <mat-label>First name</mat-label>
-    <input formControlName="first_name" matInput>
-    <mat-error>
-      <app-form-field-errors [control]="firstName"></app-form-field-errors>
-    </mat-error>
-  </mat-form-field>
+  <div formGroupName="user">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>First name</mat-label>
+      <input formControlName="first_name" matInput>
+      <mat-error>
+        <app-form-field-errors [control]="firstName"></app-form-field-errors>
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field class="full-width" appearance="outline">
-    <mat-label>Last name</mat-label>
-    <input formControlName="last_name" matInput>
-    <mat-error>
-      <app-form-field-errors [control]="lastName"></app-form-field-errors>
-    </mat-error>
-  </mat-form-field>
-
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Last name</mat-label>
+      <input formControlName="last_name" matInput>
+      <mat-error>
+        <app-form-field-errors [control]="lastName"></app-form-field-errors>
+      </mat-error>
+    </mat-form-field>
+  </div>
   <!--  DISPLAY ONLY -->
   <mat-form-field class=" full-width" appearance="outline">
     <mat-label>Username</mat-label>

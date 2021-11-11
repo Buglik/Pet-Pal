@@ -3,7 +3,8 @@
   <app-my-profile-form
     [profile]="user$ | async"
     [pending]="(pending$ | async)!"
-    (submitted)="updateProfile($event)"></app-my-profile-form>
+    (formSubmitted)="updateProfile($event)"
+    [errors]="error$"></app-my-profile-form>
   <app-my-profile-avatar
     [profile]="user$ | async"
     [pending]="(avatarPending$ | async)!"

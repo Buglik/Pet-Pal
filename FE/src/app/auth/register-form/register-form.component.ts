@@ -1,31 +1,62 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {RegisterRequest} from "../../../api/src";
 import {AbstractControl, FormBuilder, Validators} from "@angular/forms";
 import Validation from "../../utils/Validation";
+import {Observable, of} from "rxjs";
+import {filter} from "rxjs/operators";
 
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.scss']
 })
-export class RegisterFormComponent {
+export class RegisterFormComponent implements OnInit {
   @Output() formSubmitted: EventEmitter<RegisterRequest> = new EventEmitter<RegisterRequest>();
   @Input() pending: boolean = false;
-  @Input() errors: any = null;
+  @Input() errors: Observable<any> = of(null);
 
   hidePassword: boolean = true;
   hideConfirmPassword: boolean = true;
 
   form = this.fb.group({
-    username: ['', [Validators.required, Validators.maxLength(200)]],
-    first_name: ['', [Validators.required, Validators.maxLength(200)]],
-    last_name: ['', [Validators.required, Validators.maxLength(200)]],
-    email: ['', [Validators.required, Validators.email, Validators.maxLength(255)]],
-    password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(255)]],
+    username: ['', [
+      Validators.required,
+      Validators.maxLength(200)]
+    ],
+    first_name: ['', [
+      Validators.required,
+      Validators.maxLength(200)]
+    ],
+    last_name: ['', [
+      Validators.required,
+      Validators.maxLength(200)]
+    ],
+    email: ['', [
+      Validators.required,
+      Validators.email,
+      Validators.maxLength(255)]],
+    password: ['', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.maxLength(255)]
+    ],
     confirmPassword: ['', [Validators.required]]
   }, {validators: [Validation.match('password', 'confirmPassword')]})
 
   constructor(private readonly fb: FormBuilder) {
+  }
+
+  ngOnInit() {
+    this.errors.pipe(filter(err => err)).subscribe(error => {
+      Object.keys(error).forEach(prop => {
+        const control = this.form.get(prop);
+        if (control) {
+          control.setErrors({
+            serverError: error[prop]
+          })
+        }
+      })
+    })
   }
 
   get email(): AbstractControl {

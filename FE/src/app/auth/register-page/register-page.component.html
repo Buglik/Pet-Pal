@@ -1,7 +1,7 @@
 <div class="content-container">
   <app-register-form
     [pending]="(pending$ | async)!"
-    [errors]="error$ | async"
+    [errors]="error$"
     (formSubmitted)="registerUser($event)"></app-register-form>
 </div>
 <div class="photo">

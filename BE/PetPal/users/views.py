@@ -52,11 +52,11 @@ class VerifyEmail(views.APIView):
                 user.save()
                 return Response({'status': 'Successfully activated'}, status=status.HTTP_200_OK)
             else:
-                return Response({'error': 'User already verified'}, status=status.HTTP_400_BAD_REQUEST)
+                return Response({'globalError': 'User already verified'}, status=status.HTTP_400_BAD_REQUEST)
         except jwt.ExpiredSignatureError as identifier:
-            return Response({'error': 'Activation token has expired'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'globalError': 'Activation token has expired'}, status=status.HTTP_400_BAD_REQUEST)
         except jwt.exceptions.DecodeError as identifier:
-            return Response({'error': 'Activation token invalid'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'globalError': 'Activation token invalid'}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class LoginView(views.APIView):
@@ -72,12 +72,12 @@ class LoginView(views.APIView):
             password = request.data['password']
             user = User.objects.get(email=email)
         except:
-            raise AuthenticationFailed('Invalid credentials')
+            raise AuthenticationFailed({'globalError': 'Invalid credentials'})
 
         if user is None:
-            raise AuthenticationFailed('Invalid credentials')
+            raise AuthenticationFailed({'globalError': 'Invalid credentials'})
         if not user.check_password(password):
-            raise AuthenticationFailed('Invalid credentials')
+            raise AuthenticationFailed({'globalError': 'Invalid credentials'})
 
         token = RefreshToken.for_user(user)
 
@@ -120,7 +120,6 @@ class LogoutView(views.APIView):
             RefreshToken(token).blacklist()
         except:
             raise Exception('Blacklisting failed')
-
 
         token = request.headers['Authorization']
         token = "".join(token.split()[1])

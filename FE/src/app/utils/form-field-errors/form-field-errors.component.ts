@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {AbstractControl} from "@angular/forms";
+import FIELD_VALIDATION_MESSAGES from "./field-validation-messages";
 
 @Component({
   selector: 'app-form-field-errors',
@@ -8,18 +9,17 @@ import {AbstractControl} from "@angular/forms";
 })
 export class FormFieldErrorsComponent {
 
-  @Input() control: AbstractControl;
-  @Input() backendErrors ?: any;
+  @Input() control: AbstractControl | null;
 
   getErrorMessage(): string {
-    if (this.backendErrors) {
-      //TODO: handle backend errors
-    } else if (this.control) {
-      if (this.control.hasError('required')) return 'This field is required';
-      if (this.control.hasError('minlength')) return 'This field is too short';
-      if (this.control.hasError('maxlength')) return 'This field is too long';
-      if (this.control.hasError('email')) return 'This field has to be an email';
-      if (this.control.hasError('matching')) return 'This field does not match';
+    if (this.control) {
+      if (this.control.hasError('globalError')) return this.control.getError('globalError');
+      if (this.control.hasError('serverError')) return this.control.getError('serverError');
+      if (this.control.hasError('required')) return FIELD_VALIDATION_MESSAGES.required;
+      if (this.control.hasError('minlength')) return FIELD_VALIDATION_MESSAGES.minlength;
+      if (this.control.hasError('maxlength')) return FIELD_VALIDATION_MESSAGES.maxlength;
+      if (this.control.hasError('email')) return FIELD_VALIDATION_MESSAGES.email;
+      if (this.control.hasError('matching')) return FIELD_VALIDATION_MESSAGES.matching;
     }
     return '';
   }

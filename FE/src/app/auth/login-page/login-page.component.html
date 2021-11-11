@@ -1,5 +1,8 @@
 <div class="content-container">
-  <app-login-form (formSubmitted)="loginUser($event)"></app-login-form>
+  <app-login-form
+    [pending]="(loginInProgress$ | async)!"
+    [errors]="error$"
+    (formSubmitted)="loginUser($event)"></app-login-form>
 </div>
 <div class="photo">
 </div>

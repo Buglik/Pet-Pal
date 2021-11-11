@@ -5,10 +5,11 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {ButtonComponent} from './button/button.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {NotificationModule} from "./notification/notification.module";
+import {FormDirective} from './form.directive';
 
 
 @NgModule({
-  declarations: [FormFieldErrorsComponent, ButtonComponent],
+  declarations: [FormFieldErrorsComponent, ButtonComponent, FormDirective],
   exports: [
     FormFieldErrorsComponent,
     ButtonComponent,

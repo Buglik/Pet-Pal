@@ -17,6 +17,7 @@ export class MyProfileComponent implements OnDestroy {
 
   avatarPending$: Observable<boolean> = this.profileManagementService.picPending$;
   pending$: Observable<boolean> = this.profileManagementService.pending$;
+  error$: Observable<any> = this.profileManagementService.error$
 
   user$: Observable<MeResponse | null> = this.store.select(selectUser);
 

@@ -1,25 +1,27 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component} from '@angular/core';
 import {AbstractControl, FormBuilder, Validators} from "@angular/forms";
 import {LoginRequest} from "../../../api/src";
+import {FormDirective} from "../../utils/form.directive";
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss']
 })
-export class LoginFormComponent {
-
-  @Output() formSubmitted = new EventEmitter<LoginRequest>();
-  @Input() pending: boolean = false;
+export class LoginFormComponent extends FormDirective<LoginRequest> {
 
   hidePassword: boolean = true;
 
   form = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
+    email: ['', [
+      Validators.required,
+      Validators.email
+    ]],
     password: ['', [Validators.required]]
   })
 
   constructor(private readonly fb: FormBuilder) {
+    super();
   }
 
   get email(): AbstractControl {
@@ -30,12 +32,12 @@ export class LoginFormComponent {
     return this.form.controls['password'];
   }
 
-  formToJson(): LoginRequest {
-    return this.form.value;
+  get formControl(): AbstractControl {
+    return this.form;
   }
 
-  onSubmit(): void {
-    this.formSubmitted.emit(this.formToJson());
+  formToJson(): LoginRequest {
+    return this.form.value;
   }
 
 }

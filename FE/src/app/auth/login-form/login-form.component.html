@@ -26,6 +26,10 @@
     </mat-error>
   </mat-form-field>
 
+  <mat-error>
+    <app-form-field-errors [control]="formControl"></app-form-field-errors>
+  </mat-error>
+
   <button type="submit"
           [disabled]="form.invalid || pending"
           [pending]="pending"

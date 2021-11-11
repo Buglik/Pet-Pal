@@ -10,7 +10,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 16px;
+  padding: 0 8px 16px 8px;
+  text-align: center;
+
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
   button {
     margin-top: 16px;
@@ -27,16 +33,27 @@
   }
 
   .full-name {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     font-size: 20px;
   }
 
   .username {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     font-size: 16px;
   }
 
   .email {
     color: ui.$header-avatar-menu-email;
     font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 }
 

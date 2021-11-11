@@ -13,7 +13,10 @@ export class LoginFormComponent extends FormDirective<LoginRequest> {
   hidePassword: boolean = true;
 
   form = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
+    email: ['', [
+      Validators.required,
+      Validators.email
+    ]],
     password: ['', [Validators.required]]
   })
 
@@ -35,10 +38,6 @@ export class LoginFormComponent extends FormDirective<LoginRequest> {
 
   formToJson(): LoginRequest {
     return this.form.value;
-  }
-
-  showMeForm() {
-    console.log(this.form)
   }
 
 }

@@ -48,13 +48,11 @@ export class ProfileManagementService {
     this.errorSub.next(null);
     this.profileController.profileUpdateAvatarUpdate(pic).pipe(
       map(_ => {
-        console.log('pic update success');
         this.notificationService.success('Profile picture has been updated successfully');
         this.store.dispatch(getUser());
         this.picPendingSub.next(false);
       }),
       catchError(error => {
-        console.log(error.error)
         this.errorSub.next(error.error);
         this.notificationService.error('Profile picture update failed');
         this.picPendingSub.next(false);

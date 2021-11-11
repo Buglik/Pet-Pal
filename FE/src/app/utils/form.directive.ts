@@ -20,22 +20,36 @@ export class FormDirective<T> implements OnInit, OnDestroy {
     this.subSink.add(
       this.errors.pipe(
         filter(err => err))
-        .subscribe(error => {
-        Object.keys(error).forEach(prop => {
-          if (prop == 'globalError') {
-            this.form.setErrors({
-              serverError: error[prop]
-            })
-          } else {
-            const control = this.form.get(prop);
-            if (control) {
-              control.setErrors({
-                serverError: error[prop]
-              })
-            }
-          }
+        .subscribe(error => this.errorSetter(error)))
+  }
+
+  private errorSetter(error: any) {
+    Object.keys(error).forEach(prop => {
+      if (prop == 'globalError') {
+        this.form.setErrors({
+          serverError: error[prop]
         })
-      }))
+      } else {
+        this.controlDigger(error);
+      }
+    })
+  }
+
+  private controlDigger(error: any, path: string[] = []) {
+    Object.keys(error).forEach(prop => {
+      if (error[prop] instanceof Object) {
+        path.push(prop)
+        this.controlDigger(error[prop], path)
+      } else {
+        const control = this.form.get(path.join('.'));
+        if (control) {
+          control.setErrors({
+            serverError: error
+          })
+        }
+      }
+      path.pop();
+    })
   }
 
   formToJson(): T {
@@ -47,5 +61,6 @@ export class FormDirective<T> implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.subSink.unsubscribe();
   }
 }

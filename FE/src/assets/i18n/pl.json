@@ -1,5 +1,85 @@
 {
-  "testMessage": "Hey! To jest testowy tekst",
-  "error.credentials.invalid": "[MISSING TRANSLATION]"
-
+  "error": {
+    "credentials": {
+      "invalid": "[PL] Provided credentials are invalid",
+      "not_provided": "[PL] Credentials were not provided"
+    },
+    "field": {
+      "required": "[PL] This field is required",
+      "min_length": "[PL] This field is too short",
+      "max_length": "[PL] This field is too long",
+      "email_format": "[PL] This field has to be a valid email",
+      "not_matching": "[PL] This field does not match"
+    }
+  },
+  "menu_link": {
+    "pet_sitter": "[PL] Find a pet sitter",
+    "pet_owner": "[PL] Find a pet to sit"
+  },
+  "button": {
+    "register": "[PL] Register",
+    "login": "[PL] Login",
+    "back_to_login": "[PL] Go to login page",
+    "redirect_to_login": "[PL] Go to login page",
+    "back": "[PL] Go back",
+    "create_account": "[PL] Create an account",
+    "ok": "[PL] Ok",
+    "manage_account": "[PL] Manage account",
+    "logout": "[PL] Logout",
+    "edit_photo": "[PL] Edit photo",
+    "update_profile": "[PL] Update profile",
+    "go_to_own_profile": "[PL] Go to your profile"
+  },
+  "label": {
+    "login": "[PL] Login",
+    "password": "[PL] Password",
+    "confirm_password": "[PL] Confirm password",
+    "username": "[PL] Username",
+    "first_name": "[PL] First name",
+    "last_name": "[PL] Last name",
+    "email": "[PL] Email",
+    "login_no_account": "[PL] Don't have an account?",
+    "bio": "[PL] Bio",
+    "settings": {
+      "info": "[PL] Your account settings"
+    }
+  },
+  "form": {
+    "register": {
+      "title": "[PL] Register form",
+      "description": "[PL] Please fill in required fields to create your account"
+    },
+    "email_verification": {
+      "title": "[PL] Email verification",
+      "description": "[PL] Congratulations! Your email has been verified. You will be redirected to login page in {{val}} seconds."
+    },
+    "my_profile": {
+      "title": "[PL] Profile"
+    }
+  },
+  "notification": {
+    "email_verification": {
+      "fail": "[PL] Email verification failed",
+      "success": "[PL] Registration completed successfully! You can now login using provided credentials"
+    },
+    "access": {
+      "not_logged_in": "[PL] Access denied. Please log in to enter this page",
+      "logged_in": "[PL] Access denied. You cannot enter this page while logged in"
+    },
+    "profile_update": {
+      "fail": "[PL] Profile update failed",
+      "success": "[PL] Profile has been updated successfully"
+    },
+    "profile_pic": {
+      "fail": "[PL] Profile picture update failed",
+      "success": "[PL] Profile picture has been updated successfully"
+    },
+    "login": {
+      "fail": "[PL] Profile picture update failed",
+      "success": "[PL] You have been logged in successfully"
+    },
+    "logout": {
+      "success": "[PL] You have been logged out"
+    }
+  }
 }

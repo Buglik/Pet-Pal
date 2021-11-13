@@ -31,7 +31,6 @@ export class UserEffects {
           catchError(error => of(loginUserError(error.error)))
         )
       ),
-      tap(_ => console.log('Logging...')),
     ))
 
   private loginUserSuccess$: Observable<Action> = createEffect(() =>
@@ -40,7 +39,7 @@ export class UserEffects {
       tap((tokens) => {
         this.navigation.toMainPage();
         this.tokenService.saveTokens(tokens.access, tokens.refresh);
-        this.notificationService.success('You have been logged in successfully')
+        this.notificationService.success('notification.login.success')
       }),
       map(_ => getUser())
     ))
@@ -61,7 +60,7 @@ export class UserEffects {
       tap(_ => {
         this.navigation.toMainPage();
         this.tokenService.clear();
-        this.notificationService.info('You have been logged out')
+        this.notificationService.info('notification.logout.success')
       })
     ), {dispatch: false})
 
@@ -80,7 +79,6 @@ export class UserEffects {
           })
         )
       ),
-      tap(_ => console.log("Getting user data"))
     ))
 
 

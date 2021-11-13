@@ -1,0 +1,85 @@
+{
+  "error": {
+    "credentials": {
+      "invalid": "Provided credentials are invalid",
+      "not_provided": "Credentials were not provided"
+    },
+    "field": {
+      "required": "This field is required",
+      "min_length": "This field is too short",
+      "max_length": "This field is too long",
+      "email_format": "This field has to be a valid email",
+      "not_matching": "This field does not match"
+    }
+  },
+  "menu_link": {
+    "pet_sitter": "Find a pet sitter",
+    "pet_owner": "Find a pet to sit"
+  },
+  "button": {
+    "register": "Register",
+    "login": "Login",
+    "back_to_login": "Go to login page",
+    "redirect_to_login": "Go to login page",
+    "back": "Go back",
+    "create_account": "Create an account",
+    "ok": "Ok",
+    "manage_account": "Manage account",
+    "logout": "Logout",
+    "edit_photo": "Edit photo",
+    "update_profile": "Update profile",
+    "go_to_own_profile": "Go to your profile"
+  },
+  "label": {
+    "login": "Login",
+    "password": "Password",
+    "confirm_password": "Confirm password",
+    "username": "Username",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "email": "Email",
+    "login_no_account": "Don't have an account?",
+    "bio": "Bio",
+    "settings": {
+      "info": "Your account settings"
+    }
+  },
+  "form": {
+    "register": {
+      "title": "Register form",
+      "description": "Please fill in required fields to create your account"
+    },
+    "email_verification": {
+      "title": "Email verification",
+      "description": "Congratulations! Your email has been verified. You will be redirected to login page in {{val}} seconds."
+    },
+    "my_profile": {
+      "title": "Profile"
+    }
+  },
+  "notification": {
+    "email_verification": {
+      "fail": "Email verification failed",
+      "success": "Registration completed successfully! You can now login using provided credentials"
+    },
+    "access": {
+      "not_logged_in": "Access denied. Please log in to enter this page",
+      "logged_in": "Access denied. You cannot enter this page while logged in"
+    },
+    "profile_update": {
+      "fail": "Profile update failed",
+      "success": "Profile has been updated successfully"
+    },
+    "profile_pic": {
+      "fail": "Profile picture update failed",
+      "success": "Profile picture has been updated successfully"
+    },
+    "login": {
+      "fail": "Profile picture update failed",
+      "success": "You have been logged in successfully"
+    },
+    "logout": {
+      "success": "You have been logged out"
+    }
+  }
+}

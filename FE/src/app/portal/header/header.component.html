@@ -3,9 +3,10 @@
   <app-header-links></app-header-links>
 </div>
 <div class="right-part">
+  <app-language-picker></app-language-picker>
   <button petpal-button tertiary call-to-action
           routerLink="/auth/login"
-          *ngIf="!user; else loggedBlock">Login</button>
+          *ngIf="!user; else loggedBlock">{{'button.login' | translate}}</button>
   <ng-template #loggedBlock>
     <app-header-avatar-menu
       [user]="user?.user"

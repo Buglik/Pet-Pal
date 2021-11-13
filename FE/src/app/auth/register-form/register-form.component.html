@@ -1,12 +1,12 @@
 <div class="form-title-container">
-  <h3 class="form-title">Register form</h3>
-  <h5 class="form-description">Please fill in required fields to create your account</h5>
+  <h3 class="form-title">{{"form.register.title" | translate}}</h3>
+  <h5 class="form-description">{{"form.register.description" | translate}}</h5>
 </div>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <!--  USERNAME-->
   <mat-form-field class="full-width" appearance="outline">
-    <mat-label>Username</mat-label>
+    <mat-label>{{"label.username" | translate}}</mat-label>
     <input formControlName="username" matInput autocomplete="off">
     <mat-error>
       <app-form-field-errors [control]="username"></app-form-field-errors>
@@ -15,7 +15,7 @@
 
   <!--  FIRST NAME-->
   <mat-form-field class="full-width" appearance="outline">
-    <mat-label>First name</mat-label>
+    <mat-label>{{"label.first_name" | translate}}</mat-label>
     <input formControlName="first_name" matInput autocomplete="off">
     <mat-error>
       <app-form-field-errors [control]="firstName"></app-form-field-errors>
@@ -24,7 +24,7 @@
 
   <!--  LAST NAME-->
   <mat-form-field class="full-width" appearance="outline">
-    <mat-label>Last name</mat-label>
+    <mat-label>{{"label.last_name" | translate}}</mat-label>
     <input formControlName="last_name" matInput autocomplete="off">
     <mat-error>
       <app-form-field-errors [control]="lastName"></app-form-field-errors>
@@ -33,7 +33,7 @@
 
   <!--  EMAIL-->
   <mat-form-field class="full-width" appearance="outline">
-    <mat-label>Email</mat-label>
+    <mat-label>{{"label.email" | translate}}</mat-label>
     <input formControlName="email" matInput autocomplete="off">
     <mat-error>
       <app-form-field-errors [control]="email"></app-form-field-errors>
@@ -42,7 +42,7 @@
 
   <!--  PASSWORD-->
   <mat-form-field class="full-width" appearance="outline">
-    <mat-label>Password</mat-label>
+    <mat-label>{{"label.password" | translate}}</mat-label>
     <input formControlName="password"
            matInput
            [type]="hidePassword ? 'password' : 'text'"
@@ -61,7 +61,7 @@
 
   <!--  CONFIRM PASSWORD-->
   <mat-form-field class="full-width" appearance="outline">
-    <mat-label>Confirm password</mat-label>
+    <mat-label>{{"label.confirm_password" | translate}}</mat-label>
     <input formControlName="confirmPassword"
            matInput
            [type]="hideConfirmPassword ? 'password' : 'text'"
@@ -80,10 +80,12 @@
   <button petpal-button primary
           [disabled]="form.invalid || pending"
           [pending]="pending">
-    Register
+    {{"button.register" | translate}}
   </button>
 </form>
 
 <div class="go-back-container">
-  <button routerLink="/auth/login" petpal-button tertiary-link>Go to login page</button>
+  <button routerLink="/auth/login" petpal-button tertiary-link>
+    {{"button.back_to_login" | translate}}
+  </button>
 </div>

@@ -6,21 +6,27 @@ import {ButtonComponent} from './button/button.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {NotificationModule} from "./notification/notification.module";
 import {FormDirective} from './form.directive';
+import {LanguagePickerComponent} from './language-picker/language-picker.component';
+import {TranslateModule} from "@ngx-translate/core";
+import {NgxFlagPickerModule} from "ngx-flag-picker";
 
 
 @NgModule({
-  declarations: [FormFieldErrorsComponent, ButtonComponent, FormDirective],
+  declarations: [FormFieldErrorsComponent, ButtonComponent, FormDirective, LanguagePickerComponent],
   exports: [
     FormFieldErrorsComponent,
     ButtonComponent,
     NotificationModule,
+    LanguagePickerComponent,
   ],
-  imports: [
-    CommonModule,
-    MatFormFieldModule,
-    MatProgressSpinnerModule,
-    NotificationModule,
-  ]
+    imports: [
+        CommonModule,
+        MatFormFieldModule,
+        MatProgressSpinnerModule,
+        NotificationModule,
+        TranslateModule,
+        NgxFlagPickerModule,
+    ]
 })
 export class UtilsModule {
 }

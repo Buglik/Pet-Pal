@@ -10,11 +10,11 @@ export class HeaderLinksComponent {
 
   links: Link[] = [
     {
-      label: 'Find a pet sitter',
+      label: 'menu_link.pet_sitter',
       value: '/pet-sitters'
     },
     {
-      label: 'Find a pet to sit',
+      label: 'menu_link.pet_owner',
       value: 'findOther'
     },
   ]

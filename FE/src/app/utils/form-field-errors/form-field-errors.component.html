@@ -1,1 +1,1 @@
-<ng-container>{{getErrorMessage()}}</ng-container>
+<ng-container *ngFor="let error of getErrorMessage()">{{error | translate}}</ng-container>

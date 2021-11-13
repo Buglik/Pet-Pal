@@ -24,6 +24,12 @@
       background-position-x: 100%;
     }
 
+    .lang {
+      position: absolute;
+      top: 16px;
+      right: calc(50% + 16px);
+    }
+
     &::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
       stroke: ui.$spinner-primary;
     }

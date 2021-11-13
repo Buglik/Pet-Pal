@@ -14,6 +14,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {EmailVerificationFormComponent} from './email-verification-form/email-verification-form.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import {EmailVerificationFormComponent} from './email-verification-form/email-ve
         MatInputModule,
         MatIconModule,
         MatButtonModule,
+        TranslateModule,
     ]
 })
 export class AuthModule {

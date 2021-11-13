@@ -72,12 +72,12 @@ class LoginView(views.APIView):
             password = request.data['password']
             user = User.objects.get(email=email)
         except:
-            raise AuthenticationFailed({'globalError': 'Invalid credentials'})
+            raise AuthenticationFailed({'globalError': ['error.credentials.not_provided']})
 
         if user is None:
-            raise AuthenticationFailed({'globalError': 'Invalid credentials'})
+            raise AuthenticationFailed({'globalError': ['error.credentials.invalid']})
         if not user.check_password(password):
-            raise AuthenticationFailed({'globalError': 'Invalid credentials'})
+            raise AuthenticationFailed({'globalError': ['error.credentials.invalid']})
 
         token = RefreshToken.for_user(user)
 
@@ -100,7 +100,7 @@ class UserView(views.APIView):
         token = request.headers['Authorization']
         token = "".join(token.split()[1])
         if not token:
-            raise AuthenticationFailed('Unauthenticated!')
+            raise AuthenticationFailed({'globalError': ['error.credentials.not_provided']})
 
         serializer = decode_access_token(token)
 
@@ -124,6 +124,6 @@ class LogoutView(views.APIView):
         token = request.headers['Authorization']
         token = "".join(token.split()[1])
         if not token:
-            raise AuthenticationFailed('Unauthenticated!')
+            raise AuthenticationFailed({'globalError': 'error.credentials.not_provided'})
 
         return Response(status=status.HTTP_204_NO_CONTENT)

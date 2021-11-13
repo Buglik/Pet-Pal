@@ -1,7 +1,7 @@
 <form [formGroup]="form" (submit)="onSubmit()" class="example-form">
   <div formGroupName="user">
     <mat-form-field class="full-width" appearance="outline">
-      <mat-label>First name</mat-label>
+      <mat-label>{{'label.first_name' | translate}}</mat-label>
       <input formControlName="first_name" matInput>
       <mat-error>
         <app-form-field-errors [control]="firstName"></app-form-field-errors>
@@ -9,7 +9,7 @@
     </mat-form-field>
 
     <mat-form-field class="full-width" appearance="outline">
-      <mat-label>Last name</mat-label>
+      <mat-label>{{'label.last_name' | translate}}</mat-label>
       <input formControlName="last_name" matInput>
       <mat-error>
         <app-form-field-errors [control]="lastName"></app-form-field-errors>
@@ -18,18 +18,18 @@
   </div>
   <!--  DISPLAY ONLY -->
   <mat-form-field class=" full-width" appearance="outline">
-    <mat-label>Username</mat-label>
+    <mat-label>{{'label.username' | translate}}</mat-label>
     <input [value]="profile?.user?.username" matInput disabled>
   </mat-form-field>
 
   <!--  DISPLAY ONLY -->
   <mat-form-field class=" full-width" appearance="outline">
-    <mat-label>Email</mat-label>
+    <mat-label>{{'label.email' | translate}}</mat-label>
     <input [value]="profile?.user?.email" matInput disabled>
   </mat-form-field>
 
   <mat-form-field class=" full-width" appearance="outline">
-    <mat-label>Bio</mat-label>
+    <mat-label>{{'label.bio' | translate}}</mat-label>
     <textarea #bioInput class="bio-field" matInput formControlName="bio"></textarea>
     <mat-error>
       <app-form-field-errors [control]="bio"></app-form-field-errors>
@@ -43,8 +43,6 @@
           class="submit-btn"
           [disabled]="!form.valid || pending"
           [pending]="pending">
-    <span>
-      Update profile
-    </span>
+      {{'button.update_profile' | translate}}
   </button>
 </form>

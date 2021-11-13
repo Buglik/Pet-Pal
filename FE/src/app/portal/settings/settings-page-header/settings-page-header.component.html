@@ -2,9 +2,9 @@
   <app-header-avatar [imgSrc]="user?.avatar" [initials]="user | initials"></app-header-avatar>
   <div class="text-container">
     <span class="full-name">{{user | fullName}}</span>
-    <span class="page-label">Your account settings</span>
+    <span class="page-label">{{'label.settings.info' | translate}}</span>
   </div>
 </div>
 <div class="right">
-  <button petpal-button secondary disabled>Go to your profile</button>
+  <button petpal-button secondary disabled>{{'button.go_to_own_profile' | translate}}</button>
 </div>

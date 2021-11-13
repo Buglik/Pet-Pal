@@ -1,7 +1,7 @@
 <i class="logo"></i>
 <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
   <mat-form-field class="full-width" appearance="outline">
-    <mat-label>Login</mat-label>
+    <mat-label>{{"label.login" | translate}}</mat-label>
     <input formControlName="email" matInput autocomplete="off">
     <mat-error>
       <app-form-field-errors [control]="email"></app-form-field-errors>
@@ -9,7 +9,7 @@
   </mat-form-field>
 
   <mat-form-field class="full-width" appearance="outline">
-    <mat-label>Password</mat-label>
+    <mat-label>{{"label.password" | translate}}</mat-label>
     <input formControlName="password"
            matInput
            [type]="hidePassword ? 'password' : 'text'"
@@ -33,10 +33,13 @@
   <button type="submit"
           [disabled]="form.invalid || pending"
           [pending]="pending"
-          petpal-button primary>Login
+          petpal-button primary>
+    {{"button.login" | translate}}
   </button>
 </form>
 <div class="sing-up-container">
-  <span>Don't have an account?</span>
-  <button routerLink="/auth/register" petpal-button tertiary-link>Create one</button>
+  <span>{{"label.login_no_account" | translate}}</span>
+  <button routerLink="/auth/register" petpal-button tertiary-link>
+    {{"button.create_account" | translate}}
+  </button>
 </div>

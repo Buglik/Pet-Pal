@@ -11,6 +11,7 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatIconModule} from "@angular/material/icon";
 import {PipesModule} from "../pipes/pipes.module";
 import {UtilsModule} from "../utils/utils.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {UtilsModule} from "../utils/utils.module";
         MatDividerModule,
         MatIconModule,
         PipesModule,
-        UtilsModule
+        UtilsModule,
+        TranslateModule
     ]
 })
 export class PortalModule { }

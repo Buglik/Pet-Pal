@@ -9,21 +9,21 @@ import {Link} from "../../../../interfaces/link";
 export class SettingsNavigationComponent {
   links: Link[] = [
     {
-      label: 'Profile',
+      label: 'form.my_profile.title',
       value: 'profile'
     },
     {
-      label: 'Change password',
+      label: 'form.change_password.title',
       value: 'changePassword',
       disabled: true
     },
     {
-      label: 'Pet sitter',
+      label: 'form.pet_sitter.title',
       value: 'petSitterOptions',
       disabled: true
     },
     {
-      label: 'PetOwner',
+      label: 'form.pet_owner.title',
       value: 'petOwnerOptions',
       disabled: true
     },

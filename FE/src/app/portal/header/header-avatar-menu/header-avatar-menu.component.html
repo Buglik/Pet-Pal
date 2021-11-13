@@ -10,13 +10,13 @@
     <span class="email">{{user?.email}}</span>
     <button petpal-button secondary
             routerLink="/settings">
-      <span>Manage account</span>
+      {{'button.manage_account' | translate}}
     </button>
   </div>
   <mat-divider></mat-divider>
   <div class="logout">
     <button petpal-button secondary (click)="logoutClick()">
-      <span>Logout</span>
+      <span>{{'button.logout' | translate}}</span>
     </button>
   </div>
 </mat-menu>

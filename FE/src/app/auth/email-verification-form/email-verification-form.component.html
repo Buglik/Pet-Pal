@@ -1,6 +1,8 @@
 <div class="form-title-container">
-  <h3 class="form-title">Email verification</h3>
-  <h5 class="form-description">Congratulations! Your email has been verified. You will be redirected to login page in {{seconds}} seconds.</h5>
+  <h3 class="form-title">{{"form.email_verification.title" | translate}}</h3>
+  <h5 class="form-description">
+    {{'form.email_verification.description' | translate:{val: seconds} }}
+  </h5>
 </div>
 
-<button petpal-button primary (click)="redirect.emit()">Redirect to login page</button>
+<button petpal-button primary (click)="redirect.emit()">{{"button.redirect_to_login" | translate}}</button>

@@ -26,7 +26,7 @@ export class RegisterService {
     this.pendingSub.next(true);
     this.authService.authRegisterCreate(registerData).pipe(
       map(_ => {
-        this.notificationService.success('Registration completed successfully! You can now login using provided credentials')
+        this.notificationService.success('notification.email_verification.success')
         this.pendingSub.next(false);
         this.navigationService.toLoginPage();
       }),
@@ -49,7 +49,7 @@ export class RegisterService {
         return true
       }),
       catchError(error => {
-        this.notificationService.error('Email verification failed')
+        this.notificationService.error('notification.email_verification.fail')
         this.pendingSub.next(false);
         return of(false)
       }),

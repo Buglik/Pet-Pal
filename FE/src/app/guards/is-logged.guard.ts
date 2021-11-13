@@ -39,7 +39,7 @@ export class IsLoggedGuard implements CanActivate {
       map(result => {
         if (!result) {
           this.navigateService.toMainPage();
-          this.notificationService.error('Access denied. Please log in to enter this page');
+          this.notificationService.error('notification.access.not_logged_in');
           return false;
         } else {
           return true;

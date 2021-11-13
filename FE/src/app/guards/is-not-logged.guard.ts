@@ -41,7 +41,7 @@ export class IsNotLoggedGuard implements CanActivate {
         if (!result) {
           return true;
         } else {
-          this.notificationService.error('Access denied. You cannot enter this page while logged in');
+          this.notificationService.error('notification.access.logged_in');
           this.navigateService.toMainPage();
           return false;
         }

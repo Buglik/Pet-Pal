@@ -7,13 +7,25 @@ import {TranslateService} from "@ngx-translate/core";
 export class LanguageService {
 
   constructor(private readonly translateService: TranslateService) {
-    this.translateService.addLangs(['pl', 'en']);
+    this.translateService.addLangs(['pl', 'en', 'es', 'it']);
     this.translateService.setDefaultLang('en');
+    const lang = localStorage.getItem('petpal-currentLang');
     const browserLang = this.translateService.getBrowserLang()
-    if (browserLang) this.setLanguage(browserLang);
+    if (lang) {
+      this.setLanguage(lang);
+    } else if (browserLang) {
+      this.setLanguage(browserLang);
+    }
+    localStorage.setItem('petpal-currentLang', this.translateService.currentLang);
   }
 
   setLanguage(lang: string) {
     this.translateService.use(lang);
+    localStorage.setItem('petpal-currentLang', this.translateService.currentLang);
+    console.log(this.translateService.currentLang)
+  }
+
+  getCurrentLang(): string {
+    return this.translateService.currentLang;
   }
 }

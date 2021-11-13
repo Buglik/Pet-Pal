@@ -1,3 +1,4 @@
 {
-  "testMessage": "Hey! This is a test text"
+  "testMessage": "Hey! This is a test text",
+  "error.credentials.invalid": "[MISSING TRANSLATION]"
 }

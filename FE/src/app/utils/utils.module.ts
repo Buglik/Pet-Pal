@@ -7,6 +7,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {NotificationModule} from "./notification/notification.module";
 import {FormDirective} from './form.directive';
 import {LanguagePickerComponent} from './language-picker/language-picker.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import {LanguagePickerComponent} from './language-picker/language-picker.compone
     MatFormFieldModule,
     MatProgressSpinnerModule,
     NotificationModule,
+    TranslateModule,
   ]
 })
 export class UtilsModule {

@@ -17,6 +17,8 @@ export class JwtInterceptor implements HttpInterceptor {
     const jwt = this.tokenService.getAccessToken();
     const isAccessExpired = this.tokenService.isTokenExpired();
 
+    request = this.addLanguageToHeader(request);
+
     if (jwt) {
       if (isAccessExpired) {
         if (request.url === this.REFRESH_TOKEN_URL) {
@@ -47,6 +49,16 @@ export class JwtInterceptor implements HttpInterceptor {
     return request.clone({
       setHeaders: {
         Authorization: `Bearer ${jwt}`,
+      }
+    });
+  }
+
+  private addLanguageToHeader(request: HttpRequest<any>): HttpRequest<any> {
+    const lang = localStorage.getItem('petpal-currentLang');
+    console.warn(lang);
+    return request.clone({
+      setHeaders: {
+        'Accept-Language': lang ? lang : 'en'
       }
     });
   }

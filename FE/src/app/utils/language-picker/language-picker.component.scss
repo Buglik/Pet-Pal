@@ -1,0 +1,12 @@
+@use "../../../styles/ui";
+
+::ng-deep {
+  .flag-icon {
+    border: 0.5px rgba(128, 128, 128, 0.15) solid;
+  }
+  .list-country-flags{
+    .flag-icon{
+      margin-top: 8px;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {MeResponse, ProfileRequest} from "../../../../api/src";
+import {MeResponse, ProfileRequest} from "../../../../../api/src";
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {FormDirective} from "../../../utils/form.directive";
+import {FormDirective} from "../../../../utils/form.directive";
 
 @Component({
   selector: 'app-my-profile-form',

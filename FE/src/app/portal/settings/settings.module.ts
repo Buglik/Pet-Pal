@@ -7,15 +7,16 @@ import {PortalModule} from "../portal.module";
 import {PipesModule} from "../../pipes/pipes.module";
 import {SettingsNavigationComponent} from './settings-navigation/settings-navigation.component';
 import {MyProfileComponent} from './my-profile/my-profile.component';
-import {MyProfileFormComponent} from './my-profile-form/my-profile-form.component';
+import {MyProfileFormComponent} from './my-profile/my-profile-form/my-profile-form.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
-import {MyProfileAvatarComponent} from './my-profile-avatar/my-profile-avatar.component';
+import {MyProfileAvatarComponent} from './my-profile/my-profile-avatar/my-profile-avatar.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {ProfileManagementService} from "./profile-management.service";
 import {UtilsModule} from "../../utils/utils.module";
 import {TranslateModule} from "@ngx-translate/core";
+import {PetSitterSettingsComponent} from './pet-sitter-settings/pet-sitter-settings.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {TranslateModule} from "@ngx-translate/core";
     SettingsNavigationComponent,
     MyProfileComponent,
     MyProfileFormComponent,
-    MyProfileAvatarComponent
+    MyProfileAvatarComponent,
+    PetSitterSettingsComponent
   ],
     imports: [
         CommonModule,

@@ -1,0 +1,71 @@
+<div class="form-title-container">
+  <h3 class="form-title">{{"form.become_petsitter.title" | translate}}</h3>
+  <h5 class="form-description">{{"form.become_petsitter.description" | translate}}</h5>
+</div>
+
+<mat-stepper labelPosition="bottom" #stepper>
+  <mat-step [stepControl]="firstFormGroup" state="phone" errorMessage="Name is required.">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Step 1</ng-template>
+<!--      <mat-form-field appearance="fill">-->
+<!--        <mat-label>Name</mat-label>-->
+<!--        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>-->
+<!--      </mat-form-field>-->
+      STEP 1
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" optional state="chat">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Step 2</ng-template>
+<!--      <mat-form-field appearance="fill">-->
+<!--        <mat-label>Address</mat-label>-->
+<!--        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"-->
+<!--               required>-->
+<!--      </mat-form-field>-->
+      STEP 2
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" optional state="calendar">
+      <ng-template matStepLabel>Step 3</ng-template>
+      <!--      <mat-form-field appearance="fill">-->
+      <!--        <mat-label>Address</mat-label>-->
+      <!--        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"-->
+      <!--               required>-->
+      <!--      </mat-form-field>-->
+      STEP 3
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+
+  </mat-step>
+  <mat-step state="last">
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+  <!-- Icon overrides. -->
+  <ng-template matStepperIcon="phone">
+    <mat-icon>person</mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon="chat">
+    <mat-icon>phone</mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon="last">
+    <mat-icon>check_circle_outline</mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon="calendar">
+    <mat-icon>date_range</mat-icon>
+  </ng-template>
+</mat-stepper>
+

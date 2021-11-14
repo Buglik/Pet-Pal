@@ -1,0 +1,69 @@
+@use '../../../../styles/ui';
+
+:host{
+  padding: 24px 16px;
+}
+
+.form-title-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .form-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 4px;
+  }
+
+  .form-description {
+    color: ui.$form-description;
+    text-align: center;
+  }
+
+}
+
+mat-stepper{
+  max-width: 1012px;
+  margin: auto;
+}
+
+::ng-deep {
+  //Background
+  mat-stepper {
+    background-color: transparent !important;
+  }
+
+  .mat-stepper-label-position-bottom .mat-horizontal-stepper-header .mat-step-label{
+    padding-top: 8px !important;
+  }
+
+  //Optional text
+  .mat-step-header .mat-step-label, .mat-step-header .mat-step-optional{
+    color: ui.$form-description;
+  }
+
+  //Text color
+  .mat-step-header .mat-step-label.mat-step-label-active {
+    color: ui.$main-text;
+  }
+
+  //Line style
+  .mat-horizontal-stepper-header::before, .mat-horizontal-stepper-header::after, .mat-stepper-horizontal-line{
+    border-top-color: ui.$header-border;
+  }
+
+  //Step normal
+  .mat-step-header .mat-step-icon{
+    background-color: ui.$button-secondary;
+    color: ui.$button-secondary-text;
+    border: 1px ui.$button-secondary-text solid;
+  }
+
+  //Step active
+  .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit{
+    background-color: ui.$button-primary;
+    color: ui.$button-primary-text
+  }
+
+
+}

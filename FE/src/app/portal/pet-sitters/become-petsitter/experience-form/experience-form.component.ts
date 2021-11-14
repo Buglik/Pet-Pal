@@ -12,6 +12,7 @@ export class ExperienceFormComponent {
 
   @Input() form: FormGroup;
   @Output() formChange: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+  @Output() goNext: EventEmitter<void> = new EventEmitter<void>();
 
   petOptions: Link[] = [
     {
@@ -21,6 +22,18 @@ export class ExperienceFormComponent {
     {
       value: 'cat',
       label: 'pet.cat'
+    },
+    {
+      value: 'horse',
+      label: 'pet.horse'
+    },
+    {
+      value: 'dinosaur',
+      label: 'pet.other'
+    },
+    {
+      value: 'chicken',
+      label: 'pet.chicken'
     }]
 
   get motivation() {
@@ -31,16 +44,25 @@ export class ExperienceFormComponent {
     return this.form.get('experience');
   }
 
+  get pets() {
+    return this.form.get('pets');
+  }
+
   onSubmit() {
-    console.log('what should i do')
+    this.goNext.emit()
   }
 
-  toggleSelection(chip: MatChip) {
-    chip.toggleSelected();
+  // Quick but nasty solution
+  toggleSelection(chip: MatChip, val: string) {
+    const result = chip.toggleSelected();
+    if (result && !this.pets?.value.includes(val)) {
+      this.pets?.value.push(val);
+    } else if (this.pets?.value.includes(val)) {
+      const index = this.pets?.value.indexOf(val);
+      if (index !== -1) {
+        this.pets?.value.splice(index, 1);
+      }
+    }
+    this.pets?.updateValueAndValidity();
   }
-
-  showForm(){
-    console.log(this.form)
-  }
-
 }

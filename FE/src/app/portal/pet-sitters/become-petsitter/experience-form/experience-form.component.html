@@ -23,12 +23,19 @@
     <div class="right">
 
       <!--PETS-->
-      <!--      TODO: make chip form control-->
+      <h4>{{'label.experience.animals' | translate}}</h4>
       <mat-chip-list selectable multiple class="pets-field" formControlName="pets">
-        <mat-chip #c="matChip" *ngFor="let option of petOptions" [value]="option.value" (click)="toggleSelection(c)">
+        <mat-chip #c="matChip" *ngFor="let option of petOptions"
+                  [value]="option.value"
+                  (click)="toggleSelection(c,option.value)">
+          <!--          TODO: actual icons of pets-->
+          <mat-icon>person</mat-icon>
           {{option.label | translate}}
         </mat-chip>
       </mat-chip-list>
+      <mat-error *ngIf="pets?.touched">
+        <app-form-field-errors [control]="pets"></app-form-field-errors>
+      </mat-error>
 
       <!--EXPERIENCE-->
       <mat-form-field class="full-width" appearance="outline">
@@ -44,7 +51,6 @@
     </div>
   </div>
   <div class="buttons">
-    <button (click)="showForm()">show</button>
     <button petpal-button
             primary
             type="submit"

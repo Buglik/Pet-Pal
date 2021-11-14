@@ -1,7 +1,9 @@
 @use '../../../../../styles/inputs';
 @use '../../../../../styles/ui';
+@use '../../../../../styles/mat-chip';
 
 @include inputs.input-styles;
+@include mat-chip.chip-styles;
 
 form {
   display: flex;

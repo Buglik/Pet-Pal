@@ -1,6 +1,6 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {MatStepperIntl} from "@angular/material/stepper";
+import {MatStepper, MatStepperIntl} from "@angular/material/stepper";
 import {STEPPER_GLOBAL_OPTIONS} from "@angular/cdk/stepper";
 
 @Injectable()
@@ -44,11 +44,20 @@ export class BecomePetsitterComponent implements OnInit {
         Validators.maxLength(255)]
       ],
       pets: [[], [
-        // Validators.required
+        Validators.required
       ]]
     });
     this.secondFormGroup = this.fb.group({
       secondCtrl: ['', Validators.required],
     });
   }
+
+  goBack(stepper: MatStepper){
+    stepper.previous();
+  }
+
+  goForward(stepper: MatStepper){
+    stepper.next();
+  }
+
 }

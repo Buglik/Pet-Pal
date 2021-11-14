@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormGroup} from "@angular/forms";
 import {Link} from "../../../../../interfaces/link";
 import {MatChip} from "@angular/material/chips";
+import {MeResponse} from "../../../../../api/src";
 
 @Component({
   selector: 'app-experience-form',
@@ -10,6 +11,7 @@ import {MatChip} from "@angular/material/chips";
 })
 export class ExperienceFormComponent {
 
+  @Input() profile: MeResponse | null;
   @Input() form: FormGroup;
   @Output() formChange: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   @Output() goNext: EventEmitter<void> = new EventEmitter<void>();

@@ -36,12 +36,25 @@ form {
       justify-content: space-between;
       padding: 16px;
 
-      .pets-field {
+      .experience-field {
+        min-height: 220px;
+        max-height: 220px;
       }
 
-      .experience-field {
-        min-height: 280px;
-        max-height: 280px;
+      .pet-chips-container{
+        height: 100%;
+        padding-bottom: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .title-container {
+          .title{
+            margin: 0;
+          }
+          .description {
+            color: ui.$form-description;
+          }
+        }
       }
     }
   }
@@ -51,3 +64,7 @@ form {
     justify-content: flex-end;
   }
 }
+
+
+
+

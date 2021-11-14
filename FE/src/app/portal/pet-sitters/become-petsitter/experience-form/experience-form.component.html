@@ -1,12 +1,12 @@
 <form [formGroup]="form" (submit)="onSubmit()" class="example-form">
   <div class="container">
     <div class="left">
-
       <!--DISPLAY ONLY-->
       <!--BIO-->
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>{{'label.bio' | translate}}</mat-label>
-        <textarea #bioInput class="bio-field" matInput disabled></textarea>
+        <textarea #bioInput class="bio-field"
+                  [value]="profile?.bio" matInput disabled></textarea>
         <mat-hint align="end">{{bioInput.value?.length || 0}}/255</mat-hint>
       </mat-form-field>
 
@@ -21,22 +21,27 @@
       </mat-form-field>
     </div>
     <div class="right">
-
       <!--PETS-->
-      <h4>{{'label.experience.animals' | translate}}</h4>
-      <mat-chip-list selectable multiple class="pets-field" formControlName="pets">
-        <mat-chip #c="matChip" *ngFor="let option of petOptions"
-                  [value]="option.value"
-                  (click)="toggleSelection(c,option.value)">
-          <!--          TODO: actual icons of pets-->
-          <mat-icon>person</mat-icon>
-          {{option.label | translate}}
-        </mat-chip>
-      </mat-chip-list>
-      <mat-error *ngIf="pets?.touched">
-        <app-form-field-errors [control]="pets"></app-form-field-errors>
-      </mat-error>
-
+      <div class="pet-chips-container">
+        <div class="title-container">
+          <h4 class="title">{{'label.experience.title' | translate}}</h4>
+          <h5 class="description">{{'label.experience.animals.description' | translate}}</h5>
+        </div>
+        <div>
+          <mat-chip-list selectable multiple class="pets-field" formControlName="pets">
+            <mat-chip #c="matChip" *ngFor="let option of petOptions"
+                      [value]="option.value"
+                      (click)="toggleSelection(c,option.value)">
+              <!--          TODO: actual icons of pets-->
+              <mat-icon>person</mat-icon>
+              {{option.label | translate}}
+            </mat-chip>
+          </mat-chip-list>
+          <mat-error *ngIf="pets?.touched">
+            <app-form-field-errors [control]="pets"></app-form-field-errors>
+          </mat-error>
+        </div>
+      </div>
       <!--EXPERIENCE-->
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>{{'label.experience' | translate}}</mat-label>

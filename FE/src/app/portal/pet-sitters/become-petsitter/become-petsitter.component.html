@@ -11,11 +11,12 @@
   <mat-step
     [stepControl]="experienceFormGroup"
     state="experience">
-      <ng-template matStepLabel>{{'label.experience'}}</ng-template>
-      <app-experience-form
-        [(form)]="experienceFormGroup"
-        (goNext)="goForward(stepper)"
-      ></app-experience-form>
+    <ng-template matStepLabel>{{'label.experience'}}</ng-template>
+    <app-experience-form
+      [profile]="user$ | async"
+      [(form)]="experienceFormGroup"
+      (goNext)="goForward(stepper)"
+    ></app-experience-form>
   </mat-step>
 
   <mat-step
@@ -33,12 +34,12 @@
   <mat-step
     [stepControl]="secondFormGroup"
     state="contact">
-      <ng-template matStepLabel>Step 3</ng-template>
-      STEP 3
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
+    <ng-template matStepLabel>Step 3</ng-template>
+    STEP 3
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
   </mat-step>
 
   <mat-step state="last">

@@ -65,5 +65,11 @@ mat-stepper{
     color: ui.$button-primary-text
   }
 
+  //Step error
+  .mat-step-header .mat-step-icon-state-error{
+    border: none;
+    background-color: transparent;
+    color: ui.$error
+  }
 
 }

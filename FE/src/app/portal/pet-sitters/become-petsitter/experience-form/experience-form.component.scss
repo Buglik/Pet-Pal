@@ -1,0 +1,51 @@
+@use '../../../../../styles/inputs';
+@use '../../../../../styles/ui';
+
+@include inputs.input-styles;
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+
+    .left {
+      flex: 1;
+      padding: 16px;
+
+      .bio-field {
+        min-height: 140px;
+        max-height: 140px;
+      }
+
+      .motivation-field {
+        min-height: 220px;
+        max-height: 220px;
+      }
+
+    }
+
+    .right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px;
+
+      .pets-field {
+      }
+
+      .experience-field {
+        min-height: 280px;
+        max-height: 280px;
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

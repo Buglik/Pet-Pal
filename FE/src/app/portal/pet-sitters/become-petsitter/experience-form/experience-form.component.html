@@ -1,0 +1,56 @@
+<form [formGroup]="form" (submit)="onSubmit()" class="example-form">
+  <div class="container">
+    <div class="left">
+
+      <!--DISPLAY ONLY-->
+      <!--BIO-->
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{'label.bio' | translate}}</mat-label>
+        <textarea #bioInput class="bio-field" matInput disabled></textarea>
+        <mat-hint align="end">{{bioInput.value?.length || 0}}/255</mat-hint>
+      </mat-form-field>
+
+      <!--MOTIVATION-->
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{'label.motivation' | translate}}</mat-label>
+        <textarea #motivationInput class="motivation-field" matInput formControlName="motivation"></textarea>
+        <mat-error>
+          <app-form-field-errors [control]="motivation"></app-form-field-errors>
+        </mat-error>
+        <mat-hint align="end">{{motivationInput.value?.length || 0}}/255</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="right">
+
+      <!--PETS-->
+      <!--      TODO: make chip form control-->
+      <mat-chip-list selectable multiple class="pets-field" formControlName="pets">
+        <mat-chip #c="matChip" *ngFor="let option of petOptions" [value]="option.value" (click)="toggleSelection(c)">
+          {{option.label | translate}}
+        </mat-chip>
+      </mat-chip-list>
+
+      <!--EXPERIENCE-->
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{'label.experience' | translate}}</mat-label>
+        <textarea #experienceInput
+                  class="experience-field" matInput
+                  formControlName="experience"></textarea>
+        <mat-error>
+          <app-form-field-errors [control]="experience"></app-form-field-errors>
+        </mat-error>
+        <mat-hint align="end">{{experienceInput.value?.length || 0}}/255</mat-hint>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="buttons">
+    <button (click)="showForm()">show</button>
+    <button petpal-button
+            primary
+            type="submit"
+            class="submit-btn"
+            [disabled]="!form.valid">
+      {{'button.next' | translate}}
+    </button>
+  </div>
+</form>

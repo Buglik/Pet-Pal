@@ -9,12 +9,16 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import {TranslateModule} from "@ngx-translate/core";
+import {ExperienceFormComponent} from './become-petsitter/experience-form/experience-form.component';
+import {UtilsModule} from "../../utils/utils.module";
+import {MatChipsModule} from "@angular/material/chips";
 
 
 @NgModule({
   declarations: [
     PetSittersComponent,
-    BecomePetsitterComponent
+    BecomePetsitterComponent,
+    ExperienceFormComponent
   ],
     imports: [
         CommonModule,
@@ -24,7 +28,9 @@ import {TranslateModule} from "@ngx-translate/core";
         MatFormFieldModule,
         MatIconModule,
         MatInputModule,
-        TranslateModule
+        TranslateModule,
+        UtilsModule,
+        MatChipsModule
     ],
   exports: [PetSittersComponent]
 })

@@ -18,23 +18,36 @@ export class StepperIntl extends MatStepperIntl {
       useClass: StepperIntl
     },
     {
-    provide: STEPPER_GLOBAL_OPTIONS,
-    useValue: {displayDefaultIndicatorType: false},
-  },]
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: {
+        showError: true,
+        displayDefaultIndicatorType: false
+      },
+    },]
 })
 export class BecomePetsitterComponent implements OnInit {
 
-  firstFormGroup: FormGroup;
+  experienceFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private fb: FormBuilder) {
   }
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required],
+    this.experienceFormGroup = this.fb.group({
+      motivation: ['', [
+        Validators.required,
+        Validators.maxLength(255)]
+      ],
+      experience: ['', [
+        Validators.required,
+        Validators.maxLength(255)]
+      ],
+      pets: [[], [
+        // Validators.required
+      ]]
     });
-    this.secondFormGroup = this._formBuilder.group({
+    this.secondFormGroup = this.fb.group({
       secondCtrl: ['', Validators.required],
     });
   }

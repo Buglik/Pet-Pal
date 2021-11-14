@@ -4,27 +4,21 @@
 </div>
 
 <mat-stepper labelPosition="bottom" #stepper>
-  <mat-step [stepControl]="firstFormGroup" state="phone" errorMessage="Name is required.">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Step 1</ng-template>
-<!--      <mat-form-field appearance="fill">-->
-<!--        <mat-label>Name</mat-label>-->
-<!--        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>-->
-<!--      </mat-form-field>-->
-      STEP 1
+  <mat-step [stepControl]="experienceFormGroup" state="experience" errorMessage="Name is required.">
+      <ng-template matStepLabel>{{'label.experience'}}</ng-template>
+      <app-experience-form [(form)]="experienceFormGroup"></app-experience-form>
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>
-    </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup" optional state="chat">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Step 2</ng-template>
-<!--      <mat-form-field appearance="fill">-->
-<!--        <mat-label>Address</mat-label>-->
-<!--        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"-->
-<!--               required>-->
-<!--      </mat-form-field>-->
+      <!--      <mat-form-field appearance="fill">-->
+      <!--        <mat-label>Address</mat-label>-->
+      <!--        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"-->
+      <!--               required>-->
+      <!--      </mat-form-field>-->
       STEP 2
       <div>
         <button mat-button matStepperPrevious>Back</button>
@@ -33,17 +27,17 @@
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup" optional state="calendar">
-      <ng-template matStepLabel>Step 3</ng-template>
-      <!--      <mat-form-field appearance="fill">-->
-      <!--        <mat-label>Address</mat-label>-->
-      <!--        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"-->
-      <!--               required>-->
-      <!--      </mat-form-field>-->
-      STEP 3
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
+    <ng-template matStepLabel>Step 3</ng-template>
+    <!--      <mat-form-field appearance="fill">-->
+    <!--        <mat-label>Address</mat-label>-->
+    <!--        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"-->
+    <!--               required>-->
+    <!--      </mat-form-field>-->
+    STEP 3
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
 
   </mat-step>
   <mat-step state="last">
@@ -55,7 +49,7 @@
     </div>
   </mat-step>
   <!-- Icon overrides. -->
-  <ng-template matStepperIcon="phone">
+  <ng-template matStepperIcon="experience">
     <mat-icon>person</mat-icon>
   </ng-template>
   <ng-template matStepperIcon="chat">

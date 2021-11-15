@@ -1,0 +1,32 @@
+@use './ui';
+
+@mixin date-picker-styles {
+  ::ng-deep {
+    .md-drppicker {
+      box-shadow: 0 3px 12px ui.$card-shadow;
+      background-color: ui.$card-background;
+
+      .calendar-table {
+        background-color: ui.$card-background;
+      }
+
+       td.active, td.start-date.end-date {
+        background-color: ui.$button-primary !important;
+      }
+      td.active:hover{
+        background-color: ui.$button-primary-hover !important;
+      }
+
+      .btn{
+        background: ui.$button-primary !important;
+        color: ui.$button-primary-text !important;
+
+        &:hover, &[disabled], &:focus {
+          background-color: ui.$button-primary-hover !important;
+        }
+      }
+
+    }
+  }
+
+}

@@ -1,0 +1,24 @@
+@use '../../../../../styles/ui';
+@use '../../../../../styles/date-picker';
+
+@include date-picker.date-picker-styles;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-container {
+  margin-bottom: 32px;
+
+  .title {
+    margin: 0;
+  }
+
+  .description {
+    color: ui.$form-description;
+  }
+}

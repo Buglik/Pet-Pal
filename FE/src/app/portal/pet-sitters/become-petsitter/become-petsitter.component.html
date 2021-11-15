@@ -11,7 +11,7 @@
   <mat-step
     [stepControl]="experienceFormGroup"
     state="experience">
-    <ng-template matStepLabel>{{'label.experience'}}</ng-template>
+    <ng-template matStepLabel>{{'label.experience' | translate}}</ng-template>
     <app-experience-form
       [profile]="user$ | async"
       [(form)]="experienceFormGroup"
@@ -22,13 +22,8 @@
   <mat-step
     [stepControl]="secondFormGroup"
     state="calendar">
-    <ng-template matStepLabel>Step 2</ng-template>
-    STEP 2
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button matStepperNext>Next</button>
-    </div>
-
+    <ng-template matStepLabel>{{'label.availability' | translate}}</ng-template>
+    <app-availability-form></app-availability-form>
   </mat-step>
 
   <mat-step
@@ -37,8 +32,8 @@
     <ng-template matStepLabel>Step 3</ng-template>
     STEP 3
     <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button matStepperNext>Next</button>
+      <button matStepperPrevious>Back</button>
+      <button matStepperNext>Next</button>
     </div>
   </mat-step>
 
@@ -46,8 +41,8 @@
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
     <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button matStepperPrevious>Back</button>
+      <button (click)="stepper.reset()">Reset</button>
     </div>
   </mat-step>
 

@@ -12,26 +12,33 @@ import {TranslateModule} from "@ngx-translate/core";
 import {ExperienceFormComponent} from './become-petsitter/experience-form/experience-form.component';
 import {UtilsModule} from "../../utils/utils.module";
 import {MatChipsModule} from "@angular/material/chips";
+import {AvailabilityFormComponent} from "./become-petsitter/availability-form/availability-form.component";
+import {LocaleService, NgxDaterangepickerMd} from "ngx-daterangepicker-material";
 
 
 @NgModule({
   declarations: [
     PetSittersComponent,
     BecomePetsitterComponent,
-    ExperienceFormComponent
+    ExperienceFormComponent,
+    AvailabilityFormComponent,
   ],
-    imports: [
-        CommonModule,
-        PetSittersRoutingModule,
-        MatStepperModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        TranslateModule,
-        UtilsModule,
-        MatChipsModule
-    ],
+  imports: [
+    CommonModule,
+    PetSittersRoutingModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    TranslateModule,
+    UtilsModule,
+    MatChipsModule,
+    NgxDaterangepickerMd.forRoot()
+  ],
+  providers:[
+    LocaleService
+  ],
   exports: [PetSittersComponent]
 })
 export class PetSittersModule {

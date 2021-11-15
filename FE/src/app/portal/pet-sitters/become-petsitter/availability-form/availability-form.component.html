@@ -2,5 +2,25 @@
   <h4 class="title">{{'label.availability.title' | translate}}</h4>
   <h5 class="description">{{'label.availability.description' | translate}}</h5>
 </div>
-<ngx-daterangepicker-material>
+<ngx-daterangepicker-material
+  [autoApply]="true"
+  [minDate]="today"
+  (datesUpdated)="updateForm($event)">
 </ngx-daterangepicker-material>
+
+<div class="buttons">
+  <button petpal-button
+          primary
+          (click)="goBack.emit()"
+          class="submit-btn">
+    {{'button.previous' | translate}}
+  </button>
+
+  <button petpal-button
+          primary
+          (click)="goNext.emit()"
+          class="submit-btn"
+          [disabled]="!form.valid">
+    {{'button.next' | translate}}
+  </button>
+</div>

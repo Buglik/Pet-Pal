@@ -33,7 +33,7 @@ export class StepperIntl extends MatStepperIntl {
 export class BecomePetsitterComponent implements OnInit {
 
   experienceFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+  availability: FormGroup;
 
   user$: Observable<MeResponse | null> = this.store.select(selectUser);
 
@@ -44,26 +44,31 @@ export class BecomePetsitterComponent implements OnInit {
     this.experienceFormGroup = this.fb.group({
       motivation: ['', [
         Validators.required,
-        Validators.maxLength(255)]
-      ],
+        Validators.maxLength(255)
+      ]],
       experience: ['', [
         Validators.required,
-        Validators.maxLength(255)]
-      ],
+        Validators.maxLength(255)
+      ]],
       pets: [[], [
         Validators.required
       ]]
     });
-    this.secondFormGroup = this.fb.group({
-      secondCtrl: ['', Validators.required],
+    this.availability = this.fb.group({
+      startDate: ['', [
+        Validators.required
+      ]],
+      endDate: ['', [
+        Validators.required
+      ]],
     });
   }
 
-  goBack(stepper: MatStepper){
+  goBack(stepper: MatStepper) {
     stepper.previous();
   }
 
-  goForward(stepper: MatStepper){
+  goForward(stepper: MatStepper) {
     stepper.next();
   }
 

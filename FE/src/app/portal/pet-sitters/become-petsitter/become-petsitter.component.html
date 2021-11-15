@@ -20,14 +20,17 @@
   </mat-step>
 
   <mat-step
-    [stepControl]="secondFormGroup"
+    [stepControl]="availability"
     state="calendar">
     <ng-template matStepLabel>{{'label.availability' | translate}}</ng-template>
-    <app-availability-form></app-availability-form>
+    <app-availability-form
+      [(form)]="availability"
+      (goNext)="goForward(stepper)"
+      (goBack)="goBack(stepper)"
+    ></app-availability-form>
   </mat-step>
 
   <mat-step
-    [stepControl]="secondFormGroup"
     state="contact">
     <ng-template matStepLabel>Step 3</ng-template>
     STEP 3

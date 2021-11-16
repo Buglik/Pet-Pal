@@ -28,7 +28,10 @@
     "logout": "[ES] Logout",
     "edit_photo": "[ES] Edit photo",
     "update_profile": "[ES] Update profile",
-    "go_to_own_profile": "[ES] Go to your profile"
+    "go_to_own_profile": "[ES] Go to your profile",
+    "become_petsitter": "[ES] Become petsitter",
+    "next": "[ES] Next",
+    "previous": "[ES] Previous"
   },
   "label": {
     "login": "[ES] Login",
@@ -42,7 +45,18 @@
     "bio": "[ES] Bio",
     "settings": {
       "info": "[ES] Your account settings"
-    }
+    },
+    "experience": "[ES] Experience",
+    "availability": "[ES] Availability",
+    "motivation": "[ES] Why do you want to sit(XD)?",
+    "pet": {
+      "dog": "[ES] Dog",
+      "cat": "[ES] Cat",
+      "horse": "[ES] Horse",
+      "chicken": "[ES] Chicken",
+      "other": "[ES] Other"
+    },
+    "summary": "[ES] Summary"
   },
   "form": {
     "register": {
@@ -55,6 +69,25 @@
     },
     "my_profile": {
       "title": "[ES] Profile"
+    },
+    "pet_sitter": {
+      "title": "[ES] Pet sitter",
+      "become_petsitter": {
+        "title": "[ES] Become a pet sitter",
+        "description": "[ES] You are just a few steps away from becoming a pet sitter. Please fill in all required fields to join PetPal community"
+      },
+      "experience": {
+        "title": "[ES] Pet sitting experience",
+        "description": "[ES] Describe your experience with animals, why do you want to be a pet sitter, and what animals would you like to sit"
+      },
+      "availability": {
+        "title": "[ES] Availability",
+        "description": "[ES] Please fill in your availability to help potential pet owners in making the right plans"
+      },
+      "summary": {
+        "title": "[ES] Pet sitter form summary",
+        "description": "[ES] Please check if everything is just like you want it to be"
+      }
     }
   },
   "notification": {

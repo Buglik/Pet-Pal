@@ -19,23 +19,23 @@ export class ExperienceFormComponent {
   petOptions: Link[] = [
     {
       value: 'doggo',
-      label: 'pet.dog'
+      label: 'label.pet.dog'
     },
     {
       value: 'cat',
-      label: 'pet.cat'
+      label: 'label.pet.cat'
     },
     {
       value: 'horse',
-      label: 'pet.horse'
+      label: 'label.pet.horse'
     },
     {
       value: 'dinosaur',
-      label: 'pet.other'
+      label: 'label.pet.other'
     },
     {
       value: 'chicken',
-      label: 'pet.chicken'
+      label: 'label.pet.chicken'
     }]
 
   get motivation() {

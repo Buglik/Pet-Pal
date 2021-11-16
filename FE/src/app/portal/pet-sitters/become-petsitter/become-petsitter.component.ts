@@ -72,4 +72,7 @@ export class BecomePetsitterComponent implements OnInit {
     stepper.next();
   }
 
+  submitForm(){
+    console.log('send to be')
+  }
 }

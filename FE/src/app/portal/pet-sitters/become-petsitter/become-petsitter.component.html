@@ -41,12 +41,13 @@
   </mat-step>
 
   <mat-step state="last">
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button matStepperPrevious>Back</button>
-      <button (click)="stepper.reset()">Reset</button>
-    </div>
+    <ng-template matStepLabel>{{'label.summary' | translate}}</ng-template>
+    <app-stepper-summary
+      [experienceForm]="experienceFormGroup"
+      [availability]="availability"
+      (submitPetsitter)="submitForm()"
+      (goBack)="goBack(stepper)"
+    ></app-stepper-summary>
   </mat-step>
 
   <!-- Icon overrides. -->
@@ -57,7 +58,7 @@
     <mat-icon>phone</mat-icon>
   </ng-template>
   <ng-template matStepperIcon="last">
-    <mat-icon>check_circle_outline</mat-icon>
+    <mat-icon>done</mat-icon>
   </ng-template>
   <ng-template matStepperIcon="calendar">
     <mat-icon>date_range</mat-icon>

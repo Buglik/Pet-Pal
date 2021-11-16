@@ -14,6 +14,9 @@ import {UtilsModule} from "../../utils/utils.module";
 import {MatChipsModule} from "@angular/material/chips";
 import {AvailabilityFormComponent} from "./become-petsitter/availability-form/availability-form.component";
 import {LocaleService, NgxDaterangepickerMd} from "ngx-daterangepicker-material";
+import {StepperSummaryComponent} from './become-petsitter/stepper-summary/stepper-summary.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
 
 
 @NgModule({
@@ -22,6 +25,7 @@ import {LocaleService, NgxDaterangepickerMd} from "ngx-daterangepicker-material"
     BecomePetsitterComponent,
     ExperienceFormComponent,
     AvailabilityFormComponent,
+    StepperSummaryComponent,
   ],
   imports: [
     CommonModule,
@@ -34,10 +38,12 @@ import {LocaleService, NgxDaterangepickerMd} from "ngx-daterangepicker-material"
     TranslateModule,
     UtilsModule,
     MatChipsModule,
-    NgxDaterangepickerMd.forRoot()
+    NgxDaterangepickerMd.forRoot(),
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers:[
-    LocaleService
+  providers: [
+    LocaleService,
   ],
   exports: [PetSittersComponent]
 })

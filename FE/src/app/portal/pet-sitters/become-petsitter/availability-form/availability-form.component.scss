@@ -6,7 +6,7 @@
 :host {
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 580px;
   justify-content: space-between;
   align-items: center;
 }
@@ -26,5 +26,5 @@
 .buttons{
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }

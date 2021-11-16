@@ -6,7 +6,9 @@
 @include mat-chip.chip-styles;
 
 form {
+  height: 580px;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
 
   .container {

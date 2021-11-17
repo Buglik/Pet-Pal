@@ -1,24 +1,32 @@
 from rest_framework import serializers
 from users.serializers import UserSerializer, UserResponseSerializer, UserUpdateRequestSerializer
 
-from .models import Profile
+from .models import Profile, ContactInfo
 from users.models import User
+
+
+class ContactInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactInfo
+        fields = ['city', 'country', 'whatsapp_number', 'phone_number']
 
 
 class MeResponseSerializer(serializers.ModelSerializer):
     user = UserResponseSerializer(read_only=True)
+    contact = ContactInfoSerializer()
 
     class Meta:
         model = Profile
-        fields = ['bio', 'user', 'experience', 'city', 'country', 'is_pet_sitter', 'is_pet_owner']
+        fields = ['bio', 'user', 'contact', 'is_pet_sitter']
 
 
 class ProfileRequestSerializer(serializers.ModelSerializer):
     user = UserUpdateRequestSerializer()
+    contact = ContactInfoSerializer()
 
     class Meta:
         model = Profile
-        fields = ['user', 'bio', 'experience', 'city', 'country']
+        fields = ['user', 'bio', 'contact']
 
     def update(self, instance, validated_data):
         user_dict = validated_data.pop('user', None)
@@ -39,7 +47,7 @@ class ProfileResponseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ['user', 'bio', 'experience', 'city', 'country']
+        fields = ['user', 'bio', 'contact']
 
 
 class ProfilePageResponseSerializer(serializers.ModelSerializer):

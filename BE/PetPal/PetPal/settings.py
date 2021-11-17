@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'users',
     'profiles',
+    'pet_sitters',
 
 ]
 

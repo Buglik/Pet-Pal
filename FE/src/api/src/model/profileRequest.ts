@@ -9,14 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import {ContactInfo} from './contactInfo';
 import {UserUpdateRequest} from './userUpdateRequest';
 
 
 export interface ProfileRequest {
     user: UserUpdateRequest;
     bio?: string | null;
-    experience?: string | null;
-    city?: string | null;
-    country?: string | null;
+    contact: ContactInfo;
 }
 

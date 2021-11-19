@@ -9,12 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import {UserResponse} from './userResponse';
+import {PetSitterResponse} from './petSitterResponse';
 
 
-export interface ProfileResponse {
-    user: UserResponse;
-    bio?: string | null;
-    contact: number;
+export interface PetSitterPageResponse {
+    data: Array<PetSitterResponse>;
+    pageSize: number;
+    pageIndex: number;
+    length: number;
 }
 

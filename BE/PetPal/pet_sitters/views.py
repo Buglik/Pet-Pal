@@ -1,17 +1,20 @@
 from django.shortcuts import render
-from drf_spectacular.utils import extend_schema
+from drf_spectacular.utils import extend_schema, OpenApiParameter
 from rest_framework import views, status
+from rest_framework.decorators import authentication_classes
 from rest_framework.exceptions import AuthenticationFailed
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 
 from .models import Sitter
-from .serializers import PetSitterRequestSerializer
+from .serializers import PetSitterRequestSerializer, PetSitterResponseSerializer
 from users.tokens import decode_access_token
+
+from users.models import User
 
 
 class PetSittersView(views.APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = (IsAuthenticated,)
 
     @extend_schema(
         request=PetSitterRequestSerializer,
@@ -64,3 +67,28 @@ class PetSittersView(views.APIView):
         serializer.save()
 
         return Response(status=status.HTTP_200_OK)
+
+
+class GetPetSitterView(views.APIView):
+    @extend_schema(
+        parameters=[OpenApiParameter(name='username', description='Users nickname', type=str,
+                                     location=OpenApiParameter.QUERY),
+                    ])
+    @extend_schema(
+        responses={200: PetSitterResponseSerializer},
+    )
+    def get(self, request):
+        username = request.GET.get('username', None)
+
+        if not username:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        try:
+            user = User.objects.get(username=username)
+            sitter = Sitter.objects.get(profile=user.profile)
+        except:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = PetSitterResponseSerializer(user.profile.sitter)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)

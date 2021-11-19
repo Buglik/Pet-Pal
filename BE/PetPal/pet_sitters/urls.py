@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.urls import path
 
-from .views import PetSittersView
+from .views import PetSittersView, GetPetSitterView
 
 urlpatterns = [
     path('', PetSittersView.as_view()),
+    path('get', GetPetSitterView.as_view())
 ]

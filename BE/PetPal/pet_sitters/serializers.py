@@ -20,10 +20,10 @@ class PetSitterRequestSerializer(serializers.ModelSerializer):
         return instance
 
 
-# class PetSitterResponseSerializer(serializers.ModelSerializer):
-#     profile = MeResponseSerializer()
-#
-#     class Meta:
-#         model = Sitter
-#         fields = ['profile', 'experience', ' pet_experience', 'motivation', 'availability_start_date',
-#                   'availability_end_date']
+class PetSitterResponseSerializer(serializers.ModelSerializer):
+    profile = MeResponseSerializer()
+
+    class Meta:
+        model = Sitter
+        fields = ['profile', 'experience', 'pet_experience', 'motivation', 'availability_start_date',
+                  'availability_end_date']

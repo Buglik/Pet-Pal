@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.urls import path
 
-from .views import PetSittersView, GetPetSitterView
+from .views import PetSittersView, GetPetSitterView, GetPetSittersPaginatedView
 
 urlpatterns = [
     path('', PetSittersView.as_view()),
-    path('get', GetPetSitterView.as_view())
+    path('get', GetPetSitterView.as_view()),
+    path('get-paginated', GetPetSittersPaginatedView.as_view())
 ]

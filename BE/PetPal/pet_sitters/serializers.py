@@ -27,3 +27,14 @@ class PetSitterResponseSerializer(serializers.ModelSerializer):
         model = Sitter
         fields = ['profile', 'experience', 'pet_experience', 'motivation', 'availability_start_date',
                   'availability_end_date']
+
+
+class PetSitterPageResponseSerializer(serializers.ModelSerializer):
+    data = PetSitterResponseSerializer(many=True)
+    pageSize = serializers.IntegerField()
+    pageIndex = serializers.IntegerField()
+    length = serializers.IntegerField()
+
+    class Meta:
+        model = Sitter
+        fields = ['data', 'pageSize', 'pageIndex', 'length']

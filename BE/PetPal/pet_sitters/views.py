@@ -1,13 +1,15 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render
 from drf_spectacular.utils import extend_schema, OpenApiParameter
 from rest_framework import views, status
 from rest_framework.decorators import authentication_classes
 from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.generics import ListAPIView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 
 from .models import Sitter
-from .serializers import PetSitterRequestSerializer, PetSitterResponseSerializer
+from .serializers import PetSitterRequestSerializer, PetSitterResponseSerializer, PetSitterPageResponseSerializer
 from users.tokens import decode_access_token
 
 from users.models import User
@@ -92,3 +94,37 @@ class GetPetSitterView(views.APIView):
         serializer = PetSitterResponseSerializer(user.profile.sitter)
 
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+class GetPetSittersPaginatedView(ListAPIView):
+    @extend_schema(
+        parameters=[OpenApiParameter(name='page', description='Page index', type=int,
+                                     location=OpenApiParameter.QUERY),
+                    OpenApiParameter(name='size', description='Page size', type=int,
+                                     location=OpenApiParameter.QUERY)
+                    ])
+    @extend_schema(
+        responses={200: PetSitterPageResponseSerializer},
+    )
+    def get(self, request):
+        page_index = request.GET.get('page', 1)
+        page_size = request.GET.get('size', 10)
+        queryset = Sitter.objects.all()
+        paginator = Paginator(queryset, page_size)
+
+        try:
+            page = paginator.page(page_index)
+        except PageNotAnInteger:
+            # If page is not an integer, deliver first page.
+            page = paginator.page(1)
+        except EmptyPage:
+            # If page is out of range, deliver last page of results.
+            page = paginator.page(paginator.num_pages)
+
+        serializer = PetSitterResponseSerializer(page.object_list, many=True)
+
+        response = {'data': serializer.data,
+                    'pageSize': paginator.per_page,
+                    'pageIndex': page.number,
+                    'length': paginator.count}
+
+        return Response(response, status=status.HTTP_200_OK)

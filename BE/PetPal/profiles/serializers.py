@@ -44,6 +44,14 @@ class ProfileRequestSerializer(serializers.ModelSerializer):
                 setattr(user_obj, key, value)
             user_obj.save()
             validated_data["user"] = user_obj
+
+        contact_dict = validated_data.pop('contact', None)
+        if contact_dict:
+            contact_obj = instance.contact
+            for key, value in contact_dict.items():
+                setattr(contact_obj, key, value)
+            contact_obj.save()
+            validated_data["contact"] = contact_obj
         for key, value in validated_data.items():
             setattr(instance, key, value)
         instance.save()

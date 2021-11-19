@@ -1,23 +1,31 @@
 from rest_framework import serializers
 from users.serializers import UserSerializer, UserResponseSerializer, UserUpdateRequestSerializer
 
-from .models import Profile, ContactInfo
+from .models import Profile, Contact
 from users.models import User
+
+from pet_sitters.models import Sitter
 
 
 class ContactInfoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ContactInfo
+        model = Contact
         fields = ['city', 'country', 'whatsapp_number', 'phone_number']
 
 
 class MeResponseSerializer(serializers.ModelSerializer):
     user = UserResponseSerializer(read_only=True)
+    is_pet_sitter = serializers.SerializerMethodField('get_is_pet_sitter')
     contact = ContactInfoSerializer()
 
     class Meta:
         model = Profile
         fields = ['bio', 'user', 'contact', 'is_pet_sitter']
+
+    def get_is_pet_sitter(self, profile):
+        if Sitter.objects.filter(profile=profile).count():
+            return True
+        return False
 
 
 class ProfileRequestSerializer(serializers.ModelSerializer):

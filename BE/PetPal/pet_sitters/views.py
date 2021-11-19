@@ -5,6 +5,7 @@ from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
+from .models import Sitter
 from .serializers import PetSitterRequestSerializer
 from users.tokens import decode_access_token
 
@@ -27,9 +28,8 @@ class PetSittersView(views.APIView):
         except:
             raise AuthenticationFailed('Unauthenticated!')
 
-        if user.profile.is_pet_sitter:
-            # TODO: secure multiple creations
-            pass
+        if Sitter.objects.filter(profile=user.profile).count():
+            return Response(status=status.HTTP_403_FORBIDDEN)
 
         data = request.data
 

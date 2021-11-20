@@ -41,4 +41,12 @@ export class StepperSummaryComponent {
     return this.experienceForm.get('pets')?.value.sort();
   }
 
+  get motivation() {
+    return this.experienceForm.get('motivation');
+  }
+
+  get experience() {
+    return this.experienceForm.get('experience');
+  }
+
 }

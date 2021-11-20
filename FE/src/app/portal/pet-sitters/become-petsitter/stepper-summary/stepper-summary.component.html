@@ -1,5 +1,5 @@
 <div class="content">
-  <div class="left">
+  <div class="left" [formGroup]="experienceForm">
 
     <div class="title-container">
       <h4 class="title">{{'form.pet_sitter.summary.title' | translate}}</h4>
@@ -11,7 +11,9 @@
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>{{'label.motivation' | translate}}</mat-label>
       <textarea #bioInput class="motivation-field"
-                formControlName="motivation" matInput [disabled]="true"></textarea>
+                [value]="motivation?.value"
+                matInput
+                [disabled]="true"></textarea>
     </mat-form-field>
 
     <!--DISPLAY ONLY-->
@@ -20,7 +22,7 @@
       <mat-label>{{'label.experience' | translate}}</mat-label>
       <textarea #experienceInput
                 class="experience-field" matInput
-                formControlName="experience"
+                [value]="experience?.value"
                 [disabled]="true"></textarea>
     </mat-form-field>
   </div>

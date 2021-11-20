@@ -34,7 +34,7 @@
                       (click)="toggleSelection(c,option.value)">
               <!--          TODO: actual icons of pets-->
               <mat-icon>person</mat-icon>
-              {{option.label | translate}}
+              {{option.key | lowercase | translate}}
             </mat-chip>
           </mat-chip-list>
           <mat-error *ngIf="pets?.touched">

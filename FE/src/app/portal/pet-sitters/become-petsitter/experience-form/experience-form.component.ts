@@ -1,8 +1,8 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormGroup} from "@angular/forms";
-import {Link} from "../../../../../interfaces/link";
 import {MatChip} from "@angular/material/chips";
 import {MeResponse} from "../../../../../api/src";
+import {EnumService, SelectOption} from "../../../../utils/enum.service";
 
 @Component({
   selector: 'app-experience-form',
@@ -16,27 +16,10 @@ export class ExperienceFormComponent {
   @Output() formChange: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   @Output() goNext: EventEmitter<void> = new EventEmitter<void>();
 
-  petOptions: Link[] = [
-    {
-      value: 'DOG',
-      label: 'label.pet.dog'
-    },
-    {
-      value: 'CAT',
-      label: 'label.pet.cat'
-    },
-    {
-      value: 'horse',
-      label: 'label.pet.horse'
-    },
-    {
-      value: 'OTHER',
-      label: 'label.pet.other'
-    },
-    {
-      value: 'chicken',
-      label: 'label.pet.chicken'
-    }]
+  constructor(private readonly enumService: EnumService) {
+  }
+
+  petOptions: SelectOption<string>[] = this.enumService.getPetsSelectOptions();
 
   get motivation() {
     return this.form.get('motivation');

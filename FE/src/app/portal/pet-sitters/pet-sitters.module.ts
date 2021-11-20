@@ -17,6 +17,7 @@ import {LocaleService, NgxDaterangepickerMd} from "ngx-daterangepicker-material"
 import {StepperSummaryComponent} from './become-petsitter/stepper-summary/stepper-summary.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
+import {SitterPageComponent} from './sitter-page/sitter-page.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {MatNativeDateModule} from "@angular/material/core";
     ExperienceFormComponent,
     AvailabilityFormComponent,
     StepperSummaryComponent,
+    SitterPageComponent,
   ],
   imports: [
     CommonModule,

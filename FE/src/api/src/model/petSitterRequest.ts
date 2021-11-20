@@ -10,12 +10,11 @@
  * Do not edit the class manually.
  */
 import {PetExperienceEnum} from './petExperienceEnum';
-import {NullEnum} from './nullEnum';
 
 
 export interface PetSitterRequest {
     experience?: string | null;
-    pet_experience?: PetExperienceEnum | NullEnum | null;
+    pet_experience: Array<PetExperienceEnum>;
     motivation?: string | null;
     availability_start_date: string;
     availability_end_date: string;

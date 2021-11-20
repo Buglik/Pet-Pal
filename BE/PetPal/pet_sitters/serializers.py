@@ -1,10 +1,12 @@
-from rest_framework import serializers
+from rest_framework import serializers, fields
 
-from .models import Sitter
+from .models import Sitter, Pets
 from profiles.serializers import MeResponseSerializer
 
 
 class PetSitterRequestSerializer(serializers.ModelSerializer):
+    pet_experience = fields.MultipleChoiceField(choices=Pets)
+
     class Meta:
         model = Sitter
         fields = ['experience', 'pet_experience', 'motivation', 'availability_start_date',
@@ -22,6 +24,7 @@ class PetSitterRequestSerializer(serializers.ModelSerializer):
 
 class PetSitterResponseSerializer(serializers.ModelSerializer):
     profile = MeResponseSerializer()
+    pet_experience = fields.MultipleChoiceField(choices=Pets)
 
     class Meta:
         model = Sitter

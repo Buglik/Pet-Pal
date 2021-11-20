@@ -3,7 +3,6 @@ export * from './loginRequest';
 export * from './loginResponse';
 export * from './logoutRequest';
 export * from './meResponse';
-export * from './nullEnum';
 export * from './petExperienceEnum';
 export * from './petSitterPageResponse';
 export * from './petSitterRequest';

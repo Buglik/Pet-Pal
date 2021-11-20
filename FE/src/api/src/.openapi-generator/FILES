@@ -16,7 +16,6 @@ model/loginResponse.ts
 model/logoutRequest.ts
 model/meResponse.ts
 model/models.ts
-model/nullEnum.ts
 model/petExperienceEnum.ts
 model/petSitterPageResponse.ts
 model/petSitterRequest.ts

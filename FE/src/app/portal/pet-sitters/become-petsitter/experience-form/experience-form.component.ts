@@ -18,11 +18,11 @@ export class ExperienceFormComponent {
 
   petOptions: Link[] = [
     {
-      value: 'doggo',
+      value: 'DOG',
       label: 'label.pet.dog'
     },
     {
-      value: 'cat',
+      value: 'CAT',
       label: 'label.pet.cat'
     },
     {
@@ -30,7 +30,7 @@ export class ExperienceFormComponent {
       label: 'label.pet.horse'
     },
     {
-      value: 'dinosaur',
+      value: 'OTHER',
       label: 'label.pet.other'
     },
     {

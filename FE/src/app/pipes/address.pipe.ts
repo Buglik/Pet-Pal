@@ -13,7 +13,7 @@ export class AddressPipe implements PipeTransform {
       }
       return contact?.city;
     }
-    return '';
+    return 'label.address.null';
   }
 
 }

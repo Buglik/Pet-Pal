@@ -11,19 +11,25 @@
     {{'label.user.verified' | translate}}
   </span>
   <mat-divider></mat-divider>
-  <div class="contact">
+  <div class="contact" *ngIf="isLoggedIn; else notLoggedBlock">
     <span class="title">{{'label.contact' | translate}}</span>
     <span class="email">
         <mat-icon>email</mat-icon>
       {{sitter.profile.user.email}}
     </span>
-    <span class="whatsapp">
+    <span class="whatsapp" *ngIf="sitter.profile.contact.whatsapp_number">
       <mat-icon>whatsapp</mat-icon>
       {{sitter.profile.contact.whatsapp_number}}
     </span>
-    <span class="phone">
+    <span class="phone" *ngIf="sitter.profile.contact.phone_number">
       <mat-icon>phone</mat-icon>
       {{sitter.profile.contact.phone_number}}
     </span>
   </div>
+  <ng-template #notLoggedBlock>
+    <button petpal-button tertiary
+            class="login-btn"
+            (click)="navigateToLoginPage()"
+    >{{'button.contact.login' | translate}}</button>
+  </ng-template>
 </div>

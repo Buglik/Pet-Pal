@@ -5,6 +5,8 @@
   <div class="header"><h1>HEADER</h1></div>
   <div class="content">
     <app-sitter-info></app-sitter-info>
-    <app-profile-info-card [sitter]="sitter$ | async"></app-profile-info-card>
+    <app-profile-info-card
+      [isLoggedIn]="(isLoggedIn$ | async)!"
+      [sitter]="sitter$ | async"></app-profile-info-card>
   </div>
 </ng-template>

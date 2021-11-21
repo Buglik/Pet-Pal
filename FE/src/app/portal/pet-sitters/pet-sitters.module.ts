@@ -18,6 +18,10 @@ import {StepperSummaryComponent} from './become-petsitter/stepper-summary/steppe
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {SitterPageComponent} from './sitter-page/sitter-page.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {ProfileInfoCardComponent} from './sitter-page/profile-info-card/profile-info-card.component';
+import {SitterInfoComponent} from './sitter-page/sitter-info/sitter-info.component';
+import {PipesModule} from "../../pipes/pipes.module";
 
 
 @NgModule({
@@ -28,22 +32,26 @@ import {SitterPageComponent} from './sitter-page/sitter-page.component';
     AvailabilityFormComponent,
     StepperSummaryComponent,
     SitterPageComponent,
+    ProfileInfoCardComponent,
+    SitterInfoComponent,
   ],
-  imports: [
-    CommonModule,
-    PetSittersRoutingModule,
-    MatStepperModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    TranslateModule,
-    UtilsModule,
-    MatChipsModule,
-    NgxDaterangepickerMd.forRoot(),
-    MatDatepickerModule,
-    MatNativeDateModule
-  ],
+    imports: [
+        CommonModule,
+        PetSittersRoutingModule,
+        MatStepperModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        TranslateModule,
+        UtilsModule,
+        MatChipsModule,
+        NgxDaterangepickerMd.forRoot(),
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatProgressSpinnerModule,
+        PipesModule
+    ],
   providers: [
     LocaleService,
   ],

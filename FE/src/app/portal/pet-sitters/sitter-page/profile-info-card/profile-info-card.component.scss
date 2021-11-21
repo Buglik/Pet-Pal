@@ -1,0 +1,11 @@
+@use '../../../../../styles/ui';
+
+.container{
+  border-radius: 10px;
+  background-color: ui.$card-background;
+  border: 1px solid ui.$card-border;
+  box-shadow: 0 3px 12px ui.$card-shadow;
+
+  position: sticky;
+  top: 5rem;
+}

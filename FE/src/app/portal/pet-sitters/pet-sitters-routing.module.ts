@@ -10,7 +10,7 @@ import {SitterInitResolver} from "../../resolvers/sitter-init.resolver";
 const routes: Routes = [
   {path: '', component: PetSittersComponent},
   {
-    path: ':username',
+    path: 'sitter/:username',
     resolve: [SitterInitResolver],
     component: SitterPageComponent
   },

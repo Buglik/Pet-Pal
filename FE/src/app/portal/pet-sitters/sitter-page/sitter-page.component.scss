@@ -1,0 +1,40 @@
+@use '../../../../styles/ui';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  max-width: 1012px;
+  margin: auto;
+}
+
+.pending {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: ui.$spinner-primary;
+  }
+}
+
+.header {
+  height: 60px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  height: 100%;
+
+
+  app-sitter-info {
+    width: 60%;
+  }
+
+  app-profile-info-card {
+    width: 40%;
+    height: auto;
+  }
+}

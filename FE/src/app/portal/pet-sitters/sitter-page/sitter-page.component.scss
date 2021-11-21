@@ -19,7 +19,12 @@
 }
 
 .header {
-  height: 60px;
+  button{
+    margin-top: 24px;
+    padding: 0;
+    border: 0;
+  }
+  height: 96px;
 }
 
 .content {

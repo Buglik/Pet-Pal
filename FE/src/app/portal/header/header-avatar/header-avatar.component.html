@@ -1,6 +1,7 @@
-<div class="avatar">
-  <div class="avatar-initials" *ngIf="!imgSrc; else photo">{{initials | uppercase}}</div>
-  <ng-template #photo>
-      <img class="photo" [src]=imgSrc alt="user-photo"/>
-  </ng-template>
-</div>
+<span class="avatar-initials" *ngIf="!imgSrc; else photo">
+  {{initials | uppercase}}
+</span>
+<ng-template #photo>
+  <img class="photo" [src]=imgSrc alt="user-photo"/>
+</ng-template>
+

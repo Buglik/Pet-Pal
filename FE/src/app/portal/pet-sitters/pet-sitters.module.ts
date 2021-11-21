@@ -23,6 +23,8 @@ import {ProfileInfoCardComponent} from './sitter-page/profile-info-card/profile-
 import {SitterInfoComponent} from './sitter-page/sitter-info/sitter-info.component';
 import {PipesModule} from "../../pipes/pipes.module";
 import {MatDividerModule} from "@angular/material/divider";
+import {PortalModule} from "../portal.module";
+import {SitterSectionComponent} from './sitter-page/sitter-info/sitter-section/sitter-section.component';
 
 
 @NgModule({
@@ -35,25 +37,27 @@ import {MatDividerModule} from "@angular/material/divider";
     SitterPageComponent,
     ProfileInfoCardComponent,
     SitterInfoComponent,
+    SitterSectionComponent,
   ],
-  imports: [
-    CommonModule,
-    PetSittersRoutingModule,
-    MatStepperModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    TranslateModule,
-    UtilsModule,
-    MatChipsModule,
-    NgxDaterangepickerMd.forRoot(),
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatProgressSpinnerModule,
-    PipesModule,
-    MatDividerModule
-  ],
+    imports: [
+        CommonModule,
+        PetSittersRoutingModule,
+        MatStepperModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        TranslateModule,
+        UtilsModule,
+        MatChipsModule,
+        NgxDaterangepickerMd.forRoot(),
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatProgressSpinnerModule,
+        PipesModule,
+        MatDividerModule,
+        PortalModule
+    ],
   providers: [
     LocaleService,
   ],

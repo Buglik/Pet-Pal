@@ -25,6 +25,12 @@ import {PipesModule} from "../../pipes/pipes.module";
 import {MatDividerModule} from "@angular/material/divider";
 import {PortalModule} from "../portal.module";
 import {SitterSectionComponent} from './sitter-page/sitter-info/sitter-section/sitter-section.component';
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {StoreModule} from "@ngrx/store";
+import {EffectsModule} from "@ngrx/effects";
+import {SittersEffects} from "../../state/sitters/sitters.effects";
+import {sitterListFeature} from "../../state/app.state";
+import {sittersReducer} from "../../state/sitters/sitters.reducer";
 
 
 @NgModule({
@@ -39,25 +45,30 @@ import {SitterSectionComponent} from './sitter-page/sitter-info/sitter-section/s
     SitterInfoComponent,
     SitterSectionComponent,
   ],
-    imports: [
-        CommonModule,
-        PetSittersRoutingModule,
-        MatStepperModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        TranslateModule,
-        UtilsModule,
-        MatChipsModule,
-        NgxDaterangepickerMd.forRoot(),
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatProgressSpinnerModule,
-        PipesModule,
-        MatDividerModule,
-        PortalModule
-    ],
+  imports: [
+    CommonModule,
+    PetSittersRoutingModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    TranslateModule,
+    UtilsModule,
+    MatChipsModule,
+    NgxDaterangepickerMd.forRoot(),
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatProgressSpinnerModule,
+    PipesModule,
+    MatDividerModule,
+    PortalModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+    }),
+    StoreModule.forFeature(sitterListFeature, sittersReducer),
+    EffectsModule.forFeature([SittersEffects]),
+  ],
   providers: [
     LocaleService,
   ],

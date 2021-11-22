@@ -95,7 +95,8 @@ class GetPetSitterView(views.APIView):
 
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-class GetPetSittersPaginatedView(ListAPIView):
+
+class GetPetSittersPaginatedView(views.APIView):
     @extend_schema(
         parameters=[OpenApiParameter(name='page', description='Page index', type=int,
                                      location=OpenApiParameter.QUERY),
@@ -120,11 +121,12 @@ class GetPetSittersPaginatedView(ListAPIView):
             # If page is out of range, deliver last page of results.
             page = paginator.page(paginator.num_pages)
 
-        serializer = PetSitterResponseSerializer(page.object_list, many=True)
-
-        response = {'data': serializer.data,
+        response = {'sitters': page.object_list,
                     'pageSize': paginator.per_page,
                     'pageIndex': page.number,
+                    'pagesTotal': paginator.num_pages,
                     'length': paginator.count}
 
-        return Response(response, status=status.HTTP_200_OK)
+        serializer = PetSitterPageResponseSerializer(response)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)

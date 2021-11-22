@@ -13,8 +13,9 @@ import {PetSitterResponse} from './petSitterResponse';
 
 
 export interface PetSitterPageResponse {
-    data: Array<PetSitterResponse>;
+    sitters: Array<PetSitterResponse>;
     pageSize: number;
+    pagesTotal: number;
     pageIndex: number;
     length: number;
 }

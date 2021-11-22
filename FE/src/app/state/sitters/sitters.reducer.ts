@@ -38,11 +38,11 @@ export const sittersReducer = createReducer(
   })),
   on(updateSittersSuccess, (state, page) => ({
     ...state,
-    clinics: page.data,
+    sitters: page.sitters,
     paginationParams: {
       pagination: page.pageSize,
       pageNumber: page.pageIndex,
-      totalPages: page.length / page.pageSize,
+      totalPages: Math.ceil(page.length / page.pageSize),
       totalElements: page.length,
     },
     pending: false

@@ -150,10 +150,10 @@ export class PetSittersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public petSittersGetPaginatedList(page?: number, size?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<PetSitterPageResponse>>;
-    public petSittersGetPaginatedList(page?: number, size?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<PetSitterPageResponse>>>;
-    public petSittersGetPaginatedList(page?: number, size?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<PetSitterPageResponse>>>;
-    public petSittersGetPaginatedList(page?: number, size?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public petSittersGetPaginatedRetrieve(page?: number, size?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<PetSitterPageResponse>;
+    public petSittersGetPaginatedRetrieve(page?: number, size?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<PetSitterPageResponse>>;
+    public petSittersGetPaginatedRetrieve(page?: number, size?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<PetSitterPageResponse>>;
+    public petSittersGetPaginatedRetrieve(page?: number, size?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let queryParameters = new HttpParams({encoder: this.encoder});
         if (page !== undefined && page !== null) {
@@ -192,7 +192,7 @@ export class PetSittersService {
             responseType = 'text';
         }
 
-        return this.httpClient.get<Array<PetSitterPageResponse>>(`${this.configuration.basePath}/pet-sitters/get-paginated`,
+        return this.httpClient.get<PetSitterPageResponse>(`${this.configuration.basePath}/pet-sitters/get-paginated`,
             {
                 params: queryParameters,
                 responseType: <any>responseType,

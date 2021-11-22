@@ -33,11 +33,12 @@ class PetSitterResponseSerializer(serializers.ModelSerializer):
 
 
 class PetSitterPageResponseSerializer(serializers.ModelSerializer):
-    data = PetSitterResponseSerializer(many=True)
+    sitters = PetSitterResponseSerializer(many=True)
     pageSize = serializers.IntegerField()
+    pagesTotal = serializers.IntegerField()
     pageIndex = serializers.IntegerField()
     length = serializers.IntegerField()
 
     class Meta:
         model = Sitter
-        fields = ['data', 'pageSize', 'pageIndex', 'length']
+        fields = ['sitters', 'pageSize', 'pagesTotal', 'pageIndex', 'length']

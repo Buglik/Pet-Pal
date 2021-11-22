@@ -29,9 +29,8 @@ export class SittersEffects {
       ofType(updateSitters),
       withLatestFrom(this.store.select(selectSittersListPaginationParams)),
       switchMap(([action, pagination]) => {
-        return this.sitterController.petSittersGetPaginatedList(pagination.pageNumber, pagination.pagination).pipe(
-          // TODO:fix api definition
-          map(page => updateSittersSuccess(page[0])),
+        return this.sitterController.petSittersGetPaginatedRetrieve(pagination.pageNumber, pagination.pagination).pipe(
+          map(page => updateSittersSuccess(page)),
           catchError(error => of(updateSittersError())),
         )
       })

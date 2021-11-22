@@ -14,6 +14,6 @@ export const setDefaultParamsSitterList = createAction('[SitterList] Set default
 // export const changeSortingParamsSitterList = createAction('[SitterList-Sorting] Change params', props<TableSortingParams>());
 export const changePaginationParamsSitterList = createAction('[SitterList-Pagination] Change params', props<TablePaginationParams>());
 
-export const updateSitters = createAction('[SitterList] Update clinics');
-export const updateSittersSuccess = createAction('[SitterList] Update clinics success', props<PetSitterPageResponse>());
-export const updateSittersError = createAction('[SitterList] Update clinics error');
+export const updateSitters = createAction('[SitterList] Update sitters');
+export const updateSittersSuccess = createAction('[SitterList] Update sitters success', props<PetSitterPageResponse>());
+export const updateSittersError = createAction('[SitterList] Update sitters error');

@@ -31,6 +31,7 @@ import {EffectsModule} from "@ngrx/effects";
 import {SittersEffects} from "../../state/sitters/sitters.effects";
 import {sitterListFeature} from "../../state/app.state";
 import {sittersReducer} from "../../state/sitters/sitters.reducer";
+import {SitterListComponent} from './sitter-list/sitter-list.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import {sittersReducer} from "../../state/sitters/sitters.reducer";
     ProfileInfoCardComponent,
     SitterInfoComponent,
     SitterSectionComponent,
+    SitterListComponent,
   ],
   imports: [
     CommonModule,

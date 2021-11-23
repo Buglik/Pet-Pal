@@ -4,8 +4,8 @@ import {PetSitterPageResponse} from "../../../api/src";
 export interface TablePaginationParams {
   pagination: number;
   pageNumber: number;
-  totalPages?: number;
-  totalElements?: number;
+  totalPages: number;
+  totalElements: number;
 }
 
 

@@ -1,15 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {PetSitterResponse} from "../../../../api/src";
 
 @Component({
   selector: 'app-sitter-list',
   templateUrl: './sitter-list.component.html',
   styleUrls: ['./sitter-list.component.scss']
 })
-export class SitterListComponent implements OnInit {
+export class SitterListComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  @Input() sitters: PetSitterResponse[];
 
 }

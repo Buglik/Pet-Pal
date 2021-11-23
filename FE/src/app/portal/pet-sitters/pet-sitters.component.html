@@ -1,4 +1,4 @@
-<app-sitter-list></app-sitter-list>
+<app-sitter-list [sitters]="(sitters$ | async)!"></app-sitter-list>
 <app-pagination-switch [paginationParams]="(paginationParams$ | async)!"
                        (paginationChanged)="changePagination($event)">
 </app-pagination-switch>

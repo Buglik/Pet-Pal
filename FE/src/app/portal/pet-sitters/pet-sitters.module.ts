@@ -32,6 +32,7 @@ import {SittersEffects} from "../../state/sitters/sitters.effects";
 import {sitterListFeature} from "../../state/app.state";
 import {sittersReducer} from "../../state/sitters/sitters.reducer";
 import {SitterListComponent} from './sitter-list/sitter-list.component';
+import {SitterListItemComponent} from './sitter-list/sitter-list-item/sitter-list-item.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import {SitterListComponent} from './sitter-list/sitter-list.component';
     SitterInfoComponent,
     SitterSectionComponent,
     SitterListComponent,
+    SitterListItemComponent,
   ],
   imports: [
     CommonModule,

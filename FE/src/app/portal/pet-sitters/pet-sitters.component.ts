@@ -7,7 +7,8 @@ import {
   TablePaginationParams
 } from "../../state/sitters/sitters.actions";
 import {Observable} from "rxjs";
-import {selectSittersListPaginationParams} from "../../state/sitters/sitters.selectors";
+import {selectSitters, selectSittersListPaginationParams} from "../../state/sitters/sitters.selectors";
+import {PetSitterResponse} from "../../../api/src";
 
 @Component({
   selector: 'app-pet-sitters',
@@ -16,12 +17,14 @@ import {selectSittersListPaginationParams} from "../../state/sitters/sitters.sel
 })
 export class PetSittersComponent {
 
+  sitters$: Observable<PetSitterResponse[]>;
   paginationParams$: Observable<TablePaginationParams>;
 
   constructor(private store: Store<AppState>) {
+    // TODO: move initializer to resolver
     this.store.dispatch(setDefaultParamsSitterList());
     this.paginationParams$ = store.select(selectSittersListPaginationParams);
-
+    this.sitters$ = store.select(selectSitters);
   }
 
   changePagination(params: TablePaginationParams) {

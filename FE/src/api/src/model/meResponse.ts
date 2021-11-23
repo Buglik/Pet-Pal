@@ -10,15 +10,13 @@
  * Do not edit the class manually.
  */
 import {UserResponse} from './userResponse';
+import {ContactInfo} from './contactInfo';
 
 
 export interface MeResponse {
     bio?: string | null;
     readonly user: UserResponse;
-    experience?: string | null;
-    city?: string | null;
-    country?: string | null;
-    is_pet_sitter?: boolean;
-    is_pet_owner?: boolean;
+    contact: ContactInfo;
+    readonly is_pet_sitter: string;
 }
 

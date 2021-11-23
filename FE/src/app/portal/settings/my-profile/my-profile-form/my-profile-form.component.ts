@@ -1,7 +1,7 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {MeResponse, ProfileRequest} from "../../../../api/src";
-import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {FormDirective} from "../../../utils/form.directive";
+import {MeResponse, ProfileRequest} from "../../../../../api/src";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormDirective} from "../../../../utils/form.directive";
 
 @Component({
   selector: 'app-my-profile-form',
@@ -12,7 +12,6 @@ export class MyProfileFormComponent extends FormDirective<ProfileRequest> implem
 
   @Input() profile: MeResponse | null = null;
 
-  // TODO: change form data after model change
   form: FormGroup = this.fb.group({
     user: new FormGroup({
       first_name: new FormControl(this.profile?.user.first_name, [
@@ -27,15 +26,6 @@ export class MyProfileFormComponent extends FormDirective<ProfileRequest> implem
     bio: new FormControl(this.profile?.bio, [
       Validators.maxLength(255)
     ]),
-    experience: new FormControl(this.profile?.experience, [
-      Validators.maxLength(255)
-    ]),
-    city: new FormControl(this.profile?.city, [
-      Validators.maxLength(255)
-    ]),
-    country: new FormControl(this.profile?.country, [
-      Validators.maxLength(255)
-    ])
   });
 
   constructor(private readonly fb: FormBuilder) {
@@ -55,14 +45,14 @@ export class MyProfileFormComponent extends FormDirective<ProfileRequest> implem
         last_name: this.profile?.user.last_name,
       },
       bio: this.profile?.bio,
-      experience: this.profile?.experience,
-      city: this.profile?.city,
-      country: this.profile?.country
     })
   }
 
   formToJson(): ProfileRequest {
-    return this.form.value;
+    return {
+      contact: this.profile?.contact,
+      ...this.form.value
+    };
   }
 
   get firstName() {
@@ -73,8 +63,8 @@ export class MyProfileFormComponent extends FormDirective<ProfileRequest> implem
     return this.form.get('user.last_name');
   }
 
-  get bio(): AbstractControl {
-    return this.form.controls['bio'];
+  get bio() {
+    return this.form.get('bio');
   }
 
 }

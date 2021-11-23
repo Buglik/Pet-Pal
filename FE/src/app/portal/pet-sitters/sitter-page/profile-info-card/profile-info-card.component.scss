@@ -1,0 +1,97 @@
+@use '../../../../../styles/ui';
+
+.container {
+  border-radius: 10px;
+  background-color: ui.$card-background;
+  border: 1px solid ui.$card-border;
+  box-shadow: 0 3px 12px ui.$card-shadow;
+
+  position: sticky;
+  top: 5rem;
+
+  margin: 0 16px;
+  padding: 32px 24px 18px;
+
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  .name {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .bio {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .address {
+    font-size: 14px;
+    color: ui.$form-description;
+    margin-bottom: 24px;
+  }
+
+  .reviews {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+
+    mat-icon {
+      font-size: 24px;
+      color: ui.$warning;
+      margin-right: 12px;
+    }
+  }
+
+  .verified {
+    color: ui.$form-description;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 16px;
+
+    mat-icon {
+      font-size: 24px;
+      color: ui.$success;
+      margin-right: 12px;
+    }
+  }
+
+  .login-btn{
+    margin-top: 16px;
+  }
+
+  .contact {
+    margin-top: 16px;
+
+    .title{
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .email, .whatsapp, .phone {
+      color: ui.$form-description;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      margin-bottom: 16px;
+
+      mat-icon {
+        font-size: 24px;
+        color: ui.$main-text;
+        margin-right: 12px;
+      }
+    }
+  }
+
+}
+
+::ng-deep {
+  mat-divider {
+    border-top-color: rgba(0, 0, 0, .12) !important;
+  }
+}

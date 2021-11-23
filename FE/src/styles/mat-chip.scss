@@ -1,0 +1,27 @@
+@use './ui';
+
+@mixin chip-styles {
+  ::ng-deep {
+
+    mat-chip{
+      mat-icon{
+        padding-right: 4px;
+      }
+    }
+
+    //chip normal
+    .mat-chip.mat-standard-chip {
+      background-color: ui.$button-secondary;
+      color: ui.$button-secondary-text;
+      border: 1px ui.$button-secondary-text solid;
+      transition: background-color 0.2s;
+    }
+
+    //Chip active
+    .mat-chip.mat-standard-chip.mat-chip-selected.mat-primary {
+      background-color: ui.$button-primary;
+      color: ui.$button-primary-text;
+      transition: background-color 0.2s;
+    }
+  }
+}

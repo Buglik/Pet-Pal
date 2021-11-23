@@ -37,7 +37,8 @@ export class UserEffects {
     this.actions$.pipe(
       ofType(loginUserSuccess),
       tap((tokens) => {
-        this.navigation.toMainPage();
+        // TODO:secure auth routes after login
+        this.navigationService.back();
         this.tokenService.saveTokens(tokens.access, tokens.refresh);
         this.notificationService.success('notification.login.success')
       }),
@@ -58,7 +59,7 @@ export class UserEffects {
     this.actions$.pipe(
       ofType(logoutUserSuccess),
       tap(_ => {
-        this.navigation.toMainPage();
+        this.navigationService.toMainPage();
         this.tokenService.clear();
         this.notificationService.info('notification.logout.success')
       })
@@ -87,7 +88,7 @@ export class UserEffects {
               private profileService: ProfileService,
               private readonly tokenService: TokenService,
               private router: Router,
-              private navigation: NavigationService,
+              private navigationService: NavigationService,
               private readonly notificationService: NotificationService
   ) {
   }

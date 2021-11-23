@@ -1,0 +1,18 @@
+<div class="pending" *ngIf="pending$ |async; else viewBlock">
+  <mat-spinner diameter="48"></mat-spinner>
+</div>
+<ng-template #viewBlock>
+  <div class="header">
+    <button routerLink="/pet-sitters" petpal-button tertiary-link>
+      {{"button.back.sitters" | translate}}
+    </button>
+  </div>
+  <div class="content">
+    <app-sitter-info
+      [sitter]="sitter$ | async"
+    ></app-sitter-info>
+    <app-profile-info-card
+      [isLoggedIn]="(isLoggedIn$ | async)!"
+      [sitter]="sitter$ | async"></app-profile-info-card>
+  </div>
+</ng-template>

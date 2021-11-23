@@ -19,8 +19,7 @@ export class SettingsNavigationComponent {
     },
     {
       label: 'form.pet_sitter.title',
-      value: 'petSitterOptions',
-      disabled: true
+      value: 'pet-sitting',
     },
     {
       label: 'form.pet_owner.title',

@@ -9,6 +9,11 @@ export const selectUser = createSelector(
   (state: UserState) => state.user || null
 )
 
+export const selectIsUserLogged = createSelector(
+  selectUserState,
+  (state: UserState) => !!state.user
+)
+
 export const selectUserPending = createSelector(
   selectUserState,
   (state: UserState) => state.pending

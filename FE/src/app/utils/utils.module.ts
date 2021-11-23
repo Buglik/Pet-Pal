@@ -9,24 +9,33 @@ import {FormDirective} from './form.directive';
 import {LanguagePickerComponent} from './language-picker/language-picker.component';
 import {TranslateModule} from "@ngx-translate/core";
 import {NgxFlagPickerModule} from "ngx-flag-picker";
+import {PaginationSwitchComponent} from "./pagination-switch/pagination-switch.component";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 
 @NgModule({
-  declarations: [FormFieldErrorsComponent, ButtonComponent, FormDirective, LanguagePickerComponent],
+  declarations: [
+    FormFieldErrorsComponent,
+    ButtonComponent,
+    FormDirective,
+    LanguagePickerComponent,
+    PaginationSwitchComponent],
   exports: [
     FormFieldErrorsComponent,
     ButtonComponent,
     NotificationModule,
     LanguagePickerComponent,
+    PaginationSwitchComponent
   ],
-    imports: [
-        CommonModule,
-        MatFormFieldModule,
-        MatProgressSpinnerModule,
-        NotificationModule,
-        TranslateModule,
-        NgxFlagPickerModule,
-    ]
+  imports: [
+    CommonModule,
+    MatFormFieldModule,
+    MatProgressSpinnerModule,
+    NotificationModule,
+    TranslateModule,
+    NgxFlagPickerModule,
+    MatPaginatorModule,
+  ]
 })
 export class UtilsModule {
 }

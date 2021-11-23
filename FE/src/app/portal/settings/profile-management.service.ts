@@ -29,13 +29,13 @@ export class ProfileManagementService {
     this.errorSub.next(null);
     this.profileController.profilemeUpdate(data).pipe(
       map(_ => {
-        this.notificationService.success('notifications.profile_update.success');
+        this.notificationService.success('notification.profile_update.success');
         this.store.dispatch(getUser());
         this.pendingSub.next(false);
       }),
       catchError(error => {
         this.errorSub.next(error.error);
-        this.notificationService.error('notifications.profile_update.fail');
+        this.notificationService.error('notification.profile_update.fail');
         this.pendingSub.next(false);
         return of()
       }),
@@ -48,13 +48,13 @@ export class ProfileManagementService {
     this.errorSub.next(null);
     this.profileController.profileUpdateAvatarUpdate(pic).pipe(
       map(_ => {
-        this.notificationService.success('notifications.profile_pic.success');
+        this.notificationService.success('notification.profile_pic.success');
         this.store.dispatch(getUser());
         this.picPendingSub.next(false);
       }),
       catchError(error => {
         this.errorSub.next(error.error);
-        this.notificationService.error('notifications.profile_pic.fail');
+        this.notificationService.error('notification.profile_pic.fail');
         this.picPendingSub.next(false);
         return of()
       }),

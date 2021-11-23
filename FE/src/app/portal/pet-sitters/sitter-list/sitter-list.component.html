@@ -1,0 +1,6 @@
+<app-sitter-list-item
+  *ngFor="let sitter of sitters"
+  [sitter]="sitter"
+  (click)="navigateToSitterPage(sitter)"
+>
+</app-sitter-list-item>

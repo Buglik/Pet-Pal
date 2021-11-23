@@ -1,0 +1,72 @@
+@use '../../../../../styles/inputs';
+@use '../../../../../styles/ui';
+@use '../../../../../styles/mat-chip';
+
+@include inputs.input-styles;
+@include mat-chip.chip-styles;
+
+form {
+  height: 580px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+
+    .left {
+      flex: 1;
+      padding: 16px;
+
+      .bio-field {
+        min-height: 140px;
+        max-height: 140px;
+      }
+
+      .motivation-field {
+        min-height: 220px;
+        max-height: 220px;
+      }
+
+    }
+
+    .right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px;
+
+      .experience-field {
+        min-height: 220px;
+        max-height: 220px;
+      }
+
+      .pet-chips-container{
+        height: 100%;
+        padding-bottom: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .title-container {
+          .title{
+            margin: 0;
+          }
+          .description {
+            color: ui.$form-description;
+          }
+        }
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+
+
+

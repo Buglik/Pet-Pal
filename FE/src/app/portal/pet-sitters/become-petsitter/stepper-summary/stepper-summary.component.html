@@ -1,0 +1,56 @@
+<div class="content">
+  <div class="left" [formGroup]="experienceForm">
+
+    <div class="title-container">
+      <h4 class="title">{{'form.pet_sitter.summary.title' | translate}}</h4>
+      <h5 class="description">{{'form.pet_sitter.summary.description' | translate}}</h5>
+    </div>
+
+    <!--DISPLAY ONLY-->
+    <!--MOTIVATION-->
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>{{'label.motivation' | translate}}</mat-label>
+      <textarea #bioInput class="motivation-field"
+                [value]="motivation?.value"
+                matInput
+                [disabled]="true"></textarea>
+    </mat-form-field>
+
+    <!--DISPLAY ONLY-->
+    <!--EXPERIENCE-->
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>{{'label.experience' | translate}}</mat-label>
+      <textarea #experienceInput
+                class="experience-field" matInput
+                [value]="experience?.value"
+                [disabled]="true"></textarea>
+    </mat-form-field>
+  </div>
+  <div class="right">
+    <mat-calendar [selected]="availabilityObject"></mat-calendar>
+    <mat-chip-list multiple class="pets-field">
+      <mat-chip #c="matChip" *ngFor="let option of pets"
+                [value]="option.value">
+        <!--          TODO: actual icons of pets-->
+        <mat-icon>person</mat-icon>
+        {{'pet.' + option | translate}}
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+</div>
+<div class="buttons">
+  <button petpal-button
+          secondary
+          (click)="goBack.emit()"
+          class="submit-btn">
+    {{'button.previous' | translate}}
+  </button>
+
+  <button petpal-button
+          primary
+          (click)="submitPetsitter.emit()"
+          class="submit-btn"
+          [disabled]="!isFormValid">
+    {{'button.become_petsitter' | translate}}
+  </button>
+</div>

@@ -1,0 +1,67 @@
+<div class="form-title-container">
+  <h3 class="form-title">
+    {{"form.pet_sitter.become_petsitter.title" | translate}}
+  </h3>
+  <h5 class="form-description">
+    {{"form.pet_sitter.become_petsitter.description" | translate}}
+  </h5>
+</div>
+
+<mat-stepper labelPosition="bottom" #stepper>
+  <mat-step
+    [stepControl]="experienceFormGroup"
+    state="experience">
+    <ng-template matStepLabel>{{'label.experience' | translate}}</ng-template>
+    <app-experience-form
+      [profile]="user$ | async"
+      [(form)]="experienceFormGroup"
+      (goNext)="goForward(stepper)"
+    ></app-experience-form>
+  </mat-step>
+
+  <mat-step
+    [stepControl]="availability"
+    state="calendar">
+    <ng-template matStepLabel>{{'label.availability' | translate}}</ng-template>
+    <app-availability-form
+      [(form)]="availability"
+      (goNext)="goForward(stepper)"
+      (goBack)="goBack(stepper)"
+    ></app-availability-form>
+  </mat-step>
+
+<!--  <mat-step-->
+<!--    state="contact">-->
+<!--    <ng-template matStepLabel>Step 3</ng-template>-->
+<!--    STEP 3-->
+<!--    <div>-->
+<!--      <button matStepperPrevious>Back</button>-->
+<!--      <button matStepperNext>Next</button>-->
+<!--    </div>-->
+<!--  </mat-step>-->
+
+  <mat-step state="last">
+    <ng-template matStepLabel>{{'label.summary' | translate}}</ng-template>
+    <app-stepper-summary
+      [experienceForm]="experienceFormGroup"
+      [availability]="availability"
+      (submitPetsitter)="onSubmit()"
+      (goBack)="goBack(stepper)"
+    ></app-stepper-summary>
+  </mat-step>
+
+  <!-- Icon overrides. -->
+  <ng-template matStepperIcon="experience">
+    <mat-icon>person</mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon="contact">
+    <mat-icon>phone</mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon="last">
+    <mat-icon>done</mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon="calendar">
+    <mat-icon>date_range</mat-icon>
+  </ng-template>
+</mat-stepper>
+

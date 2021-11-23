@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {MeResponse} from "../../../../api/src";
+import {MeResponse} from "../../../../../api/src";
 
 @Component({
   selector: 'app-my-profile-avatar',

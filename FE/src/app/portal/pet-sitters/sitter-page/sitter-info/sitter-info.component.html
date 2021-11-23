@@ -1,0 +1,32 @@
+<app-header-avatar
+  *ngIf="sitter.profile.user.avatar"
+  [imgSrc]="sitter.profile.user.avatar"
+  [initials]="sitter.profile.user | initials">
+</app-header-avatar>
+<app-sitter-section [title]="'label.sitter.motivation' | translate">
+  <span>
+    {{sitter.motivation}}
+  </span>
+</app-sitter-section>
+<app-sitter-section [title]="'label.sitter.experience' | translate">
+  <span>
+    {{sitter.experience}}
+  </span>
+</app-sitter-section>
+<app-sitter-section [title]="'label.sitter.pet_experience' | translate">
+  <mat-chip-list multiple class="pets-field">
+    <mat-chip #c="matChip" *ngFor="let option of sitter.pet_experience">
+      <!--          TODO: actual icons of pets-->
+      <mat-icon>person</mat-icon>
+      {{'label.pet.' + option | lowercase | translate}}
+    </mat-chip>
+  </mat-chip-list>
+</app-sitter-section>
+
+<app-sitter-section [title]="'label.availability' | translate">
+  <mat-calendar class="calendar" [selected]="availabilityObject"></mat-calendar>
+</app-sitter-section>
+
+<app-sitter-section [title]="'label.reviews' | translate">
+  <h1>Reveiws stuff here</h1>
+</app-sitter-section>

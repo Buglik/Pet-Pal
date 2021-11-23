@@ -1,0 +1,64 @@
+@use './ui';
+
+@mixin date-picker-styles {
+  ::ng-deep {
+    .md-drppicker {
+      box-shadow: 0 3px 12px ui.$card-shadow;
+      background-color: ui.$card-background;
+
+      .calendar-table {
+        background-color: ui.$card-background;
+      }
+
+      td.active, td.start-date.end-date {
+        background-color: ui.$button-primary !important;
+      }
+
+      td.active:hover {
+        background-color: ui.$button-primary-hover !important;
+      }
+
+      .btn {
+        background: ui.$button-primary !important;
+        color: ui.$button-primary-text !important;
+
+        &:hover, &[disabled], &:focus {
+          background-color: ui.$button-primary-hover !important;
+        }
+      }
+
+    }
+  }
+
+}
+
+
+@mixin date-picker-styles-material {
+  ::ng-deep {
+    mat-calendar {
+      box-shadow: 0 3px 12px ui.$card-shadow;
+      background-color: ui.$card-background;
+    }
+
+    .mat-calendar-table-header, .mat-calendar-body-label {
+      color: ui.$main-text;
+    }
+
+    .mat-calendar-body-cell-content, .mat-date-range-input-separator {
+      color: ui.$main-text;
+    }
+
+    .mat-calendar-body-selected {
+      background-color: ui.$button-primary !important;
+    }
+
+    .mat-calendar-body-in-range::before {
+      background-color: ui.$button-primary-hover !important;
+      opacity: 0.5;
+    }
+
+    .mat-calendar-table-header-divider:after {
+      background-color: ui.$button-primary-hover !important;
+    }
+  }
+}

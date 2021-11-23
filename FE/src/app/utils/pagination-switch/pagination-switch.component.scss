@@ -1,0 +1,54 @@
+@use '../../../styles/ui';
+@use '../../../styles/inputs';
+
+@include inputs.input-styles;
+
+:host {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mat-paginator {
+  background-color: transparent;
+  color: ui.$main-text;
+  //font-family: fonts.$main-font-book;
+  font-size: 10px;
+}
+
+::ng-deep {
+
+  .mat-icon-button.mat-button-disabled.mat-button-disabled{
+    color: ui.$button-primary;
+    opacity: 0.5;
+  }
+
+  .mat-select-panel {
+    background-color: ui.$card-background;
+  }
+
+  .mat-option {
+    color: ui.$main-text;
+  }
+
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: ui.$button-primary;
+  }
+
+  .mat-select-value {
+    color: ui.$main-text !important;
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: ui.$button-primary;
+  }
+
+  .mat-paginator, .mat-paginator-page-size .mat-select-trigger, .mat-select-arrow {
+    color: ui.$button-primary !important;
+  }
+}
+
+
+::ng-deep .mat-icon-button {
+  width: 30px !important;
+}

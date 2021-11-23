@@ -15,8 +15,6 @@ import {UserResponse} from './userResponse';
 export interface ProfileResponse {
     user: UserResponse;
     bio?: string | null;
-    experience?: string | null;
-    city?: string | null;
-    country?: string | null;
+    contact: number;
 }
 

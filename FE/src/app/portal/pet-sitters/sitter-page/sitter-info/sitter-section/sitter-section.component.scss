@@ -1,0 +1,25 @@
+@use '../../../../../../styles/mat-chip';
+@use '../../../../../../styles/date-picker';
+
+@include date-picker.date-picker-styles-material;
+@include mat-chip.chip-styles;
+
+:host {
+  display: block;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.title {
+  display: block;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.content {
+  text-align: justify;
+  font-size: 16px;
+  line-height: 1.75;
+  font-weight: 400;
+}

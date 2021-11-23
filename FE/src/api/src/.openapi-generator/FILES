@@ -6,6 +6,7 @@ api/api.ts
 api/auth.service.ts
 api/petSitters.service.ts
 api/profile.service.ts
+api/reviews.service.ts
 configuration.ts
 encoder.ts
 git_push.sh
@@ -20,10 +21,15 @@ model/petExperienceEnum.ts
 model/petSitterPageResponse.ts
 model/petSitterRequest.ts
 model/petSitterResponse.ts
+model/petsInvolvedEnum.ts
 model/profilePageResponse.ts
 model/profileRequest.ts
 model/profileResponse.ts
 model/registerRequest.ts
+model/reviewPageResponse.ts
+model/reviewRequest.ts
+model/reviewResponse.ts
+model/reviewsInfo.ts
 model/tokenRefresh.ts
 model/user.ts
 model/userResponse.ts

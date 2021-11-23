@@ -24,8 +24,8 @@ class ReviewRequestSerializer(serializers.ModelSerializer):
 
 
 class ReviewResponseSerializer(serializers.ModelSerializer):
-    profile = MeResponseSerializer()
-    pet_experience = fields.MultipleChoiceField(choices=Pets)
+    reviewer = MeResponseSerializer()
+    pets_involved = fields.MultipleChoiceField(choices=Pets)
 
     class Meta:
         model = Review

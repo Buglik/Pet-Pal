@@ -20,15 +20,15 @@ export class SittersEffects {
   private changeTableParams$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
       ofType(changePaginationParamsSitterList, setDefaultParamsSitterList),
-      map(action => updateSitters())
+      map(_ => updateSitters())
     ),
   );
 
-  private updateClinics$: Observable<Action> = createEffect(() =>
+  private updateSitters$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
       ofType(updateSitters),
       withLatestFrom(this.store.select(selectSittersListPaginationParams)),
-      switchMap(([action, pagination]) => {
+      switchMap(([_, pagination]) => {
         return this.sitterController.petSittersGetPaginatedRetrieve(pagination.pageNumber, pagination.pagination).pipe(
           map(page => updateSittersSuccess(page)),
           catchError(error => of(updateSittersError())),

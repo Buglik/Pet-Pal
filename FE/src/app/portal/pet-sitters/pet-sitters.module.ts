@@ -29,11 +29,13 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {StoreModule} from "@ngrx/store";
 import {EffectsModule} from "@ngrx/effects";
 import {SittersEffects} from "../../state/sitters/sitters.effects";
-import {sitterListFeature} from "../../state/app.state";
+import {sitterListFeature, sitterReviewsFeature} from "../../state/app.state";
 import {sittersReducer} from "../../state/sitters/sitters.reducer";
 import {SitterListComponent} from './sitter-list/sitter-list.component';
 import {SitterListItemComponent} from './sitter-list/sitter-list-item/sitter-list-item.component';
 import {BarRatingModule} from "ngx-bar-rating";
+import {ReviewsEffects} from "../../state/reviews/reviews.effects";
+import {reviewsReducer} from "../../state/reviews/reviews.reducer";
 
 
 @NgModule({
@@ -72,7 +74,8 @@ import {BarRatingModule} from "ngx-bar-rating";
       maxAge: 25, // Retains last 25 states
     }),
     StoreModule.forFeature(sitterListFeature, sittersReducer),
-    EffectsModule.forFeature([SittersEffects]),
+    StoreModule.forFeature(sitterReviewsFeature, reviewsReducer),
+    EffectsModule.forFeature([SittersEffects, ReviewsEffects]),
     BarRatingModule,
   ],
   providers: [

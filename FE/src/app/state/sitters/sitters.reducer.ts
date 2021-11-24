@@ -44,7 +44,7 @@ export const sittersReducer = createReducer(
     paginationParams: {
       pagination: page.pageSize,
       pageNumber: page.pageIndex,
-      totalPages: Math.ceil(page.length / page.pageSize),
+      totalPages: page.pagesTotal,
       totalElements: page.length,
     },
     pending: false

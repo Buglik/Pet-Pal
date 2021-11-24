@@ -2,6 +2,9 @@
 @use './styles/ui';
 @use './styles/notifications';
 
+@import '~ngx-bar-rating/themes/br-default-theme';
+
+
 html {
   height: 100%;
 }

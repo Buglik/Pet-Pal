@@ -33,6 +33,7 @@ import {sitterListFeature} from "../../state/app.state";
 import {sittersReducer} from "../../state/sitters/sitters.reducer";
 import {SitterListComponent} from './sitter-list/sitter-list.component';
 import {SitterListItemComponent} from './sitter-list/sitter-list-item/sitter-list-item.component';
+import {BarRatingModule} from "ngx-bar-rating";
 
 
 @NgModule({
@@ -72,6 +73,7 @@ import {SitterListItemComponent} from './sitter-list/sitter-list-item/sitter-lis
     }),
     StoreModule.forFeature(sitterListFeature, sittersReducer),
     EffectsModule.forFeature([SittersEffects]),
+    BarRatingModule,
   ],
   providers: [
     LocaleService,

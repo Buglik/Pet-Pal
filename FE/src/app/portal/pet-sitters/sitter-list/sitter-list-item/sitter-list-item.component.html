@@ -5,4 +5,7 @@
 </app-header-avatar>
 <span class="name">{{sitter.profile.user.first_name}}</span>
 <span class="address">{{sitter.profile.contact | address}}</span>
-<span class="reviews">Reviews</span>
+<div class="reviews">
+  <bar-rating [readOnly]="true" [rate]="sitter.profile.reviews.average" [max]="5"></bar-rating>
+  <span>({{sitter.profile.reviews.count}})</span>
+</div>

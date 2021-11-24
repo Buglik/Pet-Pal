@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {PetSitterResponse} from "../../../../../api/src";
+import {PetSitterResponse, ReviewPageResponse} from "../../../../../api/src";
 import {NavigationService} from "../../../../navigation.service";
 
 @Component({
@@ -11,6 +11,8 @@ export class ProfileInfoCardComponent {
 
   @Input() sitter: PetSitterResponse;
   @Input() isLoggedIn: boolean;
+  @Input() reviews: ReviewPageResponse;
+  @Input() reviewsPending: boolean;
 
   constructor(private navigationService: NavigationService) {
   }

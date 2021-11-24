@@ -1,6 +1,7 @@
-import {Component, Input} from '@angular/core';
-import {PetSitterResponse} from "../../../../../api/src";
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {PetSitterResponse, ReviewResponse} from "../../../../../api/src";
 import {DateRange} from "@angular/material/datepicker";
+import {TablePaginationParams} from "../../../../state/sitters/sitters.actions";
 
 @Component({
   selector: 'app-sitter-info',
@@ -10,6 +11,11 @@ import {DateRange} from "@angular/material/datepicker";
 export class SitterInfoComponent {
 
   @Input() sitter: PetSitterResponse;
+  @Input() reviews: ReviewResponse[];
+  @Input() reviewPending: boolean;
+
+  @Input() pagination: TablePaginationParams;
+  @Output() paginationChanged: EventEmitter<TablePaginationParams> = new EventEmitter<TablePaginationParams>();
 
 
   get availabilityObject(): DateRange<Date> {

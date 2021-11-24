@@ -36,6 +36,7 @@ import {SitterListItemComponent} from './sitter-list/sitter-list-item/sitter-lis
 import {BarRatingModule} from "ngx-bar-rating";
 import {ReviewsEffects} from "../../state/reviews/reviews.effects";
 import {reviewsReducer} from "../../state/reviews/reviews.reducer";
+import {ReviewCardComponent} from './sitter-page/sitter-info/review-card/review-card.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import {reviewsReducer} from "../../state/reviews/reviews.reducer";
     SitterSectionComponent,
     SitterListComponent,
     SitterListItemComponent,
+    ReviewCardComponent,
   ],
   imports: [
     CommonModule,

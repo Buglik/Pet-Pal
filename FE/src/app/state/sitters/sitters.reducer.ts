@@ -15,7 +15,7 @@ export const initialState: SittersListState = {
   // },
   paginationParams: {
     pagination: 15,
-    pageNumber: 1,
+    pageNumber: 0,
     totalPages: 0,
     totalElements: 0
   },

@@ -27,9 +27,9 @@ export class ReviewsEffects {
   private updateSitterReviews$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
       ofType(updateSitterReviews),
-      withLatestFrom(this.store.select(selectSitterReviewListPaginationParams),this.store.select(selectSitterUsername)),
+      withLatestFrom(this.store.select(selectSitterReviewListPaginationParams), this.store.select(selectSitterUsername)),
       switchMap(([_, pagination, username]) => {
-        return this.reviewsController.reviewsPaginatedRetrieve(pagination.pageNumber, pagination.pagination, username).pipe(
+        return this.reviewsController.reviewsPaginatedRetrieve(pagination.pageNumber + 1, pagination.pagination, username).pipe(
           map(page => updateSitterReviewsSuccess(page)),
           catchError(error => of(updateSitterReviewsError())),
         )

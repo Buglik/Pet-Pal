@@ -29,7 +29,7 @@ export class SittersEffects {
       ofType(updateSitters),
       withLatestFrom(this.store.select(selectSittersListPaginationParams)),
       switchMap(([_, pagination]) => {
-        return this.sitterController.petSittersGetPaginatedRetrieve(pagination.pageNumber, pagination.pagination).pipe(
+        return this.sitterController.petSittersGetPaginatedRetrieve(pagination.pageNumber + 1, pagination.pagination).pipe(
           map(page => updateSittersSuccess(page)),
           catchError(error => of(updateSittersError())),
         )

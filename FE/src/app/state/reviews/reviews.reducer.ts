@@ -13,7 +13,7 @@ export const initialState: SitterReviewsState = {
   reviews: [],
   paginationParams: {
     pagination: 5,
-    pageNumber: 1,
+    pageNumber: 0,
     totalPages: 0,
     totalElements: 0
   },

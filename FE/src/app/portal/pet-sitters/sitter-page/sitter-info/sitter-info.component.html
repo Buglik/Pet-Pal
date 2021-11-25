@@ -31,4 +31,9 @@
   <app-review-card *ngFor="let review of reviews"
     [review]="review"
   ></app-review-card>
+  <app-pagination-switch
+    [hidePageSize]="true"
+    [paginationParams]="pagination"
+    (paginationChanged)="paginationChanged.emit($event)">
+  </app-pagination-switch>
 </app-sitter-section>

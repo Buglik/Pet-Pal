@@ -1,5 +1,6 @@
 <mat-paginator
   showFirstLastButtons
+  [hidePageSize]="hidePageSize"
   [length]="paginationParams.totalElements"
   [pageSize]="paginationParams.pagination"
   [pageSizeOptions]="[1,5,10,25]"

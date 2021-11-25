@@ -1,1 +1,24 @@
-<p>{{review.score}}</p>
+<app-header-avatar
+  class="avatar"
+  [imgSrc]="review.reviewer.user.avatar"
+  [initials]="review.reviewer.user | initials">
+</app-header-avatar>
+<div class="content">
+  <div class="top">
+    <bar-rating [readOnly]="true" [rate]="review.score" [max]="5"></bar-rating>
+    <span class="date">{{review.date}}</span>
+    <span class="author">{{'label.review.by' | translate: {val: review.reviewer.user.username} }}</span>
+  </div>
+  <span class="description">
+    {{review.description}}
+  </span>
+  <div class="pets">
+    <mat-chip-list multiple class="pets-field">
+      <mat-chip #c="matChip" *ngFor="let option of review.pets_involved">
+        <!--          TODO: actual icons of pets-->
+        <mat-icon>person</mat-icon>
+        {{'label.pet.' + option | lowercase | translate}}
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+</div>

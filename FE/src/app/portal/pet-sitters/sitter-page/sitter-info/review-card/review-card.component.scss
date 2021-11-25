@@ -1,0 +1,45 @@
+@use '../../../../../../styles/ui';
+
+:host {
+  display: flex;
+  flex-direction: row;
+
+  border-bottom: 1px solid ui.$header-border;
+  padding: 12px 0;
+}
+
+app-header-avatar {
+  width: 64px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 16px;
+
+  .top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    ::ng-deep {
+      bar-rating {
+        > div {
+          margin-top: -8px;
+        }
+      }
+    }
+
+    .date, .author {
+      margin-left: 4px;
+      font-size: 14px;
+      color: ui.$form-description;
+    }
+  }
+
+
+  .pets{
+    margin-top: 16px;
+  }
+}

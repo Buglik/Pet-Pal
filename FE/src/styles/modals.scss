@@ -1,0 +1,11 @@
+@use './ui';
+
+@mixin modalStyles() {
+  .add-review-modal {
+  }
+
+  .mat-dialog-container{
+    color: ui.$main-text;
+    background: ui.$card-background !important;
+  }
+}

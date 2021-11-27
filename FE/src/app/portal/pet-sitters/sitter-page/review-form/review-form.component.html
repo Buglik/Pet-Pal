@@ -1,0 +1,22 @@
+<form class="form-container">
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>{{'label.review' | translate}}</mat-label>
+    <textarea class="review-field" formControlName="review" matInput></textarea>
+  </mat-form-field>
+  <div class="review-form-footer">
+    <bar-rating [max]="5"></bar-rating>
+    <button petpal-button tertiary call-to-action>{{'button.review.add' | translate}}</button>
+  </div>
+</form>
+<mat-divider [vertical]="true"></mat-divider>
+<div class="profile">
+  <app-header-avatar
+    class="avatar"
+    [imgSrc]="data.profile.user.avatar"
+    [initials]="data.profile.user | initials">
+  </app-header-avatar>
+  <span class="name">{{data.profile.user.username}}</span>
+  <bar-rating [readOnly]="true" [rate]="data.profile.reviews.average" [max]="5"></bar-rating>
+  <span>({{data.profile.reviews.count}})</span>
+
+</div>

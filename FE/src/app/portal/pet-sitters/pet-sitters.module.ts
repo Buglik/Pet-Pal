@@ -37,6 +37,9 @@ import {BarRatingModule} from "ngx-bar-rating";
 import {ReviewsEffects} from "../../state/reviews/reviews.effects";
 import {reviewsReducer} from "../../state/reviews/reviews.reducer";
 import {ReviewCardComponent} from './sitter-page/sitter-info/review-card/review-card.component';
+import {ReviewFormComponent} from './sitter-page/review-form/review-form.component';
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {ReviewsService} from "./reviews.service";
 
 
 @NgModule({
@@ -53,6 +56,7 @@ import {ReviewCardComponent} from './sitter-page/sitter-info/review-card/review-
     SitterListComponent,
     SitterListItemComponent,
     ReviewCardComponent,
+    ReviewFormComponent,
   ],
   imports: [
     CommonModule,
@@ -79,9 +83,12 @@ import {ReviewCardComponent} from './sitter-page/sitter-info/review-card/review-
     StoreModule.forFeature(sitterReviewsFeature, reviewsReducer),
     EffectsModule.forFeature([SittersEffects, ReviewsEffects]),
     BarRatingModule,
+    MatDialogModule
   ],
   providers: [
     LocaleService,
+    MatDialog,
+    ReviewsService
   ],
   exports: [PetSittersComponent]
 })

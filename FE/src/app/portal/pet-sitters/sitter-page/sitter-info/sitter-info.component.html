@@ -29,11 +29,19 @@
 
 <app-sitter-section [title]="'label.reviews' | translate:{val: sitter.profile.reviews.count}">
   <app-review-card *ngFor="let review of reviews"
-    [review]="review"
+                   [review]="review"
   ></app-review-card>
-  <app-pagination-switch
-    [hidePageSize]="true"
-    [paginationParams]="pagination"
-    (paginationChanged)="paginationChanged.emit($event)">
-  </app-pagination-switch>
+  <div class="reviews-footer">
+    <button petpal-button
+            tertiary
+            call-to-action
+            (click)="openAddReviewModal()">
+      {{'button.review.add' | translate}}
+    </button>
+    <app-pagination-switch
+      [hidePageSize]="true"
+      [paginationParams]="pagination"
+      (paginationChanged)="paginationChanged.emit($event)">
+    </app-pagination-switch>
+  </div>
 </app-sitter-section>

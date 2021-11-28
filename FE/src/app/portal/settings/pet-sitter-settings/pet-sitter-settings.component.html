@@ -1,2 +1,12 @@
 <h2 class="title">{{"form.pet_sitter.title" | translate}}</h2>
-<button petpal-button primary routerLink="/pet-sitters/become-petsitter">{{"button.become_petsitter" | translate}}</button>
+<button *ngIf="!(user$ | async)?.is_pet_sitter; else isSitterBlock"
+        petpal-button
+        primary
+        routerLink="/pet-sitters/become-petsitter">
+  {{"button.become_petsitter" | translate}}
+</button>
+<ng-template #isSitterBlock>
+  <app-pet-sitter-update-form>
+
+  </app-pet-sitter-update-form>
+</ng-template>

@@ -30,7 +30,7 @@ export class ExperienceFormComponent {
   }
 
   get pets() {
-    return this.form.get('pets');
+    return this.form.get('pets_involved');
   }
 
   onSubmit() {

@@ -1,11 +1,27 @@
-<form class="form-container">
+<form class="form-container" [formGroup]="form" (submit)="onSubmit()">
+
+  <span class="pets-involved-description">{{'label.pet_involved' | translate}}</span>
+  <mat-chip-list selectable multiple class="pets-field" formControlName="pets">
+    <mat-chip #c="matChip" *ngFor="let option of petOptions"
+              [value]="option.value"
+              (click)="toggleSelection(c,option.value)">
+      <!--          TODO: actual icons of pets-->
+      <mat-icon>person</mat-icon>
+      {{option.key | lowercase | translate}}
+    </mat-chip>
+  </mat-chip-list>
+
   <mat-form-field class="full-width" appearance="outline">
     <mat-label>{{'label.review' | translate}}</mat-label>
-    <textarea class="review-field" formControlName="review" matInput></textarea>
+    <textarea #reviewInput class="review-field" formControlName="description" matInput></textarea>
+    <mat-hint align="end">{{reviewInput.value?.length || 0}}/255</mat-hint>
   </mat-form-field>
   <div class="review-form-footer">
-    <bar-rating [max]="5"></bar-rating>
-    <button petpal-button tertiary call-to-action>{{'button.review.add' | translate}}</button>
+    <bar-rating [formControl]="score" [max]="5"></bar-rating>
+    <button petpal-button tertiary call-to-action
+            [disabled]="!form.valid"
+            type="submit"
+    >{{'button.review.add' | translate}}</button>
   </div>
 </form>
 <mat-divider [vertical]="true"></mat-divider>

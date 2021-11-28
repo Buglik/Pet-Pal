@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {PetSitterResponse, ReviewResponse} from "../../../../../api/src";
 import {DateRange} from "@angular/material/datepicker";
 import {TablePaginationParams} from "../../../../state/sitters/sitters.actions";
-import {ReviewsService} from "../../reviews.service";
+import {ReviewService} from "../../review.service";
 
 @Component({
   selector: 'app-sitter-info',
@@ -18,7 +18,7 @@ export class SitterInfoComponent {
   @Input() pagination: TablePaginationParams;
   @Output() paginationChanged: EventEmitter<TablePaginationParams> = new EventEmitter<TablePaginationParams>();
 
-  constructor(private readonly reviewService: ReviewsService) {
+  constructor(private readonly reviewService: ReviewService) {
   }
 
   get availabilityObject(): DateRange<Date> {

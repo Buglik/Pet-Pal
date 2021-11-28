@@ -17,6 +17,8 @@ import {ProfileManagementService} from "./profile-management.service";
 import {UtilsModule} from "../../utils/utils.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {PetSitterSettingsComponent} from './pet-sitter-settings/pet-sitter-settings.component';
+import {ContactInfoComponent} from './contact-info/contact-info.component';
+import {ContactInfoFormComponent} from './contact-info/contact-info-form/contact-info-form.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import {PetSitterSettingsComponent} from './pet-sitter-settings/pet-sitter-setti
     MyProfileComponent,
     MyProfileFormComponent,
     MyProfileAvatarComponent,
-    PetSitterSettingsComponent
+    PetSitterSettingsComponent,
+    ContactInfoComponent,
+    ContactInfoFormComponent
   ],
     imports: [
         CommonModule,

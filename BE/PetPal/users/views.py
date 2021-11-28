@@ -70,12 +70,14 @@ class LoginView(views.APIView):
         try:
             email = request.data['email']
             password = request.data['password']
-            user = User.objects.get(email=email)
         except:
             raise AuthenticationFailed({'globalError': ['error.credentials.not_provided']})
 
-        if user is None:
+        try:
+            user = User.objects.get(email=email)
+        except:
             raise AuthenticationFailed({'globalError': ['error.credentials.invalid']})
+
         if not user.check_password(password):
             raise AuthenticationFailed({'globalError': ['error.credentials.invalid']})
 

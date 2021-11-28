@@ -4,7 +4,7 @@ import {PetSittersComponent} from "./pet-sitters.component";
 import {PetSittersRoutingModule} from "./pet-sitters-routing.module";
 import {BecomePetsitterComponent} from './become-petsitter/become-petsitter.component';
 import {MatStepperModule} from "@angular/material/stepper";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
@@ -29,10 +29,17 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {StoreModule} from "@ngrx/store";
 import {EffectsModule} from "@ngrx/effects";
 import {SittersEffects} from "../../state/sitters/sitters.effects";
-import {sitterListFeature} from "../../state/app.state";
+import {sitterListFeature, sitterReviewsFeature} from "../../state/app.state";
 import {sittersReducer} from "../../state/sitters/sitters.reducer";
 import {SitterListComponent} from './sitter-list/sitter-list.component';
 import {SitterListItemComponent} from './sitter-list/sitter-list-item/sitter-list-item.component';
+import {BarRatingModule} from "ngx-bar-rating";
+import {ReviewsEffects} from "../../state/reviews/reviews.effects";
+import {reviewsReducer} from "../../state/reviews/reviews.reducer";
+import {ReviewCardComponent} from './sitter-page/sitter-info/review-card/review-card.component';
+import {ReviewFormComponent} from './sitter-page/review-form/review-form.component';
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {ReviewService} from "./review.service";
 
 
 @NgModule({
@@ -48,33 +55,41 @@ import {SitterListItemComponent} from './sitter-list/sitter-list-item/sitter-lis
     SitterSectionComponent,
     SitterListComponent,
     SitterListItemComponent,
+    ReviewCardComponent,
+    ReviewFormComponent,
   ],
-  imports: [
-    CommonModule,
-    PetSittersRoutingModule,
-    MatStepperModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    TranslateModule,
-    UtilsModule,
-    MatChipsModule,
-    NgxDaterangepickerMd.forRoot(),
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatProgressSpinnerModule,
-    PipesModule,
-    MatDividerModule,
-    PortalModule,
-    StoreDevtoolsModule.instrument({
-      maxAge: 25, // Retains last 25 states
-    }),
-    StoreModule.forFeature(sitterListFeature, sittersReducer),
-    EffectsModule.forFeature([SittersEffects]),
-  ],
+    imports: [
+        CommonModule,
+        PetSittersRoutingModule,
+        MatStepperModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        TranslateModule,
+        UtilsModule,
+        MatChipsModule,
+        NgxDaterangepickerMd.forRoot(),
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatProgressSpinnerModule,
+        PipesModule,
+        MatDividerModule,
+        PortalModule,
+        StoreDevtoolsModule.instrument({
+            maxAge: 25, // Retains last 25 states
+        }),
+        StoreModule.forFeature(sitterListFeature, sittersReducer),
+        StoreModule.forFeature(sitterReviewsFeature, reviewsReducer),
+        EffectsModule.forFeature([SittersEffects, ReviewsEffects]),
+        BarRatingModule,
+        MatDialogModule,
+        FormsModule
+    ],
   providers: [
     LocaleService,
+    MatDialog,
+    ReviewService
   ],
   exports: [PetSittersComponent]
 })

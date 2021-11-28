@@ -45,8 +45,8 @@ INSTALLED_APPS = [
     'users',
     'profiles',
     'pet_sitters',
-    'multiselectfield'
-
+    'multiselectfield',
+    'reviews',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True

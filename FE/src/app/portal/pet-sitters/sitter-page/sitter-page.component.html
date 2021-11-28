@@ -10,6 +10,11 @@
   <div class="content">
     <app-sitter-info
       [sitter]="sitter$ | async"
+      [reviews]="(reviews$ | async)!"
+      [isLoggedIn]="(isLoggedIn$ | async)!"
+      [reviewPending]="(reviewsPending$ | async)!"
+      [pagination]="(reviewsPagination$ | async)!"
+      (paginationChanged)="dispatchPagination($event)"
     ></app-sitter-info>
     <app-profile-info-card
       [isLoggedIn]="(isLoggedIn$ | async)!"

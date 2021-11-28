@@ -14,6 +14,7 @@ import {TablePaginationParams} from "../../state/sitters/sitters.actions";
 })
 export class PaginationSwitchComponent {
 
+  @Input() hidePageSize: boolean = false;
   @Input() paginationParams: TablePaginationParams;
   @Output() paginationChanged = new EventEmitter<TablePaginationParams>();
 

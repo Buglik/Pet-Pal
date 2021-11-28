@@ -1,0 +1,62 @@
+@use '../../../../../styles/ui';
+@use '../../../../../styles/inputs';
+
+@include inputs.input-styles;
+
+:host {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+::ng-deep {
+  .mat-divider-vertical {
+    border-color: ui.$header-border !important;
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 100%;
+  padding-right: 24px;
+
+  .review-field{
+    min-height: 100px;
+  }
+
+  .review-form-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 24px;
+
+  .name {
+    margin-top: 8px;
+  }
+
+  width: 20%;
+
+  app-header-avatar {
+    height: auto;
+  }
+
+  ::ng-deep {
+    bar-rating {
+      > div {
+        margin-top: 0;
+        margin-bottom: 4px;
+      }
+    }
+  }
+
+}

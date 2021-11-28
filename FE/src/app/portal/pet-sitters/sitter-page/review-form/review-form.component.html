@@ -1,0 +1,43 @@
+<form class="form-container" [formGroup]="form" (submit)="onSubmit()">
+  <!--Pets involved chips-->
+  <span class="pets-involved-description">{{'label.pet_involved' | translate}}</span>
+  <mat-chip-list selectable multiple class="pets-field" formControlName="pets">
+    <mat-chip #c="matChip" *ngFor="let option of petOptions"
+              [value]="option.value"
+              (click)="toggleSelection(c,option.value)">
+      <!--          TODO: actual icons of pets-->
+      <mat-icon>person</mat-icon>
+      {{option.key | lowercase | translate}}
+    </mat-chip>
+  </mat-chip-list>
+
+  <!--Review description-->
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>{{'label.review' | translate}}</mat-label>
+    <textarea #reviewInput class="review-field" formControlName="description" matInput></textarea>
+    <mat-hint align="end">{{reviewInput.value?.length || 0}}/255</mat-hint>
+  </mat-form-field>
+  <div class="review-form-footer">
+    <!-- Review score-->
+    <bar-rating [formControl]="score" [max]="5"></bar-rating>
+
+    <!--Submit button-->
+    <button petpal-button tertiary call-to-action
+            [disabled]="!form.valid"
+            [pending]="(pending$ | async)!"
+            type="submit"
+    >{{'button.review.add' | translate}}</button>
+  </div>
+</form>
+<mat-divider [vertical]="true"></mat-divider>
+<div class="profile">
+  <app-header-avatar
+    class="avatar"
+    [imgSrc]="data.profile.user.avatar"
+    [initials]="data.profile.user | initials">
+  </app-header-avatar>
+  <span class="name">{{data.profile.user.username}}</span>
+  <bar-rating [readOnly]="true" [rate]="data.profile.reviews.average" [max]="5"></bar-rating>
+  <span>({{data.profile.reviews.count}})</span>
+
+</div>

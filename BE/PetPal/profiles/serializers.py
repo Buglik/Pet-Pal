@@ -1,3 +1,4 @@
+from django.db.models import Avg
 from rest_framework import serializers
 from users.serializers import UserSerializer, UserResponseSerializer, UserUpdateRequestSerializer
 
@@ -6,6 +7,8 @@ from users.models import User
 
 from pet_sitters.models import Sitter
 
+from reviews.models import Review
+
 
 class ContactInfoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -13,19 +16,37 @@ class ContactInfoSerializer(serializers.ModelSerializer):
         fields = ['city', 'country', 'whatsapp_number', 'phone_number']
 
 
+class ReviewsInfoSerializer(serializers.ModelSerializer):
+    average = serializers.FloatField(allow_null=True)
+    count = serializers.IntegerField(allow_null=True)
+
+    class Meta:
+        model = Profile
+        fields = ['average', 'count']
+
+
 class MeResponseSerializer(serializers.ModelSerializer):
     user = UserResponseSerializer(read_only=True)
     is_pet_sitter = serializers.SerializerMethodField('get_is_pet_sitter')
     contact = ContactInfoSerializer()
+    reviews = serializers.SerializerMethodField('get_reviews')
 
     class Meta:
         model = Profile
-        fields = ['bio', 'user', 'contact', 'is_pet_sitter']
+        fields = ['bio', 'user', 'contact', 'is_pet_sitter','reviews']
 
-    def get_is_pet_sitter(self, profile):
+    def get_is_pet_sitter(self, profile) -> bool:
         if Sitter.objects.filter(profile=profile).count():
             return True
         return False
+
+    def get_reviews(self, profile) -> ReviewsInfoSerializer:
+        querySet = Review.objects.filter(profile=profile)
+        serializer = ReviewsInfoSerializer({
+            'average': querySet.aggregate(avg=Avg('score'))['avg'],
+            'count': querySet.count()
+        })
+        return serializer.data
 
 
 class ProfileRequestSerializer(serializers.ModelSerializer):

@@ -27,6 +27,29 @@
   <mat-calendar class="calendar" [selected]="availabilityObject"></mat-calendar>
 </app-sitter-section>
 
-<app-sitter-section [title]="'label.reviews' | translate">
-  <h1>Reveiws stuff here</h1>
+<app-sitter-section [title]="'label.reviews' | translate:{val: sitter.profile.reviews.count}">
+  <app-review-card *ngFor="let review of reviews"
+                   [review]="review"
+  ></app-review-card>
+  <div class="reviews-footer">
+    <button petpal-button
+            tertiary
+            call-to-action
+            *ngIf="isLoggedIn; else notLoggedBlock"
+            (click)="openAddReviewModal()">
+      {{'button.review.add' | translate}}
+    </button>
+    <ng-template #notLoggedBlock>
+      <button petpal-button tertiary
+              call-to-action
+              class="login-btn"
+              (click)="navigateToLoginPage()"
+      >{{'button.contact.login' | translate}}</button>
+    </ng-template>
+    <app-pagination-switch
+      [hidePageSize]="true"
+      [paginationParams]="pagination"
+      (paginationChanged)="paginationChanged.emit($event)">
+    </app-pagination-switch>
+  </div>
 </app-sitter-section>

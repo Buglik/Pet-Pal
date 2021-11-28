@@ -1,4 +1,4 @@
-:host{
+:host {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,11 +6,25 @@
   padding: 24px 24px 0;
 }
 
-app-header-avatar{
+app-header-avatar {
   width: 50%;
   margin-bottom: 32px;
 }
 
-.calendar{
+.calendar {
   width: 60%;
+}
+
+.reviews-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 16px;
+
+  app-pagination-switch {
+    width: auto;
+  }
+
 }

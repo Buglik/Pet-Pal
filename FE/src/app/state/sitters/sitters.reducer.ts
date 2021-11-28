@@ -15,7 +15,7 @@ export const initialState: SittersListState = {
   // },
   paginationParams: {
     pagination: 15,
-    pageNumber: 1,
+    pageNumber: 0,
     totalPages: 0,
     totalElements: 0
   },
@@ -44,7 +44,7 @@ export const sittersReducer = createReducer(
     paginationParams: {
       pagination: page.pageSize,
       pageNumber: page.pageIndex,
-      totalPages: Math.ceil(page.length / page.pageSize),
+      totalPages: page.pagesTotal,
       totalElements: page.length,
     },
     pending: false

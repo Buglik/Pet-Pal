@@ -12,28 +12,31 @@ import {MatIconModule} from "@angular/material/icon";
 import {PipesModule} from "../pipes/pipes.module";
 import {UtilsModule} from "../utils/utils.module";
 import {TranslateModule} from "@ngx-translate/core";
+import {BarRatingModule} from 'ngx-bar-rating';
 
 
 @NgModule({
-    declarations: [
-        PortalComponent,
-        HeaderComponent,
-        HeaderLinksComponent,
-        HeaderAvatarComponent,
-        HeaderAvatarMenuComponent,
-    ],
-    exports: [
-        HeaderAvatarComponent
-    ],
-    imports: [
-        CommonModule,
-        PortalRoutingModule,
-        MatMenuModule,
-        MatDividerModule,
-        MatIconModule,
-        PipesModule,
-        UtilsModule,
-        TranslateModule
-    ]
+  declarations: [
+    PortalComponent,
+    HeaderComponent,
+    HeaderLinksComponent,
+    HeaderAvatarComponent,
+    HeaderAvatarMenuComponent,
+  ],
+  exports: [
+    HeaderAvatarComponent
+  ],
+  imports: [
+    CommonModule,
+    PortalRoutingModule,
+    MatMenuModule,
+    MatDividerModule,
+    MatIconModule,
+    PipesModule,
+    UtilsModule,
+    TranslateModule,
+    BarRatingModule
+  ]
 })
-export class PortalModule { }
+export class PortalModule {
+}

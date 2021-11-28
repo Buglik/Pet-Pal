@@ -1,1 +1,50 @@
-<p>contact-info-form works!</p>
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div formGroupName="contact">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>{{'label.city' | translate}}</mat-label>
+      <input formControlName="city" matInput>
+      <mat-error>
+        <app-form-field-errors [control]="city"></app-form-field-errors>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>{{'label.country' | translate}}</mat-label>
+      <input formControlName="country" matInput>
+      <mat-error>
+        <app-form-field-errors [control]="country"></app-form-field-errors>
+      </mat-error>
+    </mat-form-field>
+
+    <!--  DISPLAY ONLY -->
+    <mat-form-field class=" full-width" appearance="outline">
+      <mat-label>{{'label.email' | translate}}</mat-label>
+      <input [value]="profile?.user?.email" matInput disabled>
+    </mat-form-field>
+
+    <mat-form-field class=" full-width" appearance="outline">
+      <mat-label>{{'label.whatsapp_number' | translate}}</mat-label>
+      <input type="tel" matInput formControlName="whatsapp_number">
+      <mat-error>
+        <app-form-field-errors [control]="whatsapp_number"></app-form-field-errors>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class=" full-width" appearance="outline">
+      <mat-label>{{'label.phone_number' | translate}}</mat-label>
+      <input type="tel" matInput formControlName="phone_number">
+      <mat-error>
+        <app-form-field-errors [control]="phone_number"></app-form-field-errors>
+      </mat-error>
+    </mat-form-field>
+
+    <button petpal-button
+            primary
+            type="submit"
+            class="submit-btn"
+            [disabled]="!form.valid || pending"
+            [pending]="pending">
+      {{'button.update_contact' | translate}}
+    </button>
+  </div>
+</form>

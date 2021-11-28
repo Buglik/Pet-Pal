@@ -20,6 +20,7 @@
     <bar-rating [formControl]="score" [max]="5"></bar-rating>
     <button petpal-button tertiary call-to-action
             [disabled]="!form.valid"
+            [pending]="(pending$ | async)!"
             type="submit"
     >{{'button.review.add' | translate}}</button>
   </div>

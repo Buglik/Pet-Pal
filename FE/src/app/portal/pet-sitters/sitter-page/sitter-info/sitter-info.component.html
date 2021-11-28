@@ -35,9 +35,17 @@
     <button petpal-button
             tertiary
             call-to-action
+            *ngIf="isLoggedIn; else notLoggedBlock"
             (click)="openAddReviewModal()">
       {{'button.review.add' | translate}}
     </button>
+    <ng-template #notLoggedBlock>
+      <button petpal-button tertiary
+              call-to-action
+              class="login-btn"
+              (click)="navigateToLoginPage()"
+      >{{'button.contact.login' | translate}}</button>
+    </ng-template>
     <app-pagination-switch
       [hidePageSize]="true"
       [paginationParams]="pagination"

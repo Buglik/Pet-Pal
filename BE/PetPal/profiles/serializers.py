@@ -33,7 +33,7 @@ class MeResponseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ['bio', 'user', 'contact', 'is_pet_sitter','reviews']
+        fields = ['bio', 'user', 'contact', 'is_pet_sitter', 'reviews']
 
     def get_is_pet_sitter(self, profile) -> bool:
         if Sitter.objects.filter(profile=profile).count():
@@ -88,14 +88,15 @@ class ProfileResponseSerializer(serializers.ModelSerializer):
 
 
 class ProfilePageResponseSerializer(serializers.ModelSerializer):
-    data = ProfileResponseSerializer(many=True)
+    profiles = MeResponseSerializer(many=True)
     pageSize = serializers.IntegerField()
+    pagesTotal = serializers.IntegerField()
     pageIndex = serializers.IntegerField()
     length = serializers.IntegerField()
 
     class Meta:
         model = Profile
-        fields = ['data', 'pageSize', 'pageIndex', 'length']
+        fields = ['profiles', 'pageSize', 'pagesTotal', 'pageIndex', 'length']
 
 
 class UserAvatarRequestSerializer(serializers.ModelSerializer):

@@ -101,10 +101,10 @@ export class ProfileService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public profileAllList(page?: number, size?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<ProfilePageResponse>>;
-    public profileAllList(page?: number, size?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<ProfilePageResponse>>>;
-    public profileAllList(page?: number, size?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<ProfilePageResponse>>>;
-    public profileAllList(page?: number, size?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public profileAllRetrieve(page?: number, size?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ProfilePageResponse>;
+    public profileAllRetrieve(page?: number, size?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ProfilePageResponse>>;
+    public profileAllRetrieve(page?: number, size?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ProfilePageResponse>>;
+    public profileAllRetrieve(page?: number, size?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let queryParameters = new HttpParams({encoder: this.encoder});
         if (page !== undefined && page !== null) {
@@ -143,7 +143,7 @@ export class ProfileService {
             responseType = 'text';
         }
 
-        return this.httpClient.get<Array<ProfilePageResponse>>(`${this.configuration.basePath}/profile/all`,
+        return this.httpClient.get<ProfilePageResponse>(`${this.configuration.basePath}/profile/all`,
             {
                 params: queryParameters,
                 responseType: <any>responseType,

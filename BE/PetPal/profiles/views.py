@@ -52,7 +52,7 @@ class MyProfileView(views.APIView):
         return Response(status=status.HTTP_201_CREATED)
 
 
-class ProfilesView(ListAPIView):
+class ProfilesView(views.APIView):
     @extend_schema(
         parameters=[OpenApiParameter(name='page', description='Page index', type=int,
                                      location=OpenApiParameter.QUERY),
@@ -60,7 +60,6 @@ class ProfilesView(ListAPIView):
                                      location=OpenApiParameter.QUERY)
                     ])
     @extend_schema(
-        request=None,
         responses={200: ProfilePageResponseSerializer},
     )
     def get(self, request):
@@ -78,14 +77,15 @@ class ProfilesView(ListAPIView):
             # If page is out of range, deliver last page of results.
             page = paginator.page(paginator.num_pages)
 
-        serializer = ProfileResponseSerializer(page.object_list, many=True)
-
-        response = {'data': serializer.data,
+        response = {'profiles': page.object_list,
                     'pageSize': paginator.per_page,
                     'pageIndex': page.number,
+                    'pagesTotal': paginator.num_pages,
                     'length': paginator.count}
 
-        return Response(response, status=status.HTTP_200_OK)
+        serializer = ProfilePageResponseSerializer(response)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class ProfileAvatarView(views.APIView):
@@ -95,13 +95,13 @@ class ProfileAvatarView(views.APIView):
     @extend_schema(
         request={
             "multipart/form-data": {
-                    'type': 'object',
-                    'properties': {
-                        "image": {
-                            'type': "string",
-                            'format': "binary",
-                        }}
-                }
+                'type': 'object',
+                'properties': {
+                    "image": {
+                        'type': "string",
+                        'format': "binary",
+                    }}
+            }
         },
         responses={200: None}, )
     def put(self, request):

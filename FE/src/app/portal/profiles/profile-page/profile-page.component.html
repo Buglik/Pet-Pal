@@ -1,0 +1,43 @@
+<div class="pending" *ngIf="pending$ |async; else viewBlock">
+  <mat-spinner diameter="48"></mat-spinner>
+</div>
+<ng-template #viewBlock>
+  <div class="header">
+    <button routerLink="/profiles" petpal-button tertiary-link>
+      {{"button.back.profiles" | translate}}
+    </button>
+  </div>
+  <div class="content">
+    <app-sitter-section [title]="'label.reviews' | translate:{val: (profile$| async).reviews.count}">
+      <app-review-card *ngFor="let review of (reviews$ | async)"
+                       [review]="review"
+      ></app-review-card>
+      <div class="reviews-footer">
+        <button petpal-button
+                tertiary
+                call-to-action
+                *ngIf="(isLoggedIn$ | async); else notLoggedBlock"
+                (click)="openAddReviewModal()">
+          {{'button.review.add' | translate}}
+        </button>
+        <ng-template #notLoggedBlock>
+          <button petpal-button tertiary
+                  call-to-action
+                  class="login-btn"
+                  (click)="navigateToLoginPage()"
+          >{{'button.contact.login' | translate}}</button>
+        </ng-template>
+        <app-pagination-switch
+          [hidePageSize]="true"
+          [paginationParams]="(reviewsPagination$ | async)!"
+          (paginationChanged)="dispatchPagination($event)">
+        </app-pagination-switch>
+      </div>
+    </app-sitter-section>
+
+    <app-profile-info-card
+      [profile]="profile$ | async"
+      [isLoggedIn]="(isLoggedIn$ | async)!">
+    </app-profile-info-card>
+  </div>
+</ng-template>

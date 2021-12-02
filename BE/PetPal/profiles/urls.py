@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.urls import path
 
-from .views import MyProfileView, ProfilesView, ProfileAvatarView
+from .views import MyProfileView, ProfilesView, ProfileAvatarView, GetProfileByUsernameView
 
 urlpatterns = [
     path('@me', MyProfileView.as_view()),
     path('update-avatar', ProfileAvatarView.as_view()),
     path('all', ProfilesView.as_view()),
+    path('get-by-username', GetProfileByUsernameView.as_view())
 ]

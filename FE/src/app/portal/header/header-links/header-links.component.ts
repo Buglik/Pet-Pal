@@ -17,6 +17,10 @@ export class HeaderLinksComponent {
       label: 'menu_link.pet_owner',
       value: 'findOther'
     },
+    {
+      label: 'menu_link.profiles',
+      value: 'profiles'
+    },
   ]
 
 }

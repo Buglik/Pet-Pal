@@ -10,7 +10,6 @@ export * from './petSitterResponse';
 export * from './petsInvolvedEnum';
 export * from './profilePageResponse';
 export * from './profileRequest';
-export * from './profileResponse';
 export * from './registerRequest';
 export * from './reviewPageResponse';
 export * from './reviewRequest';

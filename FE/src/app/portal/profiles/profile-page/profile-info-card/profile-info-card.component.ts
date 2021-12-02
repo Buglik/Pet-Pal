@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {PetSitterResponse, ReviewPageResponse} from "../../../../../api/src";
+import {MeResponse} from "../../../../../api/src";
 import {NavigationService} from "../../../../navigation.service";
 
 @Component({
@@ -9,16 +9,18 @@ import {NavigationService} from "../../../../navigation.service";
 })
 export class ProfileInfoCardComponent {
 
-  @Input() sitter: PetSitterResponse;
+  @Input() profile: MeResponse;
   @Input() isLoggedIn: boolean;
-  @Input() reviews: ReviewPageResponse;
-  @Input() reviewsPending: boolean;
 
   constructor(private navigationService: NavigationService) {
   }
 
   navigateToLoginPage() {
     this.navigationService.toLoginPage();
+  }
+
+  navigateToSitterPage() {
+    this.navigationService.toSitterPage(this.profile.user.username)
   }
 
 }

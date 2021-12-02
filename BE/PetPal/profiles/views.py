@@ -13,6 +13,7 @@ from users.tokens import decode_access_token
 from .models import Profile
 from .serializers import MeResponseSerializer, ProfileRequestSerializer, \
     ProfileResponseSerializer, ProfilePageResponseSerializer, UserAvatarRequestSerializer
+from users.models import User
 
 
 class MyProfileView(views.APIView):
@@ -50,6 +51,30 @@ class MyProfileView(views.APIView):
         serializer.save()
 
         return Response(status=status.HTTP_201_CREATED)
+
+
+class GetProfileByUsernameView(views.APIView):
+    @extend_schema(
+        parameters=[OpenApiParameter(name='username', description='Users nickname', type=str,
+                                     location=OpenApiParameter.QUERY),
+                    ])
+    @extend_schema(
+        responses={200: MeResponseSerializer},
+    )
+    def get(self, request):
+        username = request.GET.get('username', None)
+
+        if not username:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        try:
+            user = User.objects.get(username=username)
+        except:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = MeResponseSerializer(user.profile)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class ProfilesView(views.APIView):

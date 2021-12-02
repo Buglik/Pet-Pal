@@ -1,4 +1,13 @@
-:host{
+app-banner{
+  //background-size: cover;
+  background: url("../../../assets/photos/doggo5.jpg");
+  background-repeat: no-repeat;
+  background-position: 100% 55%;
+  background-size: 100%;
+
+}
+
+.content {
   display: block;
   max-width: 1012px;
   margin: auto;

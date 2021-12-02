@@ -1,4 +1,11 @@
-<app-sitter-list [sitters]="(sitters$ | async)!"></app-sitter-list>
-<app-pagination-switch [paginationParams]="(paginationParams$ | async)!"
-                       (paginationChanged)="changePagination($event)">
-</app-pagination-switch>
+<app-banner>
+  <span heading>Look for your perfect sitter ram pam pam pam</span>
+  <span description>Description description more description lalala it should be longer than title</span>
+  <button buttons petpal-button tertiary call-to-action (click)="navigateToBecomeSitter()">{{'button.become_petsitter' | translate}}</button>
+</app-banner>
+<div class="content">
+  <app-sitter-list [sitters]="(sitters$ | async)!"></app-sitter-list>
+  <app-pagination-switch [paginationParams]="(paginationParams$ | async)!"
+                         (paginationChanged)="changePagination($event)">
+  </app-pagination-switch>
+</div>

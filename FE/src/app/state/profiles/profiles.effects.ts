@@ -29,8 +29,8 @@ export class ProfilesEffects {
       ofType(updateProfiles),
       withLatestFrom(this.store.select(selectProfilesListPaginationParams)),
       switchMap(([_, pagination]) => {
-        return this.profilesController.profileAllList(pagination.pageNumber + 1, pagination.pagination).pipe(
-          map(page => updateProfilesSuccess(page[0])),
+        return this.profilesController.profileAllRetrieve(pagination.pageNumber + 1, pagination.pagination).pipe(
+          map(page => updateProfilesSuccess(page)),
           catchError(error => of(updateProfilesError())),
         )
       })

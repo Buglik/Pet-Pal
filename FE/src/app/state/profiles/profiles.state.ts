@@ -1,8 +1,8 @@
-import {ProfileResponse} from "../../../api/src";
+import {MeResponse} from "../../../api/src";
 import {TablePaginationParams} from "../sitters/sitters.actions";
 
 export interface ProfilesListState {
-  profiles: ProfileResponse[],
+  profiles: MeResponse[],
   paginationParams: TablePaginationParams,
   pending: boolean;
 }

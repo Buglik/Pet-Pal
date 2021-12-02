@@ -1,0 +1,17 @@
+<app-header-avatar
+  class="avatar"
+  [imgSrc]="profile.user.avatar"
+  [initials]="profile.user | initials">
+</app-header-avatar>
+<div class="right">
+  <span class="name">
+    {{profile.user.first_name}}
+  </span>
+  <span class="address">
+    {{profile.contact | address}}
+  </span>
+  <div class="reviews">
+    <bar-rating [readOnly]="true" [rate]="profile.reviews.average" [max]="5"></bar-rating>
+    <span>({{profile.reviews.count}})</span>
+  </div>
+</div>

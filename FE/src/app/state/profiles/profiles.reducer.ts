@@ -31,12 +31,11 @@ export const profilesReducer = createReducer(
   })),
   on(updateProfilesSuccess, (state, page) => ({
     ...state,
-    profiles: page.data,
+    profiles: page.profiles,
     paginationParams: {
       pagination: page.pageSize,
       pageNumber: page.pageIndex,
-      totalPages: 10,
-      // totalPages: page.pagesTotal,
+      totalPages: page.pagesTotal,
       totalElements: page.length,
     },
     pending: false

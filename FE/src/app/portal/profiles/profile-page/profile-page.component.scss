@@ -34,11 +34,27 @@
   height: 100%;
 
 
-  app-sitter-info {
+  app-sitter-section {
     width: 60%;
+    padding: 24px 24px 0;
+    margin-bottom: 0;
+    .reviews-footer {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-top: 16px;
+
+      app-pagination-switch {
+        width: auto;
+      }
+
+    }
   }
 
-  app-sitter-profile-info-card {
+  app-profile-info-card {
     width: 40%;
     height: auto;
   }

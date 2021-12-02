@@ -1,0 +1,49 @@
+@use '../../../../../styles/ui';
+
+:host {
+  //margin: 8px 16px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background-color: ui.$card-background;
+  border: 1px solid ui.$card-border;
+  box-shadow: 0 3px 12px ui.$card-shadow;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.avatar {
+  width: 40%;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .name {
+    margin-top: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .address {
+    font-size: 14px;
+    color: ui.$form-description;
+    line-height: 1.8;
+  }
+
+  .reviews {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    span {
+      margin-top: 2px;
+    }
+  }
+}
+
+

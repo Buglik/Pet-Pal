@@ -9,12 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import {ProfileResponse} from './profileResponse';
+import {MeResponse} from './meResponse';
 
 
 export interface ProfilePageResponse {
-    data: Array<ProfileResponse>;
+    profiles: Array<MeResponse>;
     pageSize: number;
+    pagesTotal: number;
     pageIndex: number;
     length: number;
 }

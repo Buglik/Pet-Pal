@@ -24,7 +24,6 @@ model/petSitterResponse.ts
 model/petsInvolvedEnum.ts
 model/profilePageResponse.ts
 model/profileRequest.ts
-model/profileResponse.ts
 model/registerRequest.ts
 model/reviewPageResponse.ts
 model/reviewRequest.ts

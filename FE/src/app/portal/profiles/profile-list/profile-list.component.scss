@@ -1,0 +1,14 @@
+:host{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto-fill,auto);
+
+  > * {
+    margin: 8px 16px;
+  }
+
+  app-sitter-list-item{
+    cursor: pointer;
+  }
+
+}

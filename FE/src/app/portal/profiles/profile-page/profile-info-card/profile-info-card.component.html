@@ -1,0 +1,44 @@
+<div class="container">
+  <app-header-avatar
+    [initials]="profile.user | initials"
+    [imgSrc]="profile.user.avatar"
+  ></app-header-avatar>
+  <span class="name">{{profile.user | fullName}}</span>
+  <span class="bio">{{profile.bio}}</span>
+  <span class="address">{{profile.contact | address | translate}}</span>
+  <span class="reviews">
+    <mat-icon>grade</mat-icon>
+    {{profile.reviews.count + ' ' + 'label.reviews' | translate}}
+  </span>
+  <span class="verified" *ngIf="profile.user.is_verified">
+    <mat-icon>verified</mat-icon>
+    {{'label.user.verified' | translate}}
+  </span>
+  <mat-divider></mat-divider>
+  <button petpal-button secondary
+          (click)="navigateToSitterPage()"
+          *ngIf="profile.is_pet_sitter">
+    {{'button.user.sitter' | translate}}
+  </button>
+  <div class="contact" *ngIf="isLoggedIn; else notLoggedBlock">
+    <span class="title">{{'label.contact' | translate}}</span>
+    <span class="email">
+        <mat-icon>email</mat-icon>
+      {{profile.user.email}}
+    </span>
+    <span class="whatsapp" *ngIf="profile.contact.whatsapp_number">
+      <mat-icon>whatsapp</mat-icon>
+      {{profile.contact.whatsapp_number}}
+    </span>
+    <span class="phone" *ngIf="profile.contact.phone_number">
+      <mat-icon>phone</mat-icon>
+      {{profile.contact.phone_number}}
+    </span>
+  </div>
+  <ng-template #notLoggedBlock>
+    <button petpal-button tertiary
+            class="login-btn"
+            (click)="navigateToLoginPage()"
+    >{{'button.contact.login' | translate}}</button>
+  </ng-template>
+</div>

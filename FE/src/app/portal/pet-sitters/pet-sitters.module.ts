@@ -19,7 +19,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {SitterPageComponent} from './sitter-page/sitter-page.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {ProfileInfoCardComponent} from './sitter-page/profile-info-card/profile-info-card.component';
+import {SitterProfileInfoCardComponent} from './sitter-page/sitter-profile-info-card/sitter-profile-info-card.component';
 import {SitterInfoComponent} from './sitter-page/sitter-info/sitter-info.component';
 import {PipesModule} from "../../pipes/pipes.module";
 import {MatDividerModule} from "@angular/material/divider";
@@ -50,7 +50,7 @@ import {ReviewService} from "./review.service";
     AvailabilityFormComponent,
     StepperSummaryComponent,
     SitterPageComponent,
-    ProfileInfoCardComponent,
+    SitterProfileInfoCardComponent,
     SitterInfoComponent,
     SitterSectionComponent,
     SitterListComponent,
@@ -91,7 +91,7 @@ import {ReviewService} from "./review.service";
     MatDialog,
     ReviewService
   ],
-  exports: [PetSittersComponent]
+  exports: [PetSittersComponent, SitterSectionComponent, ReviewCardComponent]
 })
 export class PetSittersModule {
 }

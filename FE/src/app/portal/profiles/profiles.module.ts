@@ -17,6 +17,10 @@ import {BarRatingModule} from "ngx-bar-rating";
 import {PipesModule} from "../../pipes/pipes.module";
 import {MatIconModule} from "@angular/material/icon";
 import {TranslateModule} from "@ngx-translate/core";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {PetSittersModule} from "../pet-sitters/pet-sitters.module";
+import {ProfileInfoCardComponent} from './profile-page/profile-info-card/profile-info-card.component';
+import {MatDividerModule} from "@angular/material/divider";
 
 
 @NgModule({
@@ -24,23 +28,27 @@ import {TranslateModule} from "@ngx-translate/core";
     ProfilesComponent,
     ProfilePageComponent,
     ProfileListComponent,
-    ProfileListItemComponent
+    ProfileListItemComponent,
+    ProfileInfoCardComponent
   ],
-  imports: [
-    CommonModule,
-    ProfilesRoutingModule,
-    StoreDevtoolsModule.instrument({
-      maxAge: 25, // Retains last 25 states
-    }),
-    StoreModule.forFeature(profileListFeature, profilesReducer),
-    EffectsModule.forFeature([ProfilesEffects]),
-    UtilsModule,
-    PortalModule,
-    BarRatingModule,
-    PipesModule,
-    MatIconModule,
-    TranslateModule,
-  ]
+    imports: [
+        CommonModule,
+        ProfilesRoutingModule,
+        StoreDevtoolsModule.instrument({
+            maxAge: 25, // Retains last 25 states
+        }),
+        StoreModule.forFeature(profileListFeature, profilesReducer),
+        EffectsModule.forFeature([ProfilesEffects]),
+        UtilsModule,
+        PortalModule,
+        BarRatingModule,
+        PipesModule,
+        MatIconModule,
+        TranslateModule,
+        MatProgressSpinnerModule,
+        PetSittersModule,
+        MatDividerModule,
+    ]
 })
 export class ProfilesModule {
 }

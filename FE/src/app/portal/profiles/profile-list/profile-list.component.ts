@@ -15,7 +15,7 @@ export class ProfileListComponent {
   }
 
   navigateToProfilePage(profile: MeResponse) {
-    // this.navigationService.toProfilePage(profile.user.username)
+    this.navigationService.toProfilePage(profile.user.username)
   }
 
 }

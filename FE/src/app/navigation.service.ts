@@ -37,4 +37,8 @@ export class NavigationService {
   toSitterPage(username?: string) {
     this.router.navigateByUrl('/pet-sitters/sitter/' + username)
   }
+
+  toProfilePage(username?: string) {
+    this.router.navigateByUrl('/profiles/user/' + username)
+  }
 }

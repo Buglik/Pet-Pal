@@ -51,9 +51,14 @@ form {
         justify-content: space-between;
         .title-container {
           .title{
+            display: block;
             margin: 0;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 8px;
           }
           .description {
+            display: block;
             color: ui.$form-description;
           }
         }

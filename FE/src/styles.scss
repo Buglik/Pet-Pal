@@ -14,7 +14,7 @@ body {
   margin: 0;
   background-color: ui.$main-background;
   color: ui.$main-text;
-  font-family: "Segoe UI", Roboto, sans-serif !important;
+  font-family: "Segoe UI", sans-serif !important;
 }
 
 @include notifications.notificationStyle;

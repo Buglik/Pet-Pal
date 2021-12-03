@@ -1,4 +1,7 @@
-app-banner{
+@use '../../../styles/pages';
+
+@include pages.listLayout;
+app-banner {
   //background-size: cover;
   background: url("../../../assets/photos/doggo6.jpg");
   background-repeat: no-repeat;
@@ -7,8 +10,4 @@ app-banner{
 
 }
 
-.content{
-  display: block;
-  max-width: 1012px;
-  margin: auto;
-}
+

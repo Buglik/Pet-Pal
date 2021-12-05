@@ -1,16 +1,40 @@
 @use '../../../../styles/links';
+@use '../../../../styles/ui';
 
 @include links.navLink;
 
-:host{
+:host {
   display: flex;
   flex-direction: row;
   height: 100%;
 }
 
-.nav-item{
+.nav-item {
   display: flex;
   justify-content: center;
   position: relative;
   font-size: 16px;
+
+  &.coming-soon {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+
+    &:after {
+      position: absolute;
+      top: 45px;
+      content: 'Coming soon';
+      color: ui.$main-text;
+      font-size: 14px;
+      text-align: center;
+      line-height: 1;
+      padding: 0 4px;
+
+      border-radius: 4px;
+      width: 96px;
+      height: 16px;
+      background: ui.$warning;
+    }
+  }
+
 }

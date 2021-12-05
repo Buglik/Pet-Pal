@@ -19,7 +19,7 @@ $button-border-radius: 4px;
   line-height: 1;
 
 
-  .button-wrapper{
+  .button-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -129,6 +129,23 @@ $button-border-radius: 4px;
   //    //background-color: $salmon;
   //  }
   //}
+
+  &[coming-soon] {
+    position: relative;
+    &:after {
+      position: absolute;
+      top: 32px;
+      content: 'Coming soon';
+      color: ui.$main-text;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 0 4px;
+      border-radius: 4px;
+      width: 96px;
+      height: 16px;
+      background: ui.$warning;
+    }
+  }
 
   &.pending {
     cursor: default;

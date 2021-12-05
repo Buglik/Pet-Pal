@@ -50,4 +50,8 @@ export class NavigationService {
     this.router.navigateByUrl('/pet-sitters/become-sitter');
   }
 
+  toSitterList(){
+    this.router.navigateByUrl('/pet-sitters');
+  }
+
 }

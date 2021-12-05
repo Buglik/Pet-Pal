@@ -4,7 +4,7 @@ import {Observable, of} from 'rxjs';
 import {Store} from "@ngrx/store";
 import {AppState} from "../state/app.state";
 import {NavigationService} from "../navigation.service";
-import {setUsername} from "../state/reviews/reviews.actions";
+import {setDefaultParamsSitterReviewsList, setUsername} from "../state/reviews/reviews.actions";
 import {ProfilesDisplayManagementService} from "../portal/profiles/profiles-display-management.service";
 
 @Injectable({
@@ -19,8 +19,10 @@ export class ProfileInitResolver implements Resolve<boolean> {
   }
 
   resolve(route: ActivatedRouteSnapshot): Observable<boolean> {
+    this.store.dispatch(setDefaultParamsSitterReviewsList())
     const sitter = this.router.getCurrentNavigation()?.extras.state;
     const username = route.paramMap.get('username')
+    console.log(username)
     if (username) {
       if (!sitter) {
         this.profileService.getProfileByUsername(username);

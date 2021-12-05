@@ -7,5 +7,5 @@ import {Component, Input} from '@angular/core';
 })
 export class SitterSectionComponent {
   @Input() title: string;
-
+  @Input() pending: boolean = false;
 }

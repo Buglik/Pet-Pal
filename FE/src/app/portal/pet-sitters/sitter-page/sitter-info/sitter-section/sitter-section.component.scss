@@ -1,3 +1,4 @@
+@use '../../../../../../styles/ui';
 @use '../../../../../../styles/mat-chip';
 @use '../../../../../../styles/date-picker';
 
@@ -10,12 +11,24 @@
   margin-bottom: 32px;
 }
 
-.title {
-  display: block;
-  font-size: 24px;
-  font-weight: 500;
+.heading {
+  display: flex;
   margin-bottom: 16px;
+
+  .title {
+    display: block;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  mat-spinner {
+    margin-left: 8px;
+  }
+  ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: ui.$spinner-primary;
+  }
 }
+
 
 .content {
   text-align: justify;

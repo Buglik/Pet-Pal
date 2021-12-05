@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component} from '@angular/core';
 import {selectIsUserLogged} from "../../../state/user/user.selectors";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../../state/app.state";
@@ -8,10 +8,7 @@ import {
   selectSitterReviewListPending,
   selectSitterReviews
 } from "../../../state/reviews/reviews.selectors";
-import {
-  changePaginationParamsSitterReviewsList,
-  setDefaultParamsSitterReviewsList
-} from "../../../state/reviews/reviews.actions";
+import {changePaginationParamsSitterReviewsList} from "../../../state/reviews/reviews.actions";
 import {ProfilesDisplayManagementService} from "../profiles-display-management.service";
 import {ReviewService} from "../../pet-sitters/review.service";
 import {take} from "rxjs/operators";
@@ -22,7 +19,7 @@ import {NavigationService} from "../../../navigation.service";
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss']
 })
-export class ProfilePageComponent implements OnDestroy {
+export class ProfilePageComponent {
 
   pending$ = this.profileService.pending$;
   profile$ = this.profileService.profile$;
@@ -38,9 +35,9 @@ export class ProfilePageComponent implements OnDestroy {
               private store: Store<AppState>) {
   }
 
-  ngOnDestroy() {
-    this.store.dispatch(setDefaultParamsSitterReviewsList());
-  }
+  // ngOnDestroy() {
+  //   this.store.dispatch(setDefaultParamsSitterReviewsList());
+  // }
 
   openAddReviewModal() {
     this.profile$.pipe(take(1)).subscribe(next =>

@@ -1,3 +1,6 @@
-<div class="nav-item" *ngFor="let link of links">
-  <a class="nav-link" routerLinkActive="active" [routerLink]="link.value">{{link.label | translate}}</a>
+<div class="nav-item" *ngFor="let link of links" [ngClass]="{'coming-soon': link.disabled}">
+  <a class="nav-link"
+     routerLinkActive="active"
+     [routerLink]="link.value">
+    {{link.label | translate}}</a>
 </div>

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {NavigationService} from "../../../navigation.service";
 
 @Component({
   selector: 'app-pet-sitter-settings',
@@ -7,4 +8,10 @@ import {Component} from '@angular/core';
 })
 export class PetSitterSettingsComponent {
 
+  constructor(private navigationService: NavigationService) {
+  }
+
+  navigateToBecomeSitter() {
+    this.navigationService.toBecomeSitter();
+  }
 }

@@ -40,6 +40,7 @@ import {ReviewCardComponent} from './sitter-page/sitter-info/review-card/review-
 import {ReviewFormComponent} from './sitter-page/review-form/review-form.component';
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {ReviewService} from "./review.service";
+import {BannerModule} from "../../utils/banner/banner.module";
 
 
 @NgModule({
@@ -84,7 +85,8 @@ import {ReviewService} from "./review.service";
         EffectsModule.forFeature([SittersEffects, ReviewsEffects]),
         BarRatingModule,
         MatDialogModule,
-        FormsModule
+        FormsModule,
+        BannerModule
     ],
   providers: [
     LocaleService,

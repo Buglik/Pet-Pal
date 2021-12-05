@@ -1,0 +1,41 @@
+@use '../../../styles/ui';
+
+:host {
+  display: block;
+  height: 560px;
+
+  margin: 36px;
+  padding: 48px;
+  background-color: #A6CA56;
+  border-radius: 10px;
+}
+
+.content {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  max-width: 30%;
+
+  border-radius: 10px;
+  background-color: ui.$card-background;
+  border: 1px solid ui.$card-border;
+  box-shadow: 0 3px 12px ui.$card-shadow;
+
+  > * {
+    width: 100%;
+  }
+
+  .heading{
+    font-size: 38px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .description{
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 36px;
+  }
+
+}

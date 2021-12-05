@@ -14,7 +14,8 @@
   },
   "menu_link": {
     "pet_sitter": "Find a pet sitter",
-    "pet_owner": "Find a pet to sit"
+    "pet_owner": "Find a pet to sit",
+    "profiles": "Community"
   },
   "button": {
     "register": "Register",
@@ -31,7 +32,9 @@
     "go_to_own_profile": "Go to your profile",
     "become_petsitter": "Become petsitter",
     "next": "Next",
-    "previous": "Previous"
+    "previous": "Previous",
+    "find_sitter": "Find a pet sitter",
+    "find_pet": "Find a pet to sit"
   },
   "label": {
     "login": "Login",
@@ -56,7 +59,11 @@
       "chicken": "Chicken",
       "other": "Other"
     },
-    "summary": "Summary"
+    "summary": "Summary",
+    "main_page": {
+      "title": "Pet sitting with love and experience",
+      "description" : "Book a free verified and reviewed pet sitter from our pet-loving community, or find a pet to sit"
+    }
   },
   "form": {
     "register": {

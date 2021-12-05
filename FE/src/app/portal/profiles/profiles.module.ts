@@ -21,6 +21,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {PetSittersModule} from "../pet-sitters/pet-sitters.module";
 import {ProfileInfoCardComponent} from './profile-page/profile-info-card/profile-info-card.component';
 import {MatDividerModule} from "@angular/material/divider";
+import {BannerModule} from "../../utils/banner/banner.module";
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import {MatDividerModule} from "@angular/material/divider";
         MatProgressSpinnerModule,
         PetSittersModule,
         MatDividerModule,
+        BannerModule,
     ]
 })
 export class ProfilesModule {

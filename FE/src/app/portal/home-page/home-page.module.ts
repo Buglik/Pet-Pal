@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {HomePageComponent} from "./home-page.component";
 import {HomePageRoutingModule} from "./home-page-routing.module";
 import {TranslateModule} from "@ngx-translate/core";
+import {UtilsModule} from "../../utils/utils.module";
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {TranslateModule} from "@ngx-translate/core";
     imports: [
         CommonModule,
         HomePageRoutingModule,
-        TranslateModule
+        TranslateModule,
+        UtilsModule
     ],
   exports: [HomePageComponent]
 })

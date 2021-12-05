@@ -1,0 +1,21 @@
+@use './ui';
+
+@mixin listLayout {
+  .content {
+    .heading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      font-weight: 600;
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+
+    display: block;
+    max-width: 1048px;
+    margin: auto;
+
+    padding-bottom: 24px;
+  }
+}

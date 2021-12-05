@@ -5,7 +5,7 @@ import {SittersManagementService} from "../portal/pet-sitters/sitters-management
 import {NavigationService} from "../navigation.service";
 import {AppState} from "../state/app.state";
 import {Store} from "@ngrx/store";
-import {setUsername} from "../state/reviews/reviews.actions";
+import {setDefaultParamsSitterReviewsList, setUsername} from "../state/reviews/reviews.actions";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,7 @@ export class SitterInitResolver implements Resolve<boolean> {
   }
 
   resolve(route: ActivatedRouteSnapshot): Observable<boolean> {
+    this.store.dispatch(setDefaultParamsSitterReviewsList())
     const sitter = this.router.getCurrentNavigation()?.extras.state;
     const username = route.paramMap.get('username')
     if (username) {

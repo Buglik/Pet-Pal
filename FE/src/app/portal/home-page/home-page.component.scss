@@ -1,0 +1,51 @@
+@use '../../../styles/ui';
+
+:host {
+  display: block;
+  width: calc(100% - 128px);
+  background: #A6CA56;
+  height: calc(100vh - 65px - 80px - 64px);
+  padding: 80px 64px 64px;
+
+  background: url("../../../assets/photos/main3.jpg");
+  background-repeat: no-repeat;
+  background-position: 100% 10%;
+  background-size: 100%;
+
+}
+
+.content {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  max-width: 35%;
+
+  border-radius: 10px;
+  background-color: ui.$card-background;
+  border: 1px solid ui.$card-border;
+  box-shadow: 0 3px 12px ui.$card-shadow;
+
+  > * {
+    width: 100%;
+  }
+
+  .heading{
+    font-size: 38px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .description{
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 36px;
+  }
+
+  .buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+  }
+
+}

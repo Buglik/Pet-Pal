@@ -1,0 +1,11 @@
+<h2 class="title">{{"form.contact.title" | translate}}</h2>
+<div class="content">
+  <app-contact-info-form
+    [profile]="user$ | async"
+    [pending]="(pending$ | async)!"
+    (formSubmitted)="updateProfile($event)"
+    [errors]="error$"></app-contact-info-form>
+  <span class="info">
+    {{'form.contact.description' | translate}}
+  </span>
+</div>

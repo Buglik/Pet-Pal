@@ -13,10 +13,14 @@ export class SettingsNavigationComponent {
       value: 'profile'
     },
     {
-      label: 'form.change_password.title',
-      value: 'changePassword',
-      disabled: true
+      label: 'form.contact.title',
+      value: 'contact'
     },
+    // {
+    //   label: 'form.change_password.title',
+    //   value: 'changePassword',
+    //   disabled: true
+    // },
     {
       label: 'form.pet_sitter.title',
       value: 'pet-sitting',

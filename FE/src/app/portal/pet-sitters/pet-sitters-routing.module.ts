@@ -15,7 +15,7 @@ const routes: Routes = [
     component: SitterPageComponent
   },
   {
-    path: 'become-petsitter',
+    path: 'become-sitter',
     canActivate: [IsLoggedGuard],
     component: BecomePetsitterComponent
   },

@@ -6,5 +6,7 @@
   </div>
 </div>
 <div class="right">
-  <button petpal-button secondary disabled>{{'button.go_to_own_profile' | translate}}</button>
+  <button petpal-button secondary
+  (click)="navigateToSelfProfile()"
+  >{{'button.go_to_own_profile' | translate}}</button>
 </div>

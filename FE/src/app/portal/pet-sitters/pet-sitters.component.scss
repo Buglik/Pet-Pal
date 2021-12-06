@@ -1,5 +1,12 @@
-:host{
-  display: block;
-  max-width: 1012px;
-  margin: auto;
+@use '../../../styles/pages';
+
+@include pages.listLayout;
+
+app-banner{
+  //background-size: cover;
+  background: url("../../../assets/photos/doggo5.jpg");
+  background-repeat: no-repeat;
+  background-position: 100% 55%;
+  background-size: 100%;
+
 }

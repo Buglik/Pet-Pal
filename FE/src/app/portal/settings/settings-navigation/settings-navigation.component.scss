@@ -27,6 +27,23 @@ nav {
     color: ui.$header-link-disabled;
     pointer-events: none;
     cursor: default;
+    position: relative;
+    &:after {
+      position: absolute;
+      top: 24px;
+      right: 4px;
+      content: 'Coming soon';
+      color: ui.$main-text;
+      font-size: 14px;
+      text-align: center;
+      line-height: 1;
+      padding: 0 4px;
+
+      border-radius: 4px;
+      width: 96px;
+      height: 16px;
+      background: ui.$warning;
+    }
   }
 
   &.active {

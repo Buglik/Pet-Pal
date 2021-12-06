@@ -14,8 +14,15 @@ body {
   margin: 0;
   background-color: ui.$main-background;
   color: ui.$main-text;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Segoe UI", sans-serif !important;
 }
+
+@import '~@angular/material/theming';
+$custom-typography: mat-typography-config(
+  $font-family: ui.$main-font
+);
+
+@include angular-material-typography($custom-typography);
 
 @include notifications.notificationStyle;
 @include modals.modalStyles;

@@ -30,6 +30,10 @@ export class NavigationService {
     this.router.navigateByUrl('/auth/login')
   }
 
+  toRegister(){
+    this.router.navigateByUrl('/auth/register')
+  }
+
   toMainPage() {
     this.router.navigateByUrl('/');
   }
@@ -41,4 +45,13 @@ export class NavigationService {
   toProfilePage(username?: string) {
     this.router.navigateByUrl('/profiles/user/' + username)
   }
+
+  toBecomeSitter() {
+    this.router.navigateByUrl('/pet-sitters/become-sitter');
+  }
+
+  toSitterList(){
+    this.router.navigateByUrl('/pet-sitters');
+  }
+
 }

@@ -27,7 +27,7 @@
   <mat-calendar class="calendar" [selected]="availabilityObject"></mat-calendar>
 </app-sitter-section>
 
-<app-sitter-section [title]="'label.reviews' | translate:{val: sitter.profile.reviews.count}">
+<app-sitter-section [pending]="reviewPending" [title]="'label.reviews' | translate:{val: sitter.profile.reviews.count}">
   <app-review-card *ngFor="let review of reviews"
                    [review]="review"
   ></app-review-card>

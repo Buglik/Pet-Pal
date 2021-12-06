@@ -15,7 +15,8 @@ export class HeaderLinksComponent {
     },
     {
       label: 'menu_link.pet_owner',
-      value: 'findOther'
+      value: 'findOther',
+      disabled: true
     },
     {
       label: 'menu_link.profiles',

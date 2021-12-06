@@ -4,6 +4,7 @@ import {MeResponse} from "../../../../api/src";
 import {selectUser} from "../../../state/user/user.selectors";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../../state/app.state";
+import {NavigationService} from "../../../navigation.service";
 
 @Component({
   selector: 'app-pet-sitter-settings',
@@ -14,7 +15,11 @@ export class PetSitterSettingsComponent {
 
   user$: Observable<MeResponse | null> = this.store.select(selectUser);
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>,
+              private navigationService: NavigationService) {
   }
 
+  navigateToBecomeSitter() {
+    this.navigationService.toBecomeSitter();
+  }
 }

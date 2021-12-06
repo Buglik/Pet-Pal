@@ -1,4 +1,12 @@
-<app-profile-list [profiles]="(profiles$ | async)!"></app-profile-list>
-<app-pagination-switch [paginationParams]="(paginationParams$ | async)!"
-                       (paginationChanged)="changePagination($event)">
-</app-pagination-switch>
+<app-banner>
+  <span heading>Look for your perfect sitter ram pam pam pam</span>
+  <span description>Description description more description lalala it should be longer than title</span>
+  <button buttons petpal-button tertiary call-to-action (click)="navigateToRegister()">{{'button.register_to_join' | translate}}</button>
+</app-banner>
+<div class="content">
+  <span class="heading">{{'label.sitters' | translate}}</span>
+  <app-profile-list [profiles]="(profiles$ | async)!"></app-profile-list>
+  <app-pagination-switch [paginationParams]="(paginationParams$ | async)!"
+                         (paginationChanged)="changePagination($event)">
+  </app-pagination-switch>
+</div>

@@ -30,10 +30,18 @@ class MeResponseSerializer(serializers.ModelSerializer):
     is_pet_sitter = serializers.SerializerMethodField('get_is_pet_sitter')
     contact = ContactInfoSerializer()
     reviews = serializers.SerializerMethodField('get_reviews')
+    avatar = serializers.SerializerMethodField('get_avatar_href')
 
     class Meta:
         model = Profile
-        fields = ['bio', 'user', 'contact', 'is_pet_sitter', 'reviews']
+        fields = ['bio', 'user', 'contact', 'is_pet_sitter', 'reviews', 'avatar']
+
+    def get_avatar_href(self, profile):
+        # TODO: replace
+        if (profile.image):
+            return 'http://localhost:8000' + profile.image.url
+        else:
+            return None
 
     def get_is_pet_sitter(self, profile) -> bool:
         if Sitter.objects.filter(profile=profile).count():
@@ -81,10 +89,18 @@ class ProfileRequestSerializer(serializers.ModelSerializer):
 
 class ProfileResponseSerializer(serializers.ModelSerializer):
     user = UserResponseSerializer()
+    avatar = serializers.SerializerMethodField('get_avatar_href')
 
     class Meta:
         model = Profile
-        fields = ['user', 'bio', 'contact']
+        fields = ['user', 'bio', 'contact', 'avatar']
+
+    def get_avatar_href(self, profile):
+        # TODO: replace
+        if (profile.image):
+            return 'http://localhost:8000' + profile.image.url
+        else:
+            return None
 
 
 class ProfilePageResponseSerializer(serializers.ModelSerializer):
@@ -103,7 +119,7 @@ class UserAvatarRequestSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(required=False)
 
     class Meta:
-        model = User
+        model = Profile
         fields = ['image']
 
     def save(self, *args, **kwargs):

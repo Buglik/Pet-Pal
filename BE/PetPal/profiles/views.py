@@ -139,11 +139,8 @@ class ProfileAvatarView(views.APIView):
         except:
             raise AuthenticationFailed('Unauthenticated!')
 
-        print(request.headers)
-        print(request.data)
         image = request.data
-        print(image)
-        serializer = UserAvatarRequestSerializer(instance=user, data=image)
+        serializer = UserAvatarRequestSerializer(instance=user.profile, data=image)
         serializer.is_valid(raise_exception=True)
         serializer.save()
 

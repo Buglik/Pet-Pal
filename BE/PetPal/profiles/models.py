@@ -7,6 +7,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='user_avatars', null=True, blank=True)
     bio = models.CharField(max_length=255, null=True, blank=True)
 
     # TODO: move profile pic to profile

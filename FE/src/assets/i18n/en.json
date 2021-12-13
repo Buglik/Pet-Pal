@@ -23,6 +23,8 @@
     "back_to_login": "Go to login page",
     "redirect_to_login": "Go to login page",
     "back": "Go back",
+    "back_to_sitters": "Go back to sitter list",
+    "back_to_profiles": "Go back to profile list",
     "create_account": "Create an account",
     "ok": "Ok",
     "manage_account": "Manage account",
@@ -32,9 +34,21 @@
     "go_to_own_profile": "Go to your profile",
     "become_petsitter": "Become petsitter",
     "next": "Next",
+    "update_contact": "Update contact info",
     "previous": "Previous",
     "find_sitter": "Find a pet sitter",
-    "find_pet": "Find a pet to sit"
+    "find_pet": "Find a pet to sit",
+    "register_to_join": "Register to join",
+    "review": {
+      "login": "Login to add a review",
+      "add": "Add review"
+    },
+    "contact": {
+      "login": "Login to access contact info"
+    },
+    "user": {
+      "sitter": "Go to pet sitting advert"
+    }
   },
   "label": {
     "login": "Login",
@@ -49,17 +63,51 @@
     "settings": {
       "info": "Your account settings"
     },
+    "pets_involved": "Pets involved",
+    "contact": "Contact",
+    "address": {
+      "null": "Location not found"
+    },
     "experience": "Experience",
     "availability": "Availability",
-    "motivation": "Why do you want to sit(XD)?",
+    "motivation": "Why do you want to sit?",
     "pet": {
       "dog": "Dog",
       "cat": "Cat",
       "horse": "Horse",
       "chicken": "Chicken",
-      "other": "Other"
+      "other": "Other",
+      "small_pet": "Small pets",
+      "bird": "Bird"
     },
     "summary": "Summary",
+    "sitters": "Look for a perfect sitter for your pet",
+    "profiles": "Browse our users",
+    "sitter": {
+      "motivation": "Why do you want to sit?",
+      "experience": "Experience",
+      "pet_experience": "Pet experience"
+    },
+    "page": {
+      "sitters": {
+        "title": "Find your pets' favourite sitter in just a view clicks",
+        "description": "A community of pet sitters keeping pets happy while you cannot take care of them."
+      },
+      "community": {
+        "title": "Our pet loving community",
+        "description": "All pet sitters & owners gathered in one place to make pets happy and their owners satisfied"
+      }
+    },
+    "reviews": "Reviews",
+    "review": {
+      "title": "Review",
+      "count": "Reviews ({{val}})",
+      "by": "by {{val}}"
+    },
+    "user": {
+      "verified": "User is verified"
+    },
+
     "main_page": {
       "title": "Pet sitting with love and experience",
       "description" : "Book a free verified and reviewed pet sitter from our pet-loving community, or find a pet to sit"
@@ -95,6 +143,13 @@
         "title": "Pet sitter form summary",
         "description": "Please check if everything is just like you want it to be"
       }
+    },
+    "pet_owner": {
+      "title": "Pet owner"
+    },
+    "contact": {
+      "title": "Contact info",
+      "description": "Fill up your contact details to make it easier for a potencial sitter or pet owner to contact you. Only LOGGED user can view this data."
     }
   },
   "notification": {
@@ -121,5 +176,10 @@
     "logout": {
       "success": "You have been logged out"
     }
+  },
+
+  "paginator": {
+    "itemsPerPage": "Items per page",
+    "rangeLabel": "of"
   }
 }

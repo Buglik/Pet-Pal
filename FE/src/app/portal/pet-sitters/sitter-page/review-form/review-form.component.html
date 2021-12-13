@@ -1,6 +1,6 @@
 <form class="form-container" [formGroup]="form" (submit)="onSubmit()">
   <!--Pets involved chips-->
-  <span class="pets-involved-description">{{'label.pet_involved' | translate}}</span>
+  <span class="pets-involved-description">{{'label.pets_involved' | translate}}</span>
   <mat-chip-list selectable multiple class="pets-field" formControlName="pets">
     <mat-chip #c="matChip" *ngFor="let option of petOptions"
               [value]="option.value"
@@ -13,7 +13,7 @@
 
   <!--Review description-->
   <mat-form-field class="full-width" appearance="outline">
-    <mat-label>{{'label.review' | translate}}</mat-label>
+    <mat-label>{{'label.review.title' | translate}}</mat-label>
     <textarea #reviewInput class="review-field" formControlName="description" matInput></textarea>
     <mat-hint align="end">{{reviewInput.value?.length || 0}}/255</mat-hint>
   </mat-form-field>
@@ -33,7 +33,7 @@
 <div class="profile">
   <app-header-avatar
     class="avatar"
-    [imgSrc]="data.profile.user.avatar"
+    [imgSrc]="data.profile.avatar"
     [initials]="data.profile.user | initials">
   </app-header-avatar>
   <span class="name">{{data.profile.user.username}}</span>

@@ -1,12 +1,6 @@
-import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core';
-import { Configuration } from './configuration';
-import { HttpClient } from '@angular/common/http';
-
-import { ApiService } from './api/api.service';
-import { AuthService } from './api/auth.service';
-import { PetSittersService } from './api/petSitters.service';
-import { ProfileService } from './api/profile.service';
-import { ReviewsService } from './api/reviews.service';
+import {ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
+import {Configuration} from './configuration';
+import {HttpClient} from '@angular/common/http';
 
 @NgModule({
   imports:      [],

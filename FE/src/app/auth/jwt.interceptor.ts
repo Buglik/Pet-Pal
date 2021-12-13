@@ -55,7 +55,6 @@ export class JwtInterceptor implements HttpInterceptor {
 
   private addLanguageToHeader(request: HttpRequest<any>): HttpRequest<any> {
     const lang = localStorage.getItem('petpal-currentLang');
-    console.warn(lang);
     return request.clone({
       setHeaders: {
         'Accept-Language': lang ? lang : 'en'

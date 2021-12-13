@@ -1,7 +1,7 @@
 <div class="left">
-  <app-header-avatar [imgSrc]="user?.avatar" [initials]="user | initials"></app-header-avatar>
+  <app-header-avatar [imgSrc]="profile?.avatar" [initials]="profile?.user | initials"></app-header-avatar>
   <div class="text-container">
-    <span class="full-name">{{user | fullName}}</span>
+    <span class="full-name">{{profile?.user | fullName}}</span>
     <span class="page-label">{{'label.settings.info' | translate}}</span>
   </div>
 </div>

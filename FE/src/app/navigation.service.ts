@@ -30,7 +30,7 @@ export class NavigationService {
     this.router.navigateByUrl('/auth/login')
   }
 
-  toRegister(){
+  toRegister() {
     this.router.navigateByUrl('/auth/register')
   }
 
@@ -50,7 +50,7 @@ export class NavigationService {
     this.router.navigateByUrl('/pet-sitters/become-sitter');
   }
 
-  toSitterList(){
+  toSitterList() {
     this.router.navigateByUrl('/pet-sitters');
   }
 

@@ -109,7 +109,13 @@ class GetPetSittersPaginatedView(views.APIView):
                     OpenApiParameter(name='startDate', description='Start date query', type=OpenApiTypes.DATE,
                                      location=OpenApiParameter.QUERY),
                     OpenApiParameter(name='endDate', description='End date query', type=OpenApiTypes.DATE,
-                                     location=OpenApiParameter.QUERY)
+                                     location=OpenApiParameter.QUERY),
+                    OpenApiParameter(
+                        name='pets',
+                        type={'type': 'array', 'items': {'type': 'string'}},
+                        location=OpenApiParameter.QUERY,
+                        explode=False
+                    )
                     ])
     @extend_schema(
         responses={200: PetSitterPageResponseSerializer},
@@ -120,8 +126,14 @@ class GetPetSittersPaginatedView(views.APIView):
         address_query = request.GET.get('address', None)
         start_date = request.GET.get('startDate', None)
         end_date = request.GET.get('endDate', None)
+        pets = request.GET.get('pets', None)
 
         queryset = Sitter.objects.all()
+
+        if (pets):
+            pets = pets.split(',')
+            for pet in pets:
+                queryset = queryset.filter(pet_experience__contains=pet)
 
         if address_query:
             for term in address_query.split():
@@ -132,7 +144,8 @@ class GetPetSittersPaginatedView(views.APIView):
             if end_date:
                 queryset = queryset.filter(availability_start_date__lte=start_date, availability_end_date__gte=end_date)
             else:
-                queryset = queryset.filter(availability_start_date__lte=start_date, availability_end_date__gte=start_date)
+                queryset = queryset.filter(availability_start_date__lte=start_date,
+                                           availability_end_date__gte=start_date)
 
         paginator = Paginator(queryset, page_size)
 

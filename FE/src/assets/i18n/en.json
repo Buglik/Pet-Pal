@@ -65,8 +65,12 @@
     },
     "pets_involved": "Pets involved",
     "contact": "Contact",
+    "whatsapp_number": "Whatsapp",
+    "phone_number": "Phone number",
     "address": {
-      "null": "Location not found"
+      "null": "Location not found",
+      "city": "City",
+      "country": "Country"
     },
     "experience": "Experience",
     "availability": "Availability",

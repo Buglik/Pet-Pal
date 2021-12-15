@@ -7,7 +7,7 @@ import {UserResponse} from "../../api/src";
 export class InitialsPipe implements PipeTransform {
 
   transform(user?: UserResponse | null): string {
-    return user ? user?.first_name[0] + user?.last_name[1] : '';
+    return user ? user?.first_name[0] + user?.last_name[0] : '';
   }
 
 }

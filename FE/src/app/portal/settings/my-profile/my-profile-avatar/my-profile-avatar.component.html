@@ -7,7 +7,7 @@
           (click)="imageInput.click()">
     {{'button.edit_photo' | translate}}
   </button>
-  <app-header-avatar (click)="imageInput.click()" [imgSrc]="profile?.avatar"
+  <app-header-avatar class="avatar" (click)="imageInput.click()" [imgSrc]="profile?.avatar"
                      [initials]="profile?.user | initials"></app-header-avatar>
 </div>
 <mat-error *ngIf="error" class="file-error">

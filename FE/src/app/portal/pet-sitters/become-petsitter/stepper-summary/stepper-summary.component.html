@@ -33,7 +33,7 @@
                 [value]="option.value">
         <!--          TODO: actual icons of pets-->
         <mat-icon>person</mat-icon>
-        {{'pet.' + option | translate}}
+        {{'label.pet.' + option | lowercase | translate}}
       </mat-chip>
     </mat-chip-list>
   </div>

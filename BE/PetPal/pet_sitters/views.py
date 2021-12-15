@@ -1,5 +1,6 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render
+from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import extend_schema, OpenApiParameter
 from rest_framework import views, status
 from rest_framework.decorators import authentication_classes
@@ -98,9 +99,15 @@ class GetPetSitterView(views.APIView):
 
 class GetPetSittersPaginatedView(views.APIView):
     @extend_schema(
-        parameters=[OpenApiParameter(name='page', description='Page index', type=int,
+        parameters=[OpenApiParameter(name='page', description='Page index', type=OpenApiTypes.INT,
                                      location=OpenApiParameter.QUERY),
-                    OpenApiParameter(name='size', description='Page size', type=int,
+                    OpenApiParameter(name='size', description='Page size', type=OpenApiTypes.INT,
+                                     location=OpenApiParameter.QUERY),
+                    OpenApiParameter(name='address', description='Address query', type=OpenApiTypes.STR,
+                                     location=OpenApiParameter.QUERY),
+                    OpenApiParameter(name='startDate', description='Start date query', type=OpenApiTypes.DATE,
+                                     location=OpenApiParameter.QUERY),
+                    OpenApiParameter(name='endDate', description='End date query', type=OpenApiTypes.DATE,
                                      location=OpenApiParameter.QUERY)
                     ])
     @extend_schema(

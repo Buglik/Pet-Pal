@@ -12,8 +12,9 @@ import {
   updateSittersError,
   updateSittersSuccess
 } from "./sitters.actions";
-import {selectSittersListPaginationParams} from "./sitters.selectors";
+import {selectSittersListFilterParams, selectSittersListPaginationParams} from "./sitters.selectors";
 import {PetSittersService} from "../../../api/src";
+import * as moment from "moment";
 
 @Injectable()
 export class SittersEffects {
@@ -28,9 +29,15 @@ export class SittersEffects {
   private updateSitters$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
       ofType(updateSitters),
-      withLatestFrom(this.store.select(selectSittersListPaginationParams)),
-      switchMap(([_, pagination]) => {
-        return this.sitterController.petSittersGetPaginatedRetrieve(pagination.pageNumber + 1, pagination.pagination).pipe(
+      withLatestFrom(this.store.select(selectSittersListPaginationParams), this.store.select(selectSittersListFilterParams)),
+      switchMap(([_, pagination, filters]) => {
+        return this.sitterController.petSittersGetPaginatedRetrieve(filters?.address || undefined,
+          filters?.period?.endDate ? moment(filters?.period?.endDate).format('YYYY-MM-DD') : undefined,
+          pagination.pageNumber + 1,
+          filters.pets || undefined,
+          pagination.pagination,
+          filters?.period?.endDate ? moment(filters?.period?.startDate).format('YYYY-MM-DD') : undefined,
+        ).pipe(
           map(page => updateSittersSuccess(page)),
           catchError(error => of(updateSittersError())),
         )

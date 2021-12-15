@@ -1,4 +1,5 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.db.models import Q
 from django.shortcuts import render
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import extend_schema, OpenApiParameter
@@ -116,7 +117,17 @@ class GetPetSittersPaginatedView(views.APIView):
     def get(self, request):
         page_index = request.GET.get('page', 1)
         page_size = request.GET.get('size', 10)
+        address_query = request.GET.get('address', None)
+        start_date = request.GET.get('startDate', None)
+        end_date = request.GET.get('endDate', None)
+
         queryset = Sitter.objects.all()
+
+        if address_query:
+            for term in address_query.split():
+                queryset = queryset.filter(Q(profile__contact__city__icontains=term) | Q(profile__contact__country__icontains=term))
+
+
         paginator = Paginator(queryset, page_size)
 
         try:

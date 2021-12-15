@@ -125,8 +125,14 @@ class GetPetSittersPaginatedView(views.APIView):
 
         if address_query:
             for term in address_query.split():
-                queryset = queryset.filter(Q(profile__contact__city__icontains=term) | Q(profile__contact__country__icontains=term))
+                queryset = queryset.filter(
+                    Q(profile__contact__city__icontains=term) | Q(profile__contact__country__icontains=term))
 
+        if start_date:
+            if end_date:
+                queryset = queryset.filter(availability_start_date__lte=start_date, availability_end_date__gte=end_date)
+            else:
+                queryset = queryset.filter(availability_start_date__lte=start_date, availability_end_date__gte=start_date)
 
         paginator = Paginator(queryset, page_size)
 

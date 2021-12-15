@@ -119,7 +119,11 @@
     "filter": {
       "address": "Search by address",
       "pets": "Search by pets",
-      "date": "Search by date"
+      "date": {
+        "label": "Search by date",
+        "start": "Start date",
+        "end": "End date"
+      }
     }
   },
   "form": {

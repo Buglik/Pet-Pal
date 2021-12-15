@@ -5,14 +5,20 @@
 :host{
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  //justify-content: space-between;
   align-items: center;
 }
 
 .address-search{
-  min-width: 300px;
+  width: 40%;
+  margin-right: 32px;
 }
 
 .pet-filter{
- margin-right: 32px;
+  width: 20%;
+  margin-right: 32px;
+}
+
+.date-filter{
+  width: 40%;
 }

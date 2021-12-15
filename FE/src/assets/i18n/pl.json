@@ -119,8 +119,11 @@
     "filter": {
       "address": "[PL] Search by address",
       "pets": "[PL] Search by pets",
-      "date": "[PL] Search by date"
-    }
+      "date": {
+        "label": "[PL] Search by date",
+        "start": "[PL] Start date",
+        "end": "[PL] End date"
+      }    }
   },
   "form": {
     "register": {

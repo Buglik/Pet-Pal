@@ -119,7 +119,11 @@
     "filter": {
       "address": "[ES] Search by address",
       "pets": "[ES] Search by pets",
-      "date": "[ES] Search by date"
+      "date": {
+        "label": "[ES] Search by date",
+        "start": "[ES] Start date",
+        "end": "[ES] End date"
+      }
     }
   },
   "form": {

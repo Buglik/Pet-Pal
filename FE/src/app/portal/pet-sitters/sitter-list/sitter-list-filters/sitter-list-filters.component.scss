@@ -1,0 +1,18 @@
+@use "src/styles/date-picker";
+
+@include date-picker.date-picker-styles-material;
+
+:host{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.address-search{
+  min-width: 300px;
+}
+
+.pet-filter{
+ margin-right: 32px;
+}

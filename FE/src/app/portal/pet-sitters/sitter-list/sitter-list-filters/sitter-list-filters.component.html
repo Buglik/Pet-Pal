@@ -1,0 +1,25 @@
+<mat-form-field class="address-search" appearance="outline">
+  <mat-label>{{'label.filter.address' | translate}}</mat-label>
+  <input (change)="updateFilters()" [(ngModel)]="address" matInput>
+</mat-form-field>
+
+<div class="right">
+  <mat-form-field appearance="outline" class="pet-filter">
+    <mat-label>{{'label.filter.pets' | translate}}</mat-label>
+    <mat-select multiple [(ngModel)]="pets">
+      <mat-option (onSelectionChange)="updateFilters()" *ngFor="let pet of petOptions"
+                  [value]="pet.value">{{pet.key | lowercase | translate}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>{{'label.filter.date' | translate}}</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input [(ngModel)]="startDate" matStartDate placeholder="{{'label.filter.date.start' | translate}}">
+      <input [(ngModel)]="endDate" (dateChange)="updateFilters()" matEndDate
+             placeholder="{{'label.filter.date.end' | translate}}">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+</div>

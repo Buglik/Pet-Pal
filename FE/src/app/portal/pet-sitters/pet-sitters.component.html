@@ -6,6 +6,7 @@
 </app-banner>
 <div class="content">
   <span class="heading">{{'label.sitters' | translate}}</span>
+  <app-sitter-list-filters></app-sitter-list-filters>
   <app-sitter-list [sitters]="(sitters$ | async)!"></app-sitter-list>
   <app-pagination-switch [paginationParams]="(paginationParams$ | async)!"
                          (paginationChanged)="changePagination($event)">

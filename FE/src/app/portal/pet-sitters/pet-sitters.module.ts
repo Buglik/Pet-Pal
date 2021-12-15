@@ -41,6 +41,8 @@ import {ReviewFormComponent} from './sitter-page/review-form/review-form.compone
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {ReviewService} from "./review.service";
 import {BannerModule} from "../../utils/banner/banner.module";
+import {SitterListFiltersComponent} from './sitter-list/sitter-list-filters/sitter-list-filters.component';
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -58,6 +60,7 @@ import {BannerModule} from "../../utils/banner/banner.module";
     SitterListItemComponent,
     ReviewCardComponent,
     ReviewFormComponent,
+    SitterListFiltersComponent,
   ],
     imports: [
         CommonModule,
@@ -86,7 +89,8 @@ import {BannerModule} from "../../utils/banner/banner.module";
         BarRatingModule,
         MatDialogModule,
         FormsModule,
-        BannerModule
+        BannerModule,
+        MatSelectModule
     ],
   providers: [
     LocaleService,

@@ -115,7 +115,15 @@
     "main_page": {
       "title": "[PL] Pet sitting with love and experience",
       "description" : "[PL] Book a free verified and reviewed pet sitter from our pet-loving community, or find a pet to sit"
-    }
+    },
+    "filter": {
+      "address": "[PL] Search by address",
+      "pets": "[PL] Search by pets",
+      "date": {
+        "label": "[PL] Search by date",
+        "start": "[PL] Start date",
+        "end": "[PL] End date"
+      }    }
   },
   "form": {
     "register": {

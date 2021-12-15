@@ -111,10 +111,18 @@
     "user": {
       "verified": "[IT] User is verified"
     },
-
     "main_page": {
       "title": "[IT] Pet sitting with love and experience",
-      "description" : "[IT] Book a free verified and reviewed pet sitter from our pet-loving community, or find a pet to sit"
+      "description": "[IT] Book a free verified and reviewed pet sitter from our pet-loving community, or find a pet to sit"
+    },
+    "filter": {
+      "address": "[IT] Search by address",
+      "pets": "[IT] Search by pets",
+      "date": {
+        "label": "[IT] Search by date",
+        "start": "[IT] Start date",
+        "end": "[IT] End date"
+      }
     }
   },
   "form": {
@@ -195,9 +203,7 @@
         "fail": "[IT] Sitter not found"
       }
     }
-
   },
-
   "paginator": {
     "itemsPerPage": "[IT] Items per page",
     "rangeLabel": "[IT] of"

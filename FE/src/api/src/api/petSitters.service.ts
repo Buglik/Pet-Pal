@@ -18,7 +18,7 @@ import {Observable} from 'rxjs';
 
 import {PetSitterPageResponse, PetSitterRequest, PetSitterResponse} from '../model/models';
 
-import {BASE_PATH} from '../variables';
+import {BASE_PATH, COLLECTION_FORMATS} from '../variables';
 import {Configuration} from '../configuration';
 
 
@@ -145,24 +145,44 @@ export class PetSittersService {
     }
 
     /**
+     * @param address Address query
+     * @param endDate End date query
      * @param page Page index
+     * @param pets
      * @param size Page size
+     * @param startDate Start date query
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public petSittersGetPaginatedRetrieve(page?: number, size?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<PetSitterPageResponse>;
-    public petSittersGetPaginatedRetrieve(page?: number, size?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<PetSitterPageResponse>>;
-    public petSittersGetPaginatedRetrieve(page?: number, size?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<PetSitterPageResponse>>;
-    public petSittersGetPaginatedRetrieve(page?: number, size?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public petSittersGetPaginatedRetrieve(address?: string, endDate?: string, page?: number, pets?: Array<string>, size?: number, startDate?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<PetSitterPageResponse>;
+    public petSittersGetPaginatedRetrieve(address?: string, endDate?: string, page?: number, pets?: Array<string>, size?: number, startDate?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<PetSitterPageResponse>>;
+    public petSittersGetPaginatedRetrieve(address?: string, endDate?: string, page?: number, pets?: Array<string>, size?: number, startDate?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<PetSitterPageResponse>>;
+    public petSittersGetPaginatedRetrieve(address?: string, endDate?: string, page?: number, pets?: Array<string>, size?: number, startDate?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let queryParameters = new HttpParams({encoder: this.encoder});
+        if (address !== undefined && address !== null) {
+          queryParameters = this.addToHttpParams(queryParameters,
+            <any>address, 'address');
+        }
+        if (endDate !== undefined && endDate !== null) {
+          queryParameters = this.addToHttpParams(queryParameters,
+            <any>endDate, 'endDate');
+        }
         if (page !== undefined && page !== null) {
           queryParameters = this.addToHttpParams(queryParameters,
             <any>page, 'page');
         }
+        if (pets) {
+            queryParameters = this.addToHttpParams(queryParameters,
+                pets.join(COLLECTION_FORMATS['csv']), 'pets');
+        }
         if (size !== undefined && size !== null) {
           queryParameters = this.addToHttpParams(queryParameters,
             <any>size, 'size');
+        }
+        if (startDate !== undefined && startDate !== null) {
+          queryParameters = this.addToHttpParams(queryParameters,
+            <any>startDate, 'startDate');
         }
 
         let headers = this.defaultHeaders;

@@ -1,5 +1,7 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.db.models import Q
 from django.shortcuts import render
+from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import extend_schema, OpenApiParameter
 from rest_framework import views, status
 from rest_framework.decorators import authentication_classes
@@ -98,10 +100,22 @@ class GetPetSitterView(views.APIView):
 
 class GetPetSittersPaginatedView(views.APIView):
     @extend_schema(
-        parameters=[OpenApiParameter(name='page', description='Page index', type=int,
+        parameters=[OpenApiParameter(name='page', description='Page index', type=OpenApiTypes.INT,
                                      location=OpenApiParameter.QUERY),
-                    OpenApiParameter(name='size', description='Page size', type=int,
-                                     location=OpenApiParameter.QUERY)
+                    OpenApiParameter(name='size', description='Page size', type=OpenApiTypes.INT,
+                                     location=OpenApiParameter.QUERY),
+                    OpenApiParameter(name='address', description='Address query', type=OpenApiTypes.STR,
+                                     location=OpenApiParameter.QUERY),
+                    OpenApiParameter(name='startDate', description='Start date query', type=OpenApiTypes.DATE,
+                                     location=OpenApiParameter.QUERY),
+                    OpenApiParameter(name='endDate', description='End date query', type=OpenApiTypes.DATE,
+                                     location=OpenApiParameter.QUERY),
+                    OpenApiParameter(
+                        name='pets',
+                        type={'type': 'array', 'items': {'type': 'string'}},
+                        location=OpenApiParameter.QUERY,
+                        explode=False
+                    )
                     ])
     @extend_schema(
         responses={200: PetSitterPageResponseSerializer},
@@ -109,7 +123,30 @@ class GetPetSittersPaginatedView(views.APIView):
     def get(self, request):
         page_index = request.GET.get('page', 1)
         page_size = request.GET.get('size', 10)
+        address_query = request.GET.get('address', None)
+        start_date = request.GET.get('startDate', None)
+        end_date = request.GET.get('endDate', None)
+        pets = request.GET.get('pets', None)
+
         queryset = Sitter.objects.all()
+
+        if (pets):
+            pets = pets.split(',')
+            for pet in pets:
+                queryset = queryset.filter(pet_experience__contains=pet)
+
+        if address_query:
+            for term in address_query.split():
+                queryset = queryset.filter(
+                    Q(profile__contact__city__icontains=term) | Q(profile__contact__country__icontains=term))
+
+        if start_date:
+            if end_date:
+                queryset = queryset.filter(availability_start_date__lte=start_date, availability_end_date__gte=end_date)
+            else:
+                queryset = queryset.filter(availability_start_date__lte=start_date,
+                                           availability_end_date__gte=start_date)
+
         paginator = Paginator(queryset, page_size)
 
         try:

@@ -179,7 +179,23 @@
     },
     "logout": {
       "success": "You have been logged out"
+    },
+    "review": {
+      "create": {
+        "success": "Review added successfully",
+        "fail": "You cannot add review to this user"
+      }
+    },
+    "sitter": {
+      "create": {
+        "success": "Sitter ad has been added successfully",
+        "fail": "Something went wrong while adding a sitter ad, please check if you don't already own an advert"
+      },
+      "get_by_username": {
+        "fail": "Sitter not found"
+      }
     }
+
   },
 
   "paginator": {

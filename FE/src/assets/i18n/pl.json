@@ -14,7 +14,8 @@
   },
   "menu_link": {
     "pet_sitter": "[PL] Find a pet sitter",
-    "pet_owner": "[PL] Find a pet to sit"
+    "pet_owner": "[PL] Find a pet to sit",
+    "profiles": "[PL] Community"
   },
   "button": {
     "register": "[PL] Register",
@@ -22,6 +23,8 @@
     "back_to_login": "[PL] Go to login page",
     "redirect_to_login": "[PL] Go to login page",
     "back": "[PL] Go back",
+    "back_to_sitters": "[PL] Go back to sitter list",
+    "back_to_profiles": "[PL] Go back to profile list",
     "create_account": "[PL] Create an account",
     "ok": "[PL] Ok",
     "manage_account": "[PL] Manage account",
@@ -31,7 +34,21 @@
     "go_to_own_profile": "[PL] Go to your profile",
     "become_petsitter": "[PL] Become petsitter",
     "next": "[PL] Next",
-    "previous": "[PL] Previous"
+    "update_contact": "[PL] Update contact info",
+    "previous": "[PL] Previous",
+    "find_sitter": "[PL] Find a pet sitter",
+    "find_pet": "[PL] Find a pet to sit",
+    "register_to_join": "[PL] Register to join",
+    "review": {
+      "login": "[PL] Login to add a review",
+      "add": "[PL] Add review"
+    },
+    "contact": {
+      "login": "[PL] Login to access contact info"
+    },
+    "user": {
+      "sitter": "[PL] Go to pet sitting advert"
+    }
   },
   "label": {
     "login": "[PL] Login",
@@ -46,17 +63,59 @@
     "settings": {
       "info": "[PL] Your account settings"
     },
+    "pets_involved": "[PL] Pets involved",
+    "contact": "[PL] Contact",
+    "whatsapp_number": "[PL] Whatsapp",
+    "phone_number": "[PL] Phone number",
+    "address": {
+      "null": "[PL] Location not found",
+      "city": "[PL] City",
+      "country": "[PL] Country"
+    },
     "experience": "[PL] Experience",
     "availability": "[PL] Availability",
-    "motivation": "[PL] Why do you want to sit(XD)?",
+    "motivation": "[PL] Why do you want to sit?",
     "pet": {
       "dog": "[PL] Dog",
       "cat": "[PL] Cat",
       "horse": "[PL] Horse",
       "chicken": "[PL] Chicken",
-      "other": "[PL] Other"
+      "other": "[PL] Other",
+      "small_pet": "[PL] Small pets",
+      "bird": "[PL] Bird"
     },
-    "summary": "[PL] Summary"
+    "summary": "[PL] Summary",
+    "sitters": "[PL] Look for a perfect sitter for your pet",
+    "profiles": "[PL] Browse our users",
+    "sitter": {
+      "motivation": "[PL] Why do you want to sit?",
+      "experience": "[PL] Experience",
+      "pet_experience": "[PL] Pet experience"
+    },
+    "page": {
+      "sitters": {
+        "title": "[PL] Find your pets' favourite sitter in just a view clicks",
+        "description": "[PL] A community of pet sitters keeping pets happy while you cannot take care of them."
+      },
+      "community": {
+        "title": "[PL] Our pet loving community",
+        "description": "[PL] All pet sitters & owners gathered in one place to make pets happy and their owners satisfied"
+      }
+    },
+    "reviews": "[PL] Reviews",
+    "review": {
+      "title": "[PL] Review",
+      "count": "[PL] Reviews ({{val}})",
+      "by": "[PL] by {{val}}"
+    },
+    "user": {
+      "verified": "[PL] User is verified"
+    },
+
+    "main_page": {
+      "title": "[PL] Pet sitting with love and experience",
+      "description" : "[PL] Book a free verified and reviewed pet sitter from our pet-loving community, or find a pet to sit"
+    }
   },
   "form": {
     "register": {
@@ -88,6 +147,13 @@
         "title": "[PL] Pet sitter form summary",
         "description": "[PL] Please check if everything is just like you want it to be"
       }
+    },
+    "pet_owner": {
+      "title": "[PL] Pet owner"
+    },
+    "contact": {
+      "title": "[PL] Contact info",
+      "description": "[PL] Fill up your contact details to make it easier for a potencial sitter or pet owner to contact you. Only LOGGED user can view this data."
     }
   },
   "notification": {
@@ -113,6 +179,27 @@
     },
     "logout": {
       "success": "[PL] You have been logged out"
+    },
+    "review": {
+      "create": {
+        "success": "[PL] Review added successfully",
+        "fail": "[PL] You cannot add review to this user"
+      }
+    },
+    "sitter": {
+      "create": {
+        "success": "[PL] Sitter ad has been added successfully",
+        "fail": "[PL] Something went wrong while adding a sitter ad, please check if you don't already own an advert"
+      },
+      "get_by_username": {
+        "fail": "[PL] Sitter not found"
+      }
     }
+
+  },
+
+  "paginator": {
+    "itemsPerPage": "[PL] Items per page",
+    "rangeLabel": "[PL] of"
   }
 }

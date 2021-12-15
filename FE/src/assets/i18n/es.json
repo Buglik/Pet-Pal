@@ -14,7 +14,8 @@
   },
   "menu_link": {
     "pet_sitter": "[ES] Find a pet sitter",
-    "pet_owner": "[ES] Find a pet to sit"
+    "pet_owner": "[ES] Find a pet to sit",
+    "profiles": "[ES] Community"
   },
   "button": {
     "register": "[ES] Register",
@@ -22,6 +23,8 @@
     "back_to_login": "[ES] Go to login page",
     "redirect_to_login": "[ES] Go to login page",
     "back": "[ES] Go back",
+    "back_to_sitters": "[ES] Go back to sitter list",
+    "back_to_profiles": "[ES] Go back to profile list",
     "create_account": "[ES] Create an account",
     "ok": "[ES] Ok",
     "manage_account": "[ES] Manage account",
@@ -31,7 +34,21 @@
     "go_to_own_profile": "[ES] Go to your profile",
     "become_petsitter": "[ES] Become petsitter",
     "next": "[ES] Next",
-    "previous": "[ES] Previous"
+    "update_contact": "[ES] Update contact info",
+    "previous": "[ES] Previous",
+    "find_sitter": "[ES] Find a pet sitter",
+    "find_pet": "[ES] Find a pet to sit",
+    "register_to_join": "[ES] Register to join",
+    "review": {
+      "login": "[ES] Login to add a review",
+      "add": "[ES] Add review"
+    },
+    "contact": {
+      "login": "[ES] Login to access contact info"
+    },
+    "user": {
+      "sitter": "[ES] Go to pet sitting advert"
+    }
   },
   "label": {
     "login": "[ES] Login",
@@ -46,17 +63,59 @@
     "settings": {
       "info": "[ES] Your account settings"
     },
+    "pets_involved": "[ES] Pets involved",
+    "contact": "[ES] Contact",
+    "whatsapp_number": "[ES] Whatsapp",
+    "phone_number": "[ES] Phone number",
+    "address": {
+      "null": "[ES] Location not found",
+      "city": "[ES] City",
+      "country": "[ES] Country"
+    },
     "experience": "[ES] Experience",
     "availability": "[ES] Availability",
-    "motivation": "[ES] Why do you want to sit(XD)?",
+    "motivation": "[ES] Why do you want to sit?",
     "pet": {
       "dog": "[ES] Dog",
       "cat": "[ES] Cat",
       "horse": "[ES] Horse",
       "chicken": "[ES] Chicken",
-      "other": "[ES] Other"
+      "other": "[ES] Other",
+      "small_pet": "[ES] Small pets",
+      "bird": "[ES] Bird"
     },
-    "summary": "[ES] Summary"
+    "summary": "[ES] Summary",
+    "sitters": "[ES] Look for a perfect sitter for your pet",
+    "profiles": "[ES] Browse our users",
+    "sitter": {
+      "motivation": "[ES] Why do you want to sit?",
+      "experience": "[ES] Experience",
+      "pet_experience": "[ES] Pet experience"
+    },
+    "page": {
+      "sitters": {
+        "title": "[ES] Find your pets' favourite sitter in just a view clicks",
+        "description": "[ES] A community of pet sitters keeping pets happy while you cannot take care of them."
+      },
+      "community": {
+        "title": "[ES] Our pet loving community",
+        "description": "[ES] All pet sitters & owners gathered in one place to make pets happy and their owners satisfied"
+      }
+    },
+    "reviews": "[ES] Reviews",
+    "review": {
+      "title": "[ES] Review",
+      "count": "[ES] Reviews ({{val}})",
+      "by": "[ES] by {{val}}"
+    },
+    "user": {
+      "verified": "[ES] User is verified"
+    },
+
+    "main_page": {
+      "title": "[ES] Pet sitting with love and experience",
+      "description" : "[ES] Book a free verified and reviewed pet sitter from our pet-loving community, or find a pet to sit"
+    }
   },
   "form": {
     "register": {
@@ -88,6 +147,13 @@
         "title": "[ES] Pet sitter form summary",
         "description": "[ES] Please check if everything is just like you want it to be"
       }
+    },
+    "pet_owner": {
+      "title": "[ES] Pet owner"
+    },
+    "contact": {
+      "title": "[ES] Contact info",
+      "description": "[ES] Fill up your contact details to make it easier for a potencial sitter or pet owner to contact you. Only LOGGED user can view this data."
     }
   },
   "notification": {
@@ -113,6 +179,27 @@
     },
     "logout": {
       "success": "[ES] You have been logged out"
+    },
+    "review": {
+      "create": {
+        "success": "[ES] Review added successfully",
+        "fail": "[ES] You cannot add review to this user"
+      }
+    },
+    "sitter": {
+      "create": {
+        "success": "[ES] Sitter ad has been added successfully",
+        "fail": "[ES] Something went wrong while adding a sitter ad, please check if you don't already own an advert"
+      },
+      "get_by_username": {
+        "fail": "[ES] Sitter not found"
+      }
     }
+
+  },
+
+  "paginator": {
+    "itemsPerPage": "[ES] Items per page",
+    "rangeLabel": "[ES] of"
   }
 }

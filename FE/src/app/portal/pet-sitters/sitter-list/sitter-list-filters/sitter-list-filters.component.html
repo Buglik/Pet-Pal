@@ -6,8 +6,8 @@
 <div class="right">
   <mat-form-field appearance="outline" class="pet-filter">
     <mat-label>{{'label.filter.pets' | translate}}</mat-label>
-    <mat-select multiple [(ngModel)]="pets">
-      <mat-option (onSelectionChange)="updateFilters()" *ngFor="let pet of petOptions"
+    <mat-select (selectionChange)="updateFilters()" multiple [(ngModel)]="pets">
+      <mat-option *ngFor="let pet of petOptions"
                   [value]="pet.value">{{pet.key | lowercase | translate}}</mat-option>
     </mat-select>
   </mat-form-field>

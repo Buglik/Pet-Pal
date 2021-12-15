@@ -53,7 +53,7 @@ export class SitterListFiltersComponent implements OnDestroy {
         startDate: this.startDate,
         endDate: this.endDate
       } : null,
-      pets: this.pets
+      pets: this.pets || null
     }
     this.store.dispatch(changeFiltersSitterList(newFilter))
   }

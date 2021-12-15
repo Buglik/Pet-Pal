@@ -1,5 +1,5 @@
 import {createAction, props} from "@ngrx/store";
-import {PetSitterPageResponse} from "../../../api/src";
+import {PetExperienceEnum, PetSitterPageResponse} from "../../../api/src";
 
 export interface TablePaginationParams {
   pagination: number;
@@ -8,10 +8,19 @@ export interface TablePaginationParams {
   totalElements: number;
 }
 
+export interface SitterListFilters {
+  address: string | null,
+  period: {
+    startDate: Date,
+    endDate: Date
+  } | null
+  pets: Array<PetExperienceEnum> | null
+}
+
 
 export const setDefaultParamsSitterList = createAction('[SitterList] Set default params');
 
-// export const changeSortingParamsSitterList = createAction('[SitterList-Sorting] Change params', props<TableSortingParams>());
+export const changeFiltersSitterList = createAction('[SitterList-Filters] Change params', props<SitterListFilters>());
 export const changePaginationParamsSitterList = createAction('[SitterList-Pagination] Change params', props<TablePaginationParams>());
 
 export const updateSitters = createAction('[SitterList] Update sitters');

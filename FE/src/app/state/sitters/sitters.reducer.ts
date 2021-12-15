@@ -1,6 +1,7 @@
 import {createReducer, on} from "@ngrx/store";
 import {SittersListState} from "./sitters.state";
 import {
+  changeFiltersSitterList,
   changePaginationParamsSitterList,
   setDefaultParamsSitterList,
   updateSittersError,
@@ -9,10 +10,11 @@ import {
 
 export const initialState: SittersListState = {
   sitters: [],
-  // sortParams: {
-  //   sortType: 'asc',
-  //   sortField: ['name'],
-  // },
+  filterParams: {
+    address: null,
+    period: null,
+    pets: null
+  },
   paginationParams: {
     pagination: 15,
     pageNumber: 0,
@@ -28,11 +30,11 @@ export const sittersReducer = createReducer(
     ...initialState,
     pending: true
   })),
-  // on(changeSortingParamsSitterList, (state, sortParams) => ({
-  //   ...state,
-  //   sortParams,
-  //   pending: true
-  // })),
+  on(changeFiltersSitterList, (state, filterParams) => ({
+    ...state,
+    filterParams,
+    pending: true
+  })),
   on(changePaginationParamsSitterList, (state, paginationParams) => ({
     ...state,
     paginationParams,

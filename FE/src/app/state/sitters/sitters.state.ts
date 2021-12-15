@@ -1,9 +1,9 @@
 import {PetSitterResponse} from "../../../api/src";
-import {TablePaginationParams} from "./sitters.actions";
+import {SitterListFilters, TablePaginationParams} from "./sitters.actions";
 
 export interface SittersListState {
   sitters: PetSitterResponse[],
-  // sortParams: TableSortingParams,
+  filterParams: SitterListFilters,
   paginationParams: TablePaginationParams,
   pending: boolean;
 }

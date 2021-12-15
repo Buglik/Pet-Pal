@@ -5,6 +5,7 @@ import {Action, Store} from "@ngrx/store";
 import {Observable, of} from "rxjs";
 import {AppState} from "../app.state";
 import {
+  changeFiltersSitterList,
   changePaginationParamsSitterList,
   setDefaultParamsSitterList,
   updateSitters,
@@ -19,7 +20,7 @@ export class SittersEffects {
 
   private changeTableParams$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
-      ofType(changePaginationParamsSitterList, setDefaultParamsSitterList),
+      ofType(changePaginationParamsSitterList, setDefaultParamsSitterList, changeFiltersSitterList),
       map(_ => updateSitters())
     ),
   );

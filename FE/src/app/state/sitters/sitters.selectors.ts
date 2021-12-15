@@ -4,10 +4,10 @@ import {SittersListState} from "./sitters.state";
 
 export const selectSittersFeature = createFeatureSelector<AppState, SittersListState>(sitterListFeature);
 
-// export const selectSittersListSortParams = createSelector(
-//   selectSittersFeature,
-//   (state: SittersListState) => state.sortParams,
-// )
+export const selectSittersListFilterParams = createSelector(
+  selectSittersFeature,
+  (state: SittersListState) => state.filterParams,
+)
 
 export const selectSittersListPaginationParams = createSelector(
   selectSittersFeature,

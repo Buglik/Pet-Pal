@@ -1,7 +1,7 @@
 <form [formGroup]="form" (submit)="onSubmit()">
   <div formGroupName="contact">
     <mat-form-field class="full-width" appearance="outline">
-      <mat-label>{{'label.city' | translate}}</mat-label>
+      <mat-label>{{'label.address.city' | translate}}</mat-label>
       <input formControlName="city" matInput>
       <mat-error>
         <app-form-field-errors [control]="city"></app-form-field-errors>
@@ -9,7 +9,7 @@
     </mat-form-field>
 
     <mat-form-field class="full-width" appearance="outline">
-      <mat-label>{{'label.country' | translate}}</mat-label>
+      <mat-label>{{'label.address.country' | translate}}</mat-label>
       <input formControlName="country" matInput>
       <mat-error>
         <app-form-field-errors [control]="country"></app-form-field-errors>

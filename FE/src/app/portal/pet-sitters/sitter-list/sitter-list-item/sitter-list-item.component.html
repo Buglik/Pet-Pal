@@ -1,10 +1,10 @@
 <app-header-avatar
   class="avatar"
-  [imgSrc]="sitter.profile.user.avatar"
+  [imgSrc]="sitter.profile.avatar"
   [initials]="sitter.profile.user | initials">
 </app-header-avatar>
 <span class="name">{{sitter.profile.user.first_name}}</span>
-<span class="address">{{sitter.profile.contact | address}}</span>
+<span class="address">{{sitter.profile.contact | address | translate}}</span>
 <div class="reviews">
   <bar-rating [readOnly]="true" [rate]="sitter.profile.reviews.average" [max]="5"></bar-rating>
   <span>({{sitter.profile.reviews.count}})</span>

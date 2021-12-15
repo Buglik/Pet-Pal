@@ -1,5 +1,14 @@
 @use '../../../../styles/ui';
 
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button{
+    margin-top: 64px;
+  }
+}
 
 .title{
   border-bottom: 1px solid ui.$header-border;

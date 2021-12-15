@@ -12,11 +12,11 @@ import {selectUser} from "../../../state/user/user.selectors";
 })
 export class SettingsPageComponent implements OnDestroy {
   private subSink = new Subscription();
-  user: MeResponse | null = null;
+  profile: MeResponse | null = null;
 
   constructor(private store: Store<AppState>) {
     this.subSink.add(this.store.select(selectUser).subscribe(next => {
-      this.user = next
+      this.profile = next
     }))
   }
 

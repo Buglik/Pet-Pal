@@ -39,8 +39,7 @@ export class EmailVerificationPageComponent implements OnInit {
       }
     })
       :
-      console.log('hihi')
-      // this.navigateToLoginPageError()
+      this.navigateToLoginPageError()
   }
 
   navigateToLoginPage() {

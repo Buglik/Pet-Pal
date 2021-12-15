@@ -4,7 +4,8 @@
   <span class="address">{{sitter.profile.contact | address | translate}}</span>
   <span class="reviews">
     <mat-icon>grade</mat-icon>
-    {{sitter.profile.reviews.count + ' ' + 'label.reviews' | translate}}
+    {{sitter.profile.reviews.count + ' ' }}
+    {{'label.reviews' | translate }}
   </span>
   <span class="verified" *ngIf="sitter.profile.user.is_verified">
     <mat-icon>verified</mat-icon>

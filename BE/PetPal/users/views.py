@@ -35,7 +35,7 @@ class Register(views.APIView):
 
         Util.sent_activation_email(absurl, user)
 
-        return Response({'status': 'User created, confirm email'}, status=status.HTTP_201_CREATED)
+        return Response(status=status.HTTP_201_CREATED)
 
 
 class VerifyEmail(views.APIView):

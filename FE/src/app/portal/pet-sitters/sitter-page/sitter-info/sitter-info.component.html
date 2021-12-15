@@ -1,6 +1,6 @@
 <app-header-avatar
-  *ngIf="sitter.profile.user.avatar"
-  [imgSrc]="sitter.profile.user.avatar"
+  *ngIf="sitter.profile.avatar"
+  [imgSrc]="sitter.profile.avatar"
   [initials]="sitter.profile.user | initials">
 </app-header-avatar>
 <app-sitter-section [title]="'label.sitter.motivation' | translate">
@@ -27,7 +27,7 @@
   <mat-calendar class="calendar" [selected]="availabilityObject"></mat-calendar>
 </app-sitter-section>
 
-<app-sitter-section [pending]="reviewPending" [title]="'label.reviews' | translate:{val: sitter.profile.reviews.count}">
+<app-sitter-section [pending]="reviewPending" [title]="'label.review.count' | translate:{val: sitter.profile.reviews.count}">
   <app-review-card *ngFor="let review of reviews"
                    [review]="review"
   ></app-review-card>
@@ -44,7 +44,7 @@
               call-to-action
               class="login-btn"
               (click)="navigateToLoginPage()"
-      >{{'button.contact.login' | translate}}</button>
+      >{{'button.review.login' | translate}}</button>
     </ng-template>
     <app-pagination-switch
       [hidePageSize]="true"

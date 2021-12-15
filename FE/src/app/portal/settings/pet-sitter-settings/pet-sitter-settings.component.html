@@ -1,12 +1,14 @@
 <h2 class="title">{{"form.pet_sitter.title" | translate}}</h2>
-<button *ngIf="!(user$ | async)?.is_pet_sitter; else isSitterBlock"
-        petpal-button
-        primary
-        (click)="navigateToBecomeSitter()">
-  {{"button.become_petsitter" | translate}}
-</button>
-<ng-template #isSitterBlock>
-  <app-pet-sitter-update-form>
-
-  </app-pet-sitter-update-form>
-</ng-template>
+<div class="container">
+  <button *ngIf="!(user$ | async)?.is_pet_sitter; else isSitterBlock"
+          petpal-button
+          primary
+          (click)="navigateToBecomeSitter()">
+    {{"button.become_petsitter" | translate}}
+  </button>
+  <ng-template #isSitterBlock>
+    <app-pet-sitter-update-form>
+      <!--    TODO-->
+    </app-pet-sitter-update-form>
+  </ng-template>
+</div>

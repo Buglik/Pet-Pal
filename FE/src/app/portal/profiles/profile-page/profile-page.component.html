@@ -4,11 +4,11 @@
 <ng-template #viewBlock>
   <div class="header">
     <button routerLink="/profiles" petpal-button tertiary-link>
-      {{"button.back.profiles" | translate}}
+      {{"button.back_to_profiles" | translate}}
     </button>
   </div>
   <div class="content">
-    <app-sitter-section [title]="'label.reviews' | translate:{val: (profile$| async).reviews.count}">
+    <app-sitter-section [title]="'label.review.count' | translate:{val: (profile$ | async).reviews.count}">
       <app-review-card *ngFor="let review of (reviews$ | async)"
                        [review]="review"
       ></app-review-card>
@@ -25,7 +25,7 @@
                   call-to-action
                   class="login-btn"
                   (click)="navigateToLoginPage()"
-          >{{'button.contact.login' | translate}}</button>
+          >{{'button.review.login' | translate}}</button>
         </ng-template>
         <app-pagination-switch
           [hidePageSize]="true"

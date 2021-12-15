@@ -9,7 +9,7 @@
           *ngIf="!user; else loggedBlock">{{'button.login' | translate}}</button>
   <ng-template #loggedBlock>
     <app-header-avatar-menu
-      [user]="user?.user"
+      [profile]="user!"
       (logout)="logout()"
     ></app-header-avatar-menu>
   </ng-template>

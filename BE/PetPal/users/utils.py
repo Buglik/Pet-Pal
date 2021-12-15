@@ -9,6 +9,6 @@ class Util:
 
     @staticmethod
     def sent_activation_email(absurl, user):
-        email_body = 'Hi ' + user.username + ', use a link below to verify your email \n' + absurl + '\n' + 'Link is valid for 15 minutes'
+        email_body = 'Hi ' + user.username + ', use a link below to verify your email \n' + absurl + '\n' + 'Link is valid for 48 hours'
         data = {'email_body': email_body, 'email_subject': '[PetPal] Verify your email', 'email_to': user.email}
         Util.send_email(data)

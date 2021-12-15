@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {UserResponse} from "../../../../api/src";
+import {MeResponse} from "../../../../api/src";
 import {NavigationService} from "../../../navigation.service";
 
 @Component({
@@ -9,12 +9,12 @@ import {NavigationService} from "../../../navigation.service";
 })
 export class SettingsPageHeaderComponent {
 
-  @Input() user?: UserResponse
+  @Input() profile?: MeResponse
 
   constructor(private readonly navigationService: NavigationService) {
   }
   navigateToSelfProfile(){
-    this.navigationService.toProfilePage(this.user?.username)
+    this.navigationService.toProfilePage(this.profile?.user?.username)
   }
 
 }

@@ -115,10 +115,8 @@ class GetPetSittersPaginatedView(views.APIView):
         try:
             page = paginator.page(page_index)
         except PageNotAnInteger:
-            # If page is not an integer, deliver first page.
             page = paginator.page(1)
         except EmptyPage:
-            # If page is out of range, deliver last page of results.
             page = paginator.page(paginator.num_pages)
 
         response = {'sitters': page.object_list,

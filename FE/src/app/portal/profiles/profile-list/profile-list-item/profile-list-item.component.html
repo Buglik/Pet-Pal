@@ -1,6 +1,6 @@
 <app-header-avatar
   class="avatar"
-  [imgSrc]="profile.user.avatar"
+  [imgSrc]="profile.avatar"
   [initials]="profile.user | initials">
 </app-header-avatar>
 <div class="right">
@@ -8,7 +8,7 @@
     {{profile.user.first_name}}
   </span>
   <span class="address">
-    {{profile.contact | address}}
+    {{profile.contact | address | translate}}
   </span>
   <div class="reviews">
     <bar-rating [readOnly]="true" [rate]="profile.reviews.average" [max]="5"></bar-rating>

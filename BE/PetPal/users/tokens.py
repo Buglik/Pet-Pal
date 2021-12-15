@@ -34,7 +34,6 @@ def decode_access_token(token):
 
     try:
         user = User.objects.get(id=payload['user_id'])
-        # serializer = UserSerializer(user)
     except jwt.InvalidTokenError:
         raise AuthenticationFailed('User not found')
     return user

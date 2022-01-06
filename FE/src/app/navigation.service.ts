@@ -12,17 +12,22 @@ export class NavigationService {
   constructor(private router: Router, private location: Location) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
+        console.log(event.urlAfterRedirects);
         this.history.push(event.urlAfterRedirects)
       }
     })
   }
 
   back() {
-    this.history.pop()
-    if (this.history.length > 0) {
-      this.location.back()
+    let item = this.history.pop()
+    while (item?.includes('auth')) {
+      console.log(item)
+      item = this.history.pop();
+    }
+    if (item) {
+      this.router.navigateByUrl(item)
     } else {
-      this.router.navigateByUrl('/')
+      this.toMainPage()
     }
   }
 

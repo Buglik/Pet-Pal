@@ -9,7 +9,7 @@ import {NavigationService} from "../navigation.service";
 import {NotificationService} from "../utils/notification/notification.service";
 
 @Injectable()
-export class IsPetsitterGuard implements CanActivate {
+export class IsNotPetsitterGuard implements CanActivate {
 
   constructor(private store: Store<AppState>,
               private readonly navigateService: NavigationService,
@@ -23,14 +23,14 @@ export class IsPetsitterGuard implements CanActivate {
       map(user => {
         if (user) {
           if (user.is_pet_sitter) {
-            return true;
-          } else {
             this.navigateService.toSitterList();
             this.notificationService.error('notification.sitter.create.fail');
             return false;
+          } else {
+            return true;
           }
         } else {
-          return false;
+          return true;
         }
       })
     )

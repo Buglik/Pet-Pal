@@ -5,6 +5,7 @@ import {BecomePetsitterComponent} from "./become-petsitter/become-petsitter.comp
 import {IsLoggedGuard} from "../../guards/is-logged.guard";
 import {SitterPageComponent} from "./sitter-page/sitter-page.component";
 import {SitterInitResolver} from "../../resolvers/sitter-init.resolver";
+import {IsPetsitterGuard} from "../../guards/is-petsitter.guard";
 
 
 const routes: Routes = [
@@ -16,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'become-sitter',
-    canActivate: [IsLoggedGuard],
+    canActivate: [IsLoggedGuard, IsPetsitterGuard],
     component: BecomePetsitterComponent
   },
   {path: '**', redirectTo: ''}

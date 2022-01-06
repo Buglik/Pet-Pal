@@ -15,6 +15,7 @@ import {IsLoggedGuard} from "./guards/is-logged.guard";
 import {UtilsModule} from "./utils/utils.module";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {IsPetsitterGuard} from "./guards/is-petsitter.guard";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -48,7 +49,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     useClass: JwtInterceptor,
     multi: true
   },
-    IsLoggedGuard],
+    IsLoggedGuard,
+    IsPetsitterGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

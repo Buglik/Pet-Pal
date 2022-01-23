@@ -1,214 +1,214 @@
 {
   "error": {
     "credentials": {
-      "invalid": "[ES] Provided credentials are invalid",
-      "not_provided": "[ES] Credentials were not provided"
+      "invalid": "Credenciales son invalidas",
+      "not_provided": "No se proporcionaron ls credenciales"
     },
     "field": {
-      "required": "[ES] This field is required",
-      "min_length": "[ES] This field is too short",
-      "max_length": "[ES] This field is too long",
-      "email_format": "[ES] This field has to be a valid email",
-      "not_matching": "[ES] This field does not match"
+      "required": "Este campo es obligatorio",
+      "min_length": "Demasiado corto",
+      "max_length": "Demasiado largo",
+      "email_format": "Se necesita una dirección de correo electrónico válida",
+      "not_matching": "El campo no coincide"
     }
   },
   "menu_link": {
-    "pet_sitter": "[ES] Find a pet sitter",
-    "pet_owner": "[ES] Find a pet to sit",
-    "profiles": "[ES] Community"
+    "pet_sitter": "Busca a un cuidador",
+    "pet_owner": "Busca a una mascota",
+    "profiles": "Comunidad"
   },
   "button": {
-    "register": "[ES] Register",
-    "login": "[ES] Login",
-    "back_to_login": "[ES] Go to login page",
-    "redirect_to_login": "[ES] Go to login page",
-    "back": "[ES] Go back",
-    "back_to_sitters": "[ES] Go back to sitter list",
-    "back_to_profiles": "[ES] Go back to profile list",
-    "create_account": "[ES] Create an account",
-    "ok": "[ES] Ok",
-    "manage_account": "[ES] Manage account",
-    "logout": "[ES] Logout",
-    "edit_photo": "[ES] Edit photo",
-    "update_profile": "[ES] Update profile",
-    "go_to_own_profile": "[ES] Go to your profile",
-    "become_petsitter": "[ES] Become petsitter",
-    "next": "[ES] Next",
-    "update_contact": "[ES] Update contact info",
-    "previous": "[ES] Previous",
-    "find_sitter": "[ES] Find a pet sitter",
-    "find_pet": "[ES] Find a pet to sit",
-    "register_to_join": "[ES] Register to join",
+    "register": "Registrarme",
+    "login": "Inicia sesión",
+    "back_to_login": "Ve a la página de inicio de sesión",
+    "redirect_to_login": "Ve a la página de inicio de sesión",
+    "back": "Atrás",
+    "back_to_sitters": "Regresa a la lista de los cuidadores",
+    "back_to_profiles": "Regresa a la lista de los perfiles",
+    "create_account": "Crea una cuenta",
+    "ok": "Ok",
+    "manage_account": "Administra la cuenta",
+    "logout": "Cierra la sesión",
+    "edit_photo": "Edita la foto",
+    "update_profile": "Actualiza el perfil",
+    "go_to_own_profile": "Ve a tu perfil",
+    "become_petsitter": "Conviértete en cuidador",
+    "next": "Siguiente",
+    "update_contact": "Actualiza las informaciones de contacto",
+    "previous": "Atrás",
+    "find_sitter": "Encuentra a un cuidador",
+    "find_pet": "Encuentra a una mascota para cuidar",
+    "register_to_join": "Regístrate para unirte",
     "review": {
-      "login": "[ES] Login to add a review",
-      "add": "[ES] Add review"
+      "login": "Inicia sesión para añadir una valoración",
+      "add": "Añade una valoración"
     },
     "contact": {
-      "login": "[ES] Login to access contact info"
+      "login": "Inicia sesión para ver las informaciones de contacto"
     },
     "user": {
-      "sitter": "[ES] Go to pet sitting advert"
+      "sitter": "Ve al anuncio de cuidado"
     }
   },
   "label": {
-    "login": "[ES] Login",
-    "password": "[ES] Password",
-    "confirm_password": "[ES] Confirm password",
-    "username": "[ES] Username",
-    "first_name": "[ES] First name",
-    "last_name": "[ES] Last name",
-    "email": "[ES] Email",
-    "login_no_account": "[ES] Don't have an account?",
-    "bio": "[ES] Bio",
+    "login": "Login",
+    "password": "Contraseña",
+    "confirm_password": "Confirma tu contraseña",
+    "username": "Nombre de usuario",
+    "first_name": "Nombre",
+    "last_name": "Apellidos",
+    "email": "Correo electrónico",
+    "login_no_account": "¿No tienes una cuenta?",
+    "bio": "Sobre mí",
     "settings": {
-      "info": "[ES] Your account settings"
+      "info": "Configuración de la cuenta"
     },
-    "pets_involved": "[ES] Pets involved",
-    "contact": "[ES] Contact",
-    "whatsapp_number": "[ES] Whatsapp",
-    "phone_number": "[ES] Phone number",
+    "pets_involved": "Mascotas cuidadas",
+    "contact": "Contacto",
+    "whatsapp_number": "Whatsapp",
+    "phone_number": "Número de teléfono",
     "address": {
-      "null": "[ES] Location not found",
-      "city": "[ES] City",
-      "country": "[ES] Country"
+      "null": "No encontrado",
+      "city": "Ciudad",
+      "country": "País"
     },
-    "experience": "[ES] Experience",
-    "availability": "[ES] Availability",
-    "motivation": "[ES] Why do you want to sit?",
+    "experience": "Experiencia",
+    "availability": "Disponibilidad",
+    "motivation": "¿Por qué quieres ser cuidador?",
     "pet": {
-      "dog": "[ES] Dog",
-      "cat": "[ES] Cat",
-      "horse": "[ES] Horse",
-      "chicken": "[ES] Chicken",
-      "other": "[ES] Other",
-      "small_pet": "[ES] Small pets",
-      "bird": "[ES] Bird"
+      "dog": "Perro",
+      "cat": "Gato",
+      "horse": "Caballo",
+      "chicken": "Gallina",
+      "other": "Otros",
+      "small_pet": "Mascotas pequeñas",
+      "bird": "Pájaro"
     },
-    "summary": "[ES] Summary",
-    "sitters": "[ES] Look for a perfect sitter for your pet",
-    "profiles": "[ES] Browse our users",
+    "summary": "Resumen",
+    "sitters": "Busca al cuidador perfecto para tu mascota",
+    "profiles": "Explora a los usuarios",
     "sitter": {
-      "motivation": "[ES] Why do you want to sit?",
-      "experience": "[ES] Experience",
-      "pet_experience": "[ES] Pet experience"
+      "motivation": "Por qué quieres ser cuidador?",
+      "experience": "Experiencia",
+      "pet_experience": "Experiencia como cuidador"
     },
     "page": {
       "sitters": {
-        "title": "[ES] Find your pets' favourite sitter in just a view clicks",
-        "description": "[ES] A community of pet sitters keeping pets happy while you cannot take care of them."
+        "title": "Encuentra al cuidador favorito de tu mascota en tan solo unos clicks",
+        "description": "La comunidad de cuidadores que mantienen a los animales contentos cuando tú no puedes ocuparte de ellos."
       },
       "community": {
-        "title": "[ES] Our pet loving community",
-        "description": "[ES] All pet sitters & owners gathered in one place to make pets happy and their owners satisfied"
+        "title": "Nuestra comunidad amante de los animales",
+        "description": "Todos los cuidadores y propietarios reunidos en un solo lugar para hacer a los animales felices y a sus propietarios satisfechos"
       }
     },
-    "reviews": "[ES] Reviews",
+    "reviews": "Valoraciones",
     "review": {
-      "title": "[ES] Review",
-      "count": "[ES] Reviews ({{val}})",
-      "by": "[ES] by {{val}}"
+      "title": "Valoraciones",
+      "count": "Valoraciones ({{val}})",
+      "by": "por {{val}}"
     },
     "user": {
-      "verified": "[ES] User is verified"
+      "verified": "Usuario verificado"
     },
 
     "main_page": {
-      "title": "[ES] Pet sitting with love and experience",
-      "description" : "[ES] Book a free verified and reviewed pet sitter from our pet-loving community, or find a pet to sit"
+      "title": "Cuidamos a los animales con amor y experiencia",
+      "description" : "Prenota gratuitamente a un cuidador verificado de nuestra comunidad amante de los animales o encuentra a una mascota para cuidar"
     },
     "filter": {
-      "address": "[ES] Search by address",
-      "pets": "[ES] Search by pets",
+      "address": "Busca por localización",
+      "pets": "Busca por tipo de animal",
       "date": {
-        "label": "[ES] Search by date",
-        "start": "[ES] Start date",
-        "end": "[ES] End date"
+        "label": "Busca por fecha",
+        "start": "Fecha de inició",
+        "end": "Fecha de finalización"
       }
     }
   },
   "form": {
     "register": {
-      "title": "[ES] Register form",
-      "description": "[ES] Please fill in required fields to create your account"
+      "title": "Formulario de registro",
+      "description": "Rellena todos los campos requeridos para crear una cuenta"
     },
     "email_verification": {
-      "title": "[ES] Email verification",
-      "description": "[ES] Congratulations! Your email has been verified. You will be redirected to login page in {{val}} seconds."
+      "title": "Verificación de correo electrónico",
+      "description": "¡Felicitaciones! Tu correo electrónico se ha verificado. Serás redigirido a la página de inicio de sesión en {{val}} secundos."
     },
     "my_profile": {
-      "title": "[ES] Profile"
+      "title": "Perfil"
     },
     "pet_sitter": {
-      "title": "[ES] Pet sitter",
+      "title": "Cuidador",
       "become_petsitter": {
-        "title": "[ES] Become a pet sitter",
-        "description": "[ES] You are just a few steps away from becoming a pet sitter. Please fill in all required fields to join PetPal community"
+        "title": "Conviértete en cuidador",
+        "description": "Estás a solo unos pocos pasos de distancia para convertirte en cuidador. Rellena a todos los campos requeridos para unirte a nuestra comunidad PetPal"
       },
       "experience": {
-        "title": "[ES] Pet sitting experience",
-        "description": "[ES] Describe your experience with animals, why do you want to be a pet sitter, and what animals would you like to sit"
+        "title": "Experiencia como cuidador",
+        "description": "Describe tu expriencia con los animales, por qué quieres ser cuidador y qué tipo de mascotas te gustaría cuidar"
       },
       "availability": {
-        "title": "[ES] Availability",
-        "description": "[ES] Please fill in your availability to help potential pet owners in making the right plans"
+        "title": "Disponibilidad",
+        "description": "Determina tu disponibilidad para ayudar a los propietarios potenciles a hacer planes"
       },
       "summary": {
-        "title": "[ES] Pet sitter form summary",
-        "description": "[ES] Please check if everything is just like you want it to be"
+        "title": "Resumen del formulario",
+        "description": "Verifica si todo está correcto"
       }
     },
     "pet_owner": {
-      "title": "[ES] Pet owner"
+      "title": "Propietario"
     },
     "contact": {
-      "title": "[ES] Contact info",
-      "description": "[ES] Fill up your contact details to make it easier for a potencial sitter or pet owner to contact you. Only LOGGED user can view this data."
+      "title": "Informaciones de contacto",
+      "description": "Introduce tus datos de contacto para facilitar a los demás ponerse en contacto contigo. Solo los usuarios registrados podrán ver estos datos."
     }
   },
   "notification": {
     "email_verification": {
-      "fail": "[ES] Email verification failed",
-      "success": "[ES] Registration completed successfully! You can now login using provided credentials"
+      "fail": "No se pudo verificar el correo electrónico",
+      "success": "¡Inscripción completada con éxito completed successfully! Ahora puedes iniciar sesión usando las credenciales fornitas."
     },
     "access": {
-      "not_logged_in": "[ES] Access denied. Please log in to enter this page",
-      "logged_in": "[ES] Access denied. You cannot enter this page while logged in"
+      "not_logged_in": "Acceso denegado. Inicia sesión para entrar esta página",
+      "logged_in": "Acceso denegado. No puedes entrar esta página mientras estás conectado"
     },
     "profile_update": {
-      "fail": "[ES] Profile update failed",
-      "success": "[ES] Profile has been updated successfully"
+      "fail": "Actialización de perfil fallida",
+      "success": "Perfil se ha actualizado con éxito"
     },
     "profile_pic": {
-      "fail": "[ES] Profile picture update failed",
-      "success": "[ES] Profile picture has been updated successfully"
+      "fail": "Actualización de foto de perfil fallida",
+      "success": "Foto de perfil actualizada con éxito"
     },
     "login": {
-      "fail": "[ES] Profile picture update failed",
-      "success": "[ES] You have been logged in successfully"
+      "fail": "Actualización de foto de perfil fallida",
+      "success": "Sesión iniciada con éxito"
     },
     "logout": {
-      "success": "[ES] You have been logged out"
+      "success": "Sesión cerrada con éxito"
     },
     "review": {
       "create": {
-        "success": "[ES] Review added successfully",
-        "fail": "[ES] You cannot add review to this user"
+        "success": "Valoración añadida con éxito",
+        "fail": "No puedes añadir valoración a este usuario"
       }
     },
     "sitter": {
       "create": {
-        "success": "[ES] Sitter ad has been added successfully",
-        "fail": "[ES] Something went wrong while adding a sitter ad, please check if you don't already own an advert"
+        "success": "Anuncio de cuidador creado con éxito",
+        "fail": "Lo sentimos, algo salió mal al añadir el anuncio de cuidador, verifica se ya no tienes anuncio exitente"
       },
       "get_by_username": {
-        "fail": "[ES] Sitter not found"
+        "fail": "Cuidador no encontrado"
       }
     }
 
   },
 
   "paginator": {
-    "itemsPerPage": "[ES] Items per page",
-    "rangeLabel": "[ES] of"
+    "itemsPerPage": "Elementos por página",
+    "rangeLabel": "de"
   }
 }
